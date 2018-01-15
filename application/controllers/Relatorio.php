@@ -23,7 +23,9 @@ class Relatorio extends CI_Controller {
         $parametros = array(
             "entradas" => $this->rendimentos->getRendimentos($_SESSION["empresa"]->codEmpresa)
         );
-        //var_dump($parametros["entradas"]->result());/*
+
+
+
         $this->load->view('header');
         $this->load->view('barraSuperior');
         $this->load->view('menu');
@@ -47,6 +49,23 @@ class Relatorio extends CI_Controller {
         $this->load->view('relatorio_financeiro', $parametros);
         $this->load->view('footer');
         */
+    }
+
+    public function faturamento(){
+
+        $this->load->Model("Model_rendimentos", "rendimentos");
+        
+        $parametros = array(
+            "dados" => $this->rendimentos->getRendimentoUltimoAno($_SESSION["empresa"]->codEmpresa),
+            "dadosResumidos" => $this->rendimentos->getRedimentosUltimoAnoResumido($_SESSION["empresa"]->codEmpresa)
+        );
+
+        $this->load->view('header');
+        $this->load->view('barraSuperior');
+        $this->load->view('menu');
+        $this->load->view('relatorio_faturamento_total', $parametros);
+        $this->load->view('footer');
+
     }
     
 }
