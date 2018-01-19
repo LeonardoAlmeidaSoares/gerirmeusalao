@@ -23,12 +23,14 @@ class Relatorio extends CI_Controller {
         $parametros = array(
             "entradas" => $this->rendimentos->getRendimentos($_SESSION["empresa"]->codEmpresa)
         );
-        //var_dump($parametros["entradas"]->result());/*
-        $this->load->view('header');
-        $this->load->view('barraSuperior');
-        $this->load->view('menu');
-        $this->load->view('relatorio_financeiro', $parametros);
-        $this->load->view('footer');
+
+
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('relatorios/relatorio_financeiro', $parametros);
+        $this->load->view('inc/footer');
     }
     
     public function getRelatorioMensal(){
@@ -41,12 +43,30 @@ class Relatorio extends CI_Controller {
         );
         var_dump($_SESSION["permissoes"]);
         /*
-        $this->load->view('header');
-        $this->load->view('barraSuperior');
-        $this->load->view('menu');
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
         $this->load->view('relatorio_financeiro', $parametros);
-        $this->load->view('footer');
+        $this->load->view('inc/footer');
         */
+    }
+
+    public function faturamento(){
+
+        $this->load->Model("Model_rendimentos", "rendimentos");
+        
+        $parametros = array(
+            "dados" => $this->rendimentos->getRendimentoUltimoAno($_SESSION["empresa"]->codEmpresa),
+            "dadosResumidos" => $this->rendimentos->getRedimentosUltimoAnoResumido($_SESSION["empresa"]->codEmpresa),
+            "dadosMediosResumidos" => $this->rendimentos->getMediaRendimentosUltimoAno($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('relatorio/relatorio_faturamento_total', $parametros);
+        $this->load->view('inc/footer');
+        
     }
     
 }

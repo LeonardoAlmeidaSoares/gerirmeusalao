@@ -1,23 +1,22 @@
 $(function () {
-    
     var dominio = document.URL;
     
-    $(".pagar").on("click", function () {
-        
+    $(".pagar").on("click", function (event) {
+        event.preventDefault();
         var cod = parseInt($(this).attr("cod"));
         
         swal({
-            title: "",
-            text: "Deseja imprimir um comprovante de pagamento?",
+            title: "Serviço Ainda Não Finalizado",
+            text: "Deseja imprimir um comprovante de pagamento antes do término do serviço?",
             type: "info",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "SIM",
-            closeOnConfirm: false,
             cancelButtonText: "NÃO"
-        },
-        function () {
-            window.location.href = dominio + "nota/" + cod;
+        }).then(function(result) {
+            if (result) {
+                window.location.href = dominio + "criarNotaServicoNaoFinalizado/" + cod;
+            }   
         });
     });
 });

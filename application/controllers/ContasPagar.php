@@ -19,11 +19,11 @@ class ContasPagar extends CI_Controller {
             "saidas" => $this->saidas->getSaidas($_SESSION["empresa"]->codEmpresa)
         );
         
-        $this->load->view('header');
-        $this->load->view('barraSuperior');
-        $this->load->view('menu');
-        $this->load->view('listagem_contas_pagar', $parametros);
-        $this->load->view('footer');
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('contas_pagar/listagem_contas_pagar', $parametros);
+        $this->load->view('inc/footer');
     }
 
     public function cadastrar(){
@@ -34,11 +34,11 @@ class ContasPagar extends CI_Controller {
             "categorias" => $this->saidas->getCategorias($_SESSION["empresa"]->codEmpresa)
         );
         
-        $this->load->view('header');
-        $this->load->view('barraSuperior');
-        $this->load->view('menu');
-        $this->load->view('cadastro_contas_pagar', $parametros);
-        $this->load->view('footer');
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('contas_pagar/cadastro_contas_pagar', $parametros);
+        $this->load->view('inc/footer');
     }
     
     public function realizar_cadastro(){
@@ -66,7 +66,7 @@ class ContasPagar extends CI_Controller {
     public function EfetuarPagamento(){
         
         $codNota = intval(trim(filter_input(INPUT_POST,"codigo")));
-        $this->db->where("codNotaSaida", $codNota)->update("notasaida", array("status"=>1));
+        $this->db->where("codNotaSaida", $codNota)->update("notasaida", array("status"=>1, "datapagto" => date("Y-m-d H:i")));
         
     }
     
