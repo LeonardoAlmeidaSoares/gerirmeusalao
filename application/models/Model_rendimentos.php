@@ -66,16 +66,7 @@ class Model_rendimentos extends CI_Model {
 
     public function getRedimentosUltimoAnoResumido($codEmpresa){
 
-        /*select DATE_FORMAT(dataPagto, '%m-%Y') as mes, sum(ne.valor) as valor, c.codFuncionario, f.nome
-            from notaentrada ne
-            join compromisso c on c.codCompromisso = ne.codCompromisso
-            inner join funcionario f on f.codFuncionario = c.codFuncionario
-            where dataPagto is not null
-            group by c.codFuncionario, DATE_FORMAT(dataPagto, '%m-%Y')
-            order by dataPagto desc, valor desc
-        */
-
-        return $this->db->select("DATE_FORMAT(dataPagto, '%m-%Y') as mes, sum(ne.valor) as valor, c.codFuncionario, f.nome")
+        return $this->db->select("DATE_FORMAT(dataPagto, '%m-%Y') as mes, sum(ne.valor) as valor, c.codFuncionario, f.nome, f.comissaoDinheiro, f.comissaoCartao, ne.formaPagto")
             ->from("notaentrada ne")
             ->join("compromisso c", "c.codCompromisso = ne.codCompromisso")
             ->join("funcionario f", "f.codFuncionario = c.codFuncionario")
@@ -85,6 +76,19 @@ class Model_rendimentos extends CI_Model {
             ->order_by("dataPagto desc, valor desc")
             ->get();
 
+    }
+
+    public function getMediaRendimentosUltimoAno($codEmpresa){
+        return $this->db->select("sum(ne.valor) as valor, c.codFuncionario, f.nome, 
+            SUM((SELECT (IF(ne.formaPagto = 'DINHEIRO', (f.comissaoDinheiro * ne.valor), (f.comissaoCartao * ne.valor)) / 100)))as comissao ")
+            ->from("notaentrada ne")
+            ->join("compromisso c", "c.codCompromisso = ne.codCompromisso")
+            ->join("funcionario f", "f.codFuncionario = c.codFuncionario")
+            ->where("dataPagto is not null", NULL)
+            ->where("dataPagto >= DATE_SUB(NOW(),INTERVAL 1 YEAR)", NULL)
+            ->group_by("c.codFuncionario")
+            ->order_by("dataPagto desc, valor desc")
+            ->get();
     }
 
 }

@@ -9,8 +9,8 @@ $(function(){
         $(this).parent().addClass("tab-current");
     });
 
-var ctx2 = document.getElementById("chart2").getContext("2d");
-    var data2 = {
+    var ctx = document.getElementById("chart").getContext("2d");
+    var data = {
         labels: labels,
         datasets: [
             {
@@ -32,7 +32,7 @@ var ctx2 = document.getElementById("chart2").getContext("2d");
         ]
     };
     
-    var chart2 = new Chart(ctx2).Bar(data2, {
+    var chart = new Chart(ctx).Bar(data, {
         scaleBeginAtZero : true,
         scaleShowGridLines : true,
         scaleGridLineColor : "rgba(0,0,0,.005)",
@@ -47,5 +47,42 @@ var ctx2 = document.getElementById("chart2").getContext("2d");
         legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label;%><%}%></li><%}%></ul>",
         responsive: true
     });
+    /*
+    var ctx_2 = document.getElementById("chart_2").getContext("2d");
+    var data_2 = [
+        
+         {
+            value: 50,
+            color: "#b4c1d7",
+            highlight: "#b4c1d7",
+            label: "Dark"
+        },
+        {
+            value: 50,
+            color: "#b8edf0",
+            highlight: "#b8edf0",
+            label: "Megna"
+        },
+        {
+            value: 100,
+            color: "#fcc9ba",
+            highlight: "#fcc9ba",
+            label: "Orange"
+        },
+    ];
+    
+    var myPieChart = new Chart(ctx_2).Pie(data_2,{
+        segmentShowStroke : true,
+        segmentStrokeColor : "#fff",
+        segmentStrokeWidth : 0,
+        animationSteps : 100,
+        tooltipCornerRadius: 0,
+        animationEasing : "easeOutBounce",
+        animateRotate : true,
+        animateScale : false,
+        legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
+        responsive: true
+    });
+    */
 
 });

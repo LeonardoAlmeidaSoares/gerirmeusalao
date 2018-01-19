@@ -65,7 +65,7 @@ $(function () {
                     $("#my-event").modal();
                 });
             } else {
-                alert("Selecione antes o funcionário");
+                swal('Não se esqueça','Voce deve selecionar o colaborador antes','info');
             }
         },
         eventClick: function (calEvent, jsEvent, view) {
