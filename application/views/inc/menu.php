@@ -77,7 +77,23 @@
 
 
             <li class="nav-small-cap">--- Cadastros</li>
+            
+            <?php if(intval($perm->perm_alterarDadosEmpresa) > 0){ ?>
 
+            <li> 
+
+                <a href="<?= base_url("index.php/Instituicao/"); ?>" class="waves-effect">
+
+                    <i class="icon-home p-r-10"></i> 
+
+                    <span class="hide-menu">Instituição</span>
+
+                </a> 
+
+            </li>
+
+            <?php } ?>
+            
             <?php if(intval($perm->perm_efetuarCadastro) > 0){ ?>
 
             <li> 
@@ -208,21 +224,7 @@
 
             <?php } ?>
 
-            <?php if(intval($perm->perm_cadastrarFuncionario) > 1000){ ?>
-
-            <li> 
-
-                <a href="<?= base_url("index.php/Instituicao/"); ?>" class="waves-effect">
-
-                    <i class="icon-user p-r-10"></i> 
-
-                    <span class="hide-menu">Instituição</span>
-
-                </a> 
-
-            </li>
-
-            <?php } ?>
+            
 
             <?php if(intval($perm->perm_marcarCompromissos) > 0){ ?>
 

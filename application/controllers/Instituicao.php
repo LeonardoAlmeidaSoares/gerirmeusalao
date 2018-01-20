@@ -13,14 +13,30 @@ class Instituicao extends CI_Controller {
     }
 
     public function index() {
+
+        $this->load->Model("Model_funcionarios", "func");
+
         $parametrosListagem = array(
-            "funcionarios" => $this->inst->getInstituicao($_SESSION["empresa"]->codEmpresa)
+            "dadosInstituicao" => $_SESSION["empresa"],
+            "listaFuncionarios" => $this->func->getFuncionarios($_SESSION["empresa"]->codEmpresa)
         );
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
-        $this->load->view('listagem_funcionario', $parametrosListagem);
+        $this->load->view('instituicao/gerirDados', $parametrosListagem);
         $this->load->view('inc/footer');
+    }
+
+    public function update(){
+      
+      $prametros = array();
+
+      foreach($_POST as $key=>$value){
+        $parametros["$key"] = trim(filter_input(INPUT_POST, $key));
+      }
+
+      $this->inst->alterarInstituicao($_SESSION["empresa"]->codEmpresa, $parametros, true);
+      echo json_encode(array("msg" => "Alterações Realizadas com sucesso", "type" => "success"));
     }
 
     public function cadastrar() {
