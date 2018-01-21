@@ -1,57 +1,32 @@
 <?php
 
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-
 
 class Salao extends CI_Controller {
 
-
-
     public function __construct() {
-
         parent::__construct();
 
-
-
         session_start();
-
     }
-
-
 
     public function index() {
 
-
-
         if (!isset($_SESSION["usuario"])) {
 
-
-
             $this->load->view('inc/header');
-
             $this->load->view('paginas_comuns/login');
-
         } else {
-
             if($_SESSION["usuario"]->alterarSenha == 1){
-
                 redirect(base_url("index.php/usuario/gerarNovaSenha"));
-            
-            }
-
+           
+           }
             if ($_SESSION["usuario"]->codPermissao == COD_PERMISSAO_COLABORADOR) {
-
                 
-
                 $this->load->Model("Model_relatorios", "relatorios");
-
                 $this->load->Model("Model_compromissos", "agenda");
 
                 $this->load->Model("Model_lembrete", "lemb");
-
                 
 
                 $parametros = array(
@@ -177,7 +152,6 @@ class Salao extends CI_Controller {
         $login = $this->db->get_where("usuario", $parametros);
 
 
-
         if ($login->num_rows() > 0) {
 
             $_SESSION["usuario"] = $login->row(0);
@@ -204,23 +178,34 @@ class Salao extends CI_Controller {
 
     }
 
+    public function fluxoCaixa(){
 
+        $this->load->Model("Model_caixa", "caixa");
+
+        $codEmpresa = $_SESSION["empresa"]->codEmpresa;
+
+        $parametros = array(
+            "totalEntradasHoje" => $this->caixa->getFluxo($codEmpresa, "ENT"),
+            "totalSaidasHoje" => $this->caixa->getFluxo($codEmpresa, "SAI"),
+            "totalCaixa" => $this->caixa->getFluxo($codEmpresa)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('fluxo_caixa/listagem', $parametros);
+        $this->load->view('inc/footer');
+        
+    }
 
     public function logoff() {
 
-
-
         $_SESSION["usuario"] = NULL;
-
         $_SESSION["empresa"] = NULL;
-
-
 
         redirect(base_url());
 
     }
-
-
 
 }
 

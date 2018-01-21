@@ -13,17 +13,61 @@ $(function(){
   			cancelButtonClass: 'btn btn-danger',
   			closeOnConfirm: true
 		}).then(function(result) {
-			$.ajax({
-                url: "../alterarStatus/",
-                method: "POST",
-                data: {
-                    "codNota" : $codNota,
-                    "status": 1
-                }
-            }).success(function (response) {
-            	swal('Finalizado!','Seu Pagamento foi recebido pelo sistema','success');
-            });
+
+			swal({
+				title : "Confirmar Forma de Pagamento",
+				text : "Qual a Forma de Pagamento Utilizada?", 
+				type : "question",
+				showCancelButton: true,
+				cancelButtonText: "Cartão",
+				confirmButtonText: "Dinheiro",
+				confirmButtonClass: 'btn btn-success',
+	  			cancelButtonClass: 'btn btn-danger',
+	  			closeOnConfirm: true
+			}).then(function(isConfirm) {
+				$.ajax({
+	                url: "../alterarStatus/",
+	                method: "POST",
+	                data: {
+	                    "codNota" : $codNota,
+	                    "status": 1,
+	                    "formaPagto": "DINHEIRO"
+	                }
+	            }).success(function (response) {
+	            	var vet = JSON.parse(response);
+	            	swal(vet.title,vet.msg,vet.type);
+	            });
+		        	
+			}).catch(function(){
+				
+				$.ajax({
+	                url: "../alterarStatus/",
+	                method: "POST",
+	                data: {
+	                    "codNota" : $codNota,
+	                    "status": 1,
+	                    "formaPagto": "CARTAO"
+	                }
+	            }).success(function (response) {
+	            	var vet = JSON.parse(response);
+	            	swal(vet.title,vet.msg,vet.type);
+	            });
+			});
 		});
 	});
 	
 });
+
+
+/*
+$.ajax({
+    url: "../alterarStatus/",
+    method: "POST",
+    data: {
+        "codNota" : $codNota,
+        "status": 1,
+        "formaPagto": "CARTAO"
+    }
+}).success(function (response) {
+	swal('Finalizado!','Seu Pagamento foi recebido pelo sistema','success');
+});*/

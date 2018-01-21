@@ -73,6 +73,23 @@ class ContasReceber extends CI_Controller {
         }
         
         $this->entradas->inserir($parametros);
+        $codNota = $this->db->insert_id();
+
+        if($parametros["formaPagto"] == "DINHEIRO"){
+            if($parametros["status"] == 1){
+                $parametrosMovimentacao = array(
+                    "tipoMovimentacao" => "ENT",
+                    "valor" => $parametros["valor"],
+                    "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
+                    "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
+                    "horario" => date("Y-m-d H:i:s"),
+                    "comentario" => "Gerado a partir da compra $codNota"
+                );
+
+                $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
+            }
+        }
+
         redirect(base_url("index.php/contasReceber/"));
         
     }
@@ -83,6 +100,7 @@ class ContasReceber extends CI_Controller {
        
         $this->db->where("codCompromisso", $codCompromisso)
                 ->update("compromisso", array("status" => 1));
+
         redirect(base_url("index.php/contasReceber/nota/$cod"));
     }
 
@@ -139,9 +157,34 @@ class ContasReceber extends CI_Controller {
 
         $codNota = intval(trim(filter_input(INPUT_POST, "codNota")));
         $status = intval(trim(filter_input(INPUT_POST, "status")));
+        $formaPagto = trim(filter_input(INPUT_POST, "formaPagto"));
 
-        $this->db->where("codNotaEntrada", $codNota)->update("notaEntrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i")));
-        echo $this->db->last_query();
+        $dadosNota = $this->db->get_where("notaEntrada", array("codNotaEntrada" => $codNota));
+
+        if($dadosNota->row(0)->status == 1){
+            echo json_encode(array("msg"=>"Nota já foi paga", "type" => "error", "title" => "Opss..."));
+            exit();
+        }
+
+        $this->db->where("codNotaEntrada", $codNota)->update("notaEntrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i"), "formaPagto" => $formaPagto));
+
+        if($formaPagto == "DINHEIRO"){
+            if($status == 1){
+
+                $parametrosMovimentacao = array(
+                    "tipoMovimentacao" => "ENT",
+                    "valor" => $dadosNota->row(0)->valor,
+                    "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
+                    "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
+                    "horario" => date("Y-m-d H:i:s"),
+                    "comentario" => "Gerado a partir da compra $codNota"
+                );
+
+                $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
+            }
+        }
+
+        echo json_encode(array("msg"=>"Pagamento Realizado com Sucesso", "type" => "success", "title" => "Finalizado"));
 
     }
 

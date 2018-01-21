@@ -81,9 +81,11 @@ class Agenda extends CI_Controller {
     }
     
     public function cadastrar(){
+
         $this->load->Model("Model_clientes", "clientes");
         $this->load->Model("Model_servico", "servico");
         $this->load->Model("Model_entradas", "entrada");
+        
         $servico = $this->servico->getServico(intval(trim(filter_input(INPUT_POST, "txtServico"))))->row(0);
 
         $parametros = array(
