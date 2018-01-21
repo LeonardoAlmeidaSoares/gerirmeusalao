@@ -1,19 +1,10 @@
 <!-- Page Content -->
-
-
-
 <?php 
-
     $status = array(
-
         -1 => "Cancelado",
-
         0 => "Pendente",
-
         1 => "Pago"
-
     );
-
 ?>
 
 <div id="page-wrapper">
@@ -27,6 +18,8 @@
                 <h4 class="page-title">Contas a Receber</h4> </div>
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
+
+                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa</a>
 
                 <ol class="breadcrumb">
 

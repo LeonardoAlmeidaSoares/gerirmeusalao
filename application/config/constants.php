@@ -94,7 +94,7 @@ define("CAMINHO_IMAGEM_CLIENTE_PADRAO","client_male.png");
 define("CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER","icon-female.png");
 define("CAMINHO_IMAGEM_COLABORADOR_PADRAO","client_male.png");
 define("CAMINHO_IMAGEM_COLABORADOR_PADRAO_MULHER","client_male.png");
-define("NOME_DO_SISTEMA", "Nome do Sistema");
+define("NOME_DO_SISTEMA", "Gerir Meu Salão");
 define("FAV_DEFAULT", "assets/img/logo_icon.png");
 
 define("COD_PERMISSAO_ATENDENTE", 1 );
