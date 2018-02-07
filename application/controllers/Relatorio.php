@@ -69,4 +69,33 @@ class Relatorio extends CI_Controller {
         
     }
     
+    public function faturamentoFuncionario($codCliente, $mes){
+
+        $this->load->Model("Model_rendimentos", "rendimentos");
+
+        $parametros = array(
+            "itens" => $this->rendimentos->getRendimentoPorColaborador($_SESSION["empresa"]->codEmpresa,$codCliente, $mes)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('relatorio/relatorio_detalhamento_funcionario', $parametros);
+        $this->load->view('inc/footer');
+        
+    }
+
+    public function getAniversariantes($codEmpresa, $data = NULL){
+        $this->load->Model("Model_rendimentos", "rendimentos");
+
+        $parametros = array(
+            "clientes" => $this->rendimentos->getAniversariantes($_SESSION["empresa"]->codEmpresa)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('relatorio/relatorio_listagem_aniversariantes', $parametros);
+        $this->load->view('inc/footer');
+    }
 }

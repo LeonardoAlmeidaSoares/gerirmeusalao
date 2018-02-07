@@ -121,7 +121,7 @@
 
                                             <th class="text-left">#</th>
 
-                                            <th>Serviço Prestado</th>
+                                            <th>Descrição</th>
 
                                             <th class="text-right">Quantidade</th>
 
@@ -141,7 +141,7 @@
 
                                         <tr>
 
-                                            <td class="text-left"><?= str_pad($item->codServico, 6,"0",STR_PAD_LEFT);?></td>
+                                            <td class="text-left"><?= str_pad($item->Codigo, 6,"0",STR_PAD_LEFT);?></td>
 
                                             <td><?= $item->descricao;?></td>
 
@@ -182,10 +182,14 @@
                             <hr>
 
                             <div class="text-right">
-
-                                <button class="btn btn-danger" id="btnConfirma"> Confirmar Pagamento </button>
-
-                                <button id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Imprimir </span> </button>
+                                <?php if($dados->row(0)->status == 0){ ?>
+                                    <button class="btn btn-danger" id="btnConfirma"> Confirmar Pagamento </button>
+                                <?php } ?>
+                                <button id="print" class="btn btn-default hidden-print btn-outline" type="button"> 
+                                    <span>
+                                        <i class="fa fa-print"></i> Imprimir 
+                                    </span> 
+                                </button>
 
                             </div>
 

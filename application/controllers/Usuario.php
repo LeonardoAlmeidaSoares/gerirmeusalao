@@ -212,7 +212,7 @@ class Usuario extends CI_Controller {
 
         $this->load->view('inc/menu');
 
-        $this->load->view('usuario/alterar_senha' , $parametros );
+        $this->load->view('funcionarios/alterar_senha' , $parametros );
 
         $this->load->view('inc/footer');
 
@@ -298,12 +298,5 @@ class Usuario extends CI_Controller {
 
         redirect(base_url("index.php/usuario/"));
 
-        
-
     }
-
-
-
-
 }
-

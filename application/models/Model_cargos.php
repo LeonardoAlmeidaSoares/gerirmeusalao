@@ -5,8 +5,8 @@ if (!defined('BASEPATH'))
 
 class Model_cargos extends CI_Model {
 
-    public function getCargos() {
-        return $this->db->get("cargo");
+    public function getCargos($codEmpresa) {
+        return $this->db->get_where("cargo", array('codEmpresa' => $codEmpresa));
     }
 
 }

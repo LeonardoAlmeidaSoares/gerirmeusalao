@@ -38,7 +38,7 @@ function getIdade($nasc) {
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 
-                <h4 class="page-title">Usuários</h4> </div>
+                <h4 class="page-title">Usuários Do Sistema</h4> </div>
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
@@ -46,7 +46,7 @@ function getIdade($nasc) {
 
                 <ol class="breadcrumb">
 
-                    <li class="active">Usuários</li>
+                    <li class="active">Usuários Do Sistema</li>
 
                 </ol>
 
@@ -66,7 +66,7 @@ function getIdade($nasc) {
 
                     <h3 class="box-title m-b-0">Usuários</h3>
 
-                    <p class="text-muted m-b-30">Listagem de Usuários</p>
+                    <p class="text-muted m-b-30">Listagem de Usuários Do Sistema</p>
 
                     <div class="table-responsive">
 
@@ -75,6 +75,8 @@ function getIdade($nasc) {
                             <thead>
 
                                 <tr>
+
+                                    <th>#</th>
 
                                     <th>Nome</th>
 
@@ -93,6 +95,8 @@ function getIdade($nasc) {
                                 <?php foreach ($usuarios->result() as $item) { ?>
 
                                     <tr>
+
+                                        <td><?= str_pad($item->codUsuario, 6, "0", STR_PAD_LEFT);?></td>
 
                                         <td><?= $item->nome; ?></td>
 

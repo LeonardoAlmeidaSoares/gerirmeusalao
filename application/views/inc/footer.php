@@ -1,5 +1,7 @@
-<footer class="footer text-center"> 2018 &copy; Sistema de Salão </footer>
-
+<footer class="footer text-center"> 2018 &copy; Sistema de Salão 
+	<!--img src="<?= base_url("assets/img/logoMotivando.jpeg");?>" class="img-responsive" style="width: 15%;" /-->
+</footer>
+		
 </div>
 
 <!-- /#page-wrapper -->

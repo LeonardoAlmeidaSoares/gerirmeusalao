@@ -8,7 +8,9 @@
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 
-                <h4 class="page-title">Colaboradores</h4> </div>
+                <h4 class="page-title">Colaboradores</h4> 
+
+            </div>
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
@@ -46,6 +48,8 @@
 
                                 <tr>
 
+                                    <th>#</th>
+
                                     <th>Nome</th>
 
                                     <th>Cargo</th>
@@ -63,6 +67,8 @@
                                 <?php foreach ($funcionarios->result() as $item) { ?>
 
                                     <tr>
+
+                                        <td><?= str_pad($item->codFuncionario, 6, "0", STR_PAD_LEFT);?></td>
 
                                         <td><?= $item->nome; ?></td>
 

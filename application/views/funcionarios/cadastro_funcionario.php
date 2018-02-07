@@ -1,9 +1,10 @@
 <!-- Page Content -->
 <?php 
 
-    function Dataget($field){
+    function Dataget($field, $valor = 0){
+        
         if(isset($dados)){
-            return $dados->$field;
+            return ($valor == 0)? $dados->$field :$dados->$field * $valor * 100;
         }else{
             return "";
         }
@@ -12,12 +13,20 @@
 function getDataAniversario($data){
     return substr($data, 8,2) . "/" . substr($data,5,2) . "/" . substr($data,0,4);
 }
+
+$cadastro = !((isset($codProcesso) && ($codProcesso > 0)));
+
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Cadastrar Colaborador</h4> </div>
+                <?php if(!$cadastro){ ?>
+                    <h4 class="page-title">Alterar Dados de Colaborador</h4> 
+                <?php } else { ?>
+                    <h4 class="page-title">Cadastrar Colaborador</h4> 
+                <?php } ?>
+            </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
                 
                 <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa</a>
@@ -25,7 +34,11 @@ function getDataAniversario($data){
                 <ol class="breadcrumb">
                     <li><a href="<?= base_url(); ?>">Início</a></li>
                     <li><a href="<?= base_url("index.php/funcionario/"); ?>">Colaboradores</a></li>
-                    <li class="active">Cadastrar Colaborador</li>
+                    <?php if(!$cadastro){ ?>
+                        <li class="active">Alterar Dados do Colaborador</li>
+                    <?php } else { ?>
+                        <li class="active">Cadastrar Colaborador</li>
+                    <?php } ?>
                 </ol>
             </div>
             <!-- /.col-lg-12 -->
@@ -37,7 +50,7 @@ function getDataAniversario($data){
                     <div class="white-box">
                         <h3 class="box-title">Informações de Cadastro</h3>
 
-                        <?php if(isset($codProcesso) && ($codProcesso > 0)){ ?>
+                        <?php if(!$cadastro){ ?>
                             <input type="hidden" name="txtCod" id="txtCod" value="<?= $codProcesso?>" />
                         <?php } ?>
 
@@ -62,7 +75,7 @@ function getDataAniversario($data){
                         <div class="form-group">
                             <label class="col-md-12" for="txtNascimento">Data de Nascimento</label>
                             <div class="col-md-12">
-                                <input value="<?= getDataAniversario(Dataget("nascimento"));?>"  type="text" id="txtNascimento" name="txtNascimento" class="form-control mydatepicker" placeholder="Insira a data de Nascimento"> 
+                                <input value="<?= getDataAniversario(Dataget( "nascimento"));?>"  type="text" id="txtNascimento" name="txtNascimento" class="form-control mydatepicker" placeholder="Insira a data de Nascimento"> 
                             </div>
                         </div>
                         <div class="form-group">
@@ -113,7 +126,7 @@ function getDataAniversario($data){
 
                             <div class="col-md-12">
 
-                                <input value="<?= doubleval(Dataget("salario")) * 100;?>"  type="text" id="txtSalario" name="txtSalario" class="form-control" placeholder="Salário Fixo do Funcionário"> 
+                                <input value="<?= doubleval(Dataget("salario", 100) );?>"  type="text" id="txtSalario" name="txtSalario" class="form-control" placeholder="Salário Fixo do Funcionário"> 
 
                             </div>
 

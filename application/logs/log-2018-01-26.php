@@ -1,0 +1,40 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 60
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 69
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 77
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 85
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 86
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 100
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 114
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 128
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 146
+ERROR - 2018-01-26 03:13:05 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 164
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 70
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 78
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 86
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 87
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 101
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 115
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 129
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 147
+ERROR - 2018-01-26 03:14:43 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 165
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 78
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 86
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 87
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 101
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 115
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 129
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 147
+ERROR - 2018-01-26 03:15:14 --> Severity: Notice --> Undefined variable: dados C:\xampp\htdocs\gerirmeusalao\application\views\funcionarios\cadastro_funcionario.php 165
+ERROR - 2018-01-26 04:29:23 --> 404 Page Not Found: Relatorio/aniversariantes

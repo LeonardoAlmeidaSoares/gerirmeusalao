@@ -1,7 +1,3 @@
-<!-- Page Content -->
-
-
-
 <?php 
 
     function Dataget($field){
@@ -26,7 +22,9 @@
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 
-                <h4 class="page-title">Cadastrar Usuário</h4> </div>
+                <h4 class="page-title">Cadastrar Usuário do Sistema</h4> 
+
+            </div>
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
@@ -36,7 +34,7 @@
 
                     <li><a href="<?= base_url(); ?>">Início</a></li>
 
-                    <li class="active">Cadastrar Usuário</li>
+                    <li class="active">Cadastrar Usuário do Sistema</li>
 
                 </ol>
 
@@ -125,9 +123,7 @@
                                     <?php foreach($permissoes->result() as $item){ ?>
 
                                         <option value="<?=$item->codTipoPermissao;?>"  <?= (Dataget("codTipoPermissao") == $item->codTipoPermissao) ? "selected" : "";?>>
-
-                                                        <?= $item->descricao;?>
-
+                                            <?= $item->descricao;?> 
                                         </option>
 
                                     <?php } ?>

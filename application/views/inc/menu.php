@@ -242,7 +242,19 @@
 
             <?php } ?>
 
-            <li class="nav-small-cap">--- Relatórios</li>
+            <li> 
+
+                <a href="<?= base_url("index.php/lembrete/");?>" class="waves-effect">
+
+                    <i class="ti-alert p-r-10"></i> 
+
+                    <span class="hide-menu">Lembrete</span>
+
+                </a> 
+
+            </li>
+
+            <!--li class="nav-small-cap"> Relatórios</li>
 
              <li> 
 
@@ -262,7 +274,7 @@
 
                 </ul>
 
-            </li>
+            </li-->
 
             <!--li> 
 

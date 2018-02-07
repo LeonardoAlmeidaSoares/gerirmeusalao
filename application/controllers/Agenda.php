@@ -35,6 +35,33 @@ class Agenda extends CI_Controller {
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
         $this->load->view(($_SESSION["usuario"]->codPermissao == COD_PERMISSAO_COLABORADOR)
+                ? 'agenda/agendaColaborador' : "agenda/agenda_teste", $parametros);
+        $this->load->view('inc/footer');
+        
+    }
+
+    public function agenda() {
+        
+        //var_dump($_SESSION["permissoes"]);
+        
+        $this->load->Model("Model_clientes", "clientes");
+        $this->load->Model("Model_funcionarios", "func");
+        
+        
+        $parametros = array(
+            "funcionarios" => $this->func->getFuncionarios($_SESSION["empresa"]->codEmpresa),
+            
+            "compromissos" => ($_SESSION["usuario"]->codPermissao != COD_PERMISSAO_COLABORADOR) 
+                            ? $this->agenda->getCompromissos($_SESSION["empresa"]->codEmpresa)
+                            : $this->agenda->getListaCompromissos($_SESSION["dadosColaborador"]->codFuncionario),
+            
+            "clientes" => $this->clientes->getClientes($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view(($_SESSION["usuario"]->codPermissao == COD_PERMISSAO_COLABORADOR)
                 ? 'agenda/agendaColaborador' : "agenda/agenda", $parametros);
         $this->load->view('inc/footer');
         
@@ -78,8 +105,34 @@ class Agenda extends CI_Controller {
        
         $this->db->where("codCompromisso", $codCompromisso)
                 ->update("compromisso", array("status" => $status));
+
+        if($status == 2){
+            
+            $this->load->Model("Model_servico", "serv");
+
+            $resumo = "<b>REALIZOU: </b>";
+
+            $dados = $this->agenda->getCompromisso($codCompromisso);
+            $dadosNota = $this->db->get_where("notaentrada", array("codCompromisso" => $codCompromisso));
+
+            $aux = array(
+                "codFuncionario" => $dados->row(0)->codFuncionario,
+                "codCliente" => $dados->row(0)->codCliente,
+                "codServico" => $dados->row(0)->codServico,
+                "horario" => $dados->row(0)->horario,
+                "codNotaEntrada" => $dadosNota->row(0)->codNotaEntrada
+            );
+
+            $this->db->insert("servicoprestado", $aux);
+
+            $dadosServico = $this->serv->getServico($dados->row(0)->codServico)->row(0);
+
+            $resumo .= "<br>" . $dadosServico->descricao;
+            $this->db->where("codCompromisso", $codCompromisso)->update("compromisso", array("resumo"=> $resumo));
+
+        }
     }
-    
+
     public function cadastrar(){
 
         $this->load->Model("Model_clientes", "clientes");
@@ -97,7 +150,7 @@ class Agenda extends CI_Controller {
             "status" => 0,
             "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
             "dataFim" => trim(filter_input(INPUT_POST, "txtHorario")),
-            "valor" => (isset($_POST["txtValor"])) ? $servico->valorComum : $servico->valorPromocional
+            "valor" => $servico->valorComum
         );
 
         $dt = new Datetime($parametros["horario"]);

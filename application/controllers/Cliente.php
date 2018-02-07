@@ -20,7 +20,7 @@ class Cliente extends CI_Controller {
 
 
 
-        $this->load->Model("Model_clientes", "model_clientes");
+        $this->load->Model("Model_clientes", "cliente");
 
     }
 
@@ -32,7 +32,7 @@ class Cliente extends CI_Controller {
 
         $parametrosListagem = array(
 
-            "clientes" => $this->model_clientes->getClientes($_SESSION["empresa"]->codEmpresa)
+            "clientes" => $this->cliente->getClientes($_SESSION["empresa"]->codEmpresa)
 
         );
 
@@ -160,7 +160,7 @@ class Cliente extends CI_Controller {
 
         
 
-        $this->model_clientes->Inserir($parametrosInsercao);
+        $this->cliente->Inserir($parametrosInsercao);
 
         
 
@@ -184,9 +184,9 @@ class Cliente extends CI_Controller {
 
             "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
 
-            "dados" => $this->model_clientes->getCliente($codCliente)->row(0),
+            "dados" => $this->cliente->getCliente($codCliente)->row(0),
 
-            "servicosprestados" => $this->model_clientes->getServicosPrestados($codCliente, $_SESSION["empresa"]->codEmpresa)
+            "servicosprestados" => $this->cliente->getServicosPrestados($codCliente, $_SESSION["empresa"]->codEmpresa)
 
         );
 
@@ -308,6 +308,23 @@ class Cliente extends CI_Controller {
 
         $this->email->print_debugger(array('headers'));
         
+
+    }
+
+    public function historico($codCliente){
+
+        
+
+        $parametros = array(
+            "historico" => $this->cliente->getHistorico($codCliente, $_SESSION["empresa"]->codEmpresa),
+            "dadosCliente" => $this->cliente->getCliente($codCliente)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('cliente/timeline', $parametros);
+        $this->load->view('inc/footer');
 
     }
 

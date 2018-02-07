@@ -60,6 +60,8 @@
 
                                 <tr>
 
+                                    <th>#</th>
+
                                     <th>Descrição</th>
 
                                     <th>Tipo</th>
@@ -81,6 +83,8 @@
                                 <?php foreach($saidas->result() as $item) { ?>
 
                                 <tr>
+
+                                    <td><?= str_pad($item->codNotaSaida, 6, "0", STR_PAD_LEFT);?></td>
 
                                     <td><?= $item->discriminacao;?></td>
 
