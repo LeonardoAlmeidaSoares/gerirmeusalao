@@ -65,3 +65,61 @@ ERROR - 2018-02-07 05:17:25 --> Severity: Notice --> Undefined property: stdClas
 ERROR - 2018-02-07 05:17:25 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\gerirmeusalao\application\views\cargo\listagem_cargos.php 59
 ERROR - 2018-02-07 05:17:25 --> Severity: Notice --> Undefined property: stdClass::$status C:\xampp\htdocs\gerirmeusalao\application\views\cargo\listagem_cargos.php 59
 ERROR - 2018-02-07 05:20:45 --> Severity: error --> Exception: syntax error, unexpected '"codEmpresa"' (T_CONSTANT_ENCAPSED_STRING), expecting ')' C:\xampp\htdocs\gerirmeusalao\application\controllers\Cargo.php 40
+ERROR - 2018-02-07 05:29:26 --> Severity: Notice --> Undefined variable: cargos C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 54
+ERROR - 2018-02-07 05:29:26 --> Severity: error --> Exception: Call to a member function result() on null C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 54
+ERROR - 2018-02-07 05:29:38 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 56
+ERROR - 2018-02-07 05:29:38 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:29:38 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 56
+ERROR - 2018-02-07 05:29:38 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:29:50 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:29:50 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:07 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:07 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:27 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:27 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:46 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:46 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:30:47 --> 404 Page Not Found: Tipoentradas/cadastrar
+ERROR - 2018-02-07 05:32:10 --> Query error: Table 'gerirmeusalao_homologacao.tipoentrada' doesn't exist - Invalid query: INSERT INTO `tipoentrada` (`descricao`, `codEmpresa`) VALUES ('Teste', '1')
+ERROR - 2018-02-07 05:32:37 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:32:37 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:32:37 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:06 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:06 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:06 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:09 --> 404 Page Not Found: Tiposaida/index
+ERROR - 2018-02-07 05:35:45 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:45 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:35:45 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:36:02 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:36:23 --> Severity: error --> Exception: Unable to locate the model you have specified: Model_tiposaidas C:\xampp\htdocs\gerirmeusalao\system\core\Loader.php 344
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCategoriaSaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:13 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCategoriasaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCategoriasaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCategoriasaida C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 56
+ERROR - 2018-02-07 05:38:40 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:39:27 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:39:27 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:39:27 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:43:48 --> 404 Page Not Found: Cargos/index
+ERROR - 2018-02-07 05:44:11 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:11 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:11 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:28 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:28 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:28 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-02-07 05:44:31 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:44:31 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-02-07 05:44:31 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\xampp\htdocs\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
