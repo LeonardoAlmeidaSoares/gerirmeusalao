@@ -102,7 +102,7 @@ class Salao extends CI_Controller {
                     "colaboradores" => $this->func->getSituacao($_SESSION["empresa"]->codEmpresa),
 
                     "mensagensParaHoje" => $this->lemb->getLembretes($_SESSION["empresa"]->codEmpresa)->num_rows(),
-
+                    
                     "vencimentosVencendoHoje" => $this->saidas->getVencimentoHoje($_SESSION["empresa"]->codEmpresa)->num_rows(),
 
                     "vencimentosRecebendoHoje" => $this->entradas->getVencimentoHoje($_SESSION["empresa"]->codEmpresa)->num_rows()
@@ -187,7 +187,9 @@ class Salao extends CI_Controller {
         $parametros = array(
             "totalEntradasHoje" => $this->caixa->getFluxo($codEmpresa, "ENT"),
             "totalSaidasHoje" => $this->caixa->getFluxo($codEmpresa, "SAI"),
-            "totalCaixa" => $this->caixa->getFluxo($codEmpresa)
+            "totalCaixa" => $this->caixa->getFluxo($codEmpresa),
+            //"ultimoCaixa" => $this->caixa->getUltimoCaixa($codEmpresa),
+            //"situacaoCaixa" => $this->caixa->getSituacaoCaixa($codEmpresa)
         );
 
         $this->load->view('inc/header');

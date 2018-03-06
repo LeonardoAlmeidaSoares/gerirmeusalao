@@ -46,7 +46,6 @@ function get_tipo_movimentacao($cod){
                     <div class="row">
                     <div class="col-md-7 col-lg-9 col-sm-12 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">Movimentações Financeiras</h3>
                             <?php $valorTotal = 0;?>
                             <table id="table" class="table table-hover table-condensed">
                                 <thead>
@@ -128,6 +127,10 @@ function get_tipo_movimentacao($cod){
                                 </div>
                             </div>
                         </div>
+                        <!--
+                            <button class="btn btn-outline btn-success" id="btn-open-caixa" style="width:100%;">ABRIR CAIXA</button>
+                            <button class="btn btn-outline btn-warning" style="width:100%;">FECHAR CAIXA</button>
+                        -->
                     </div>
                 </div>
             </div>

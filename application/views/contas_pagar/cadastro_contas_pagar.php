@@ -30,8 +30,8 @@
 
         <form id="frmCad" enctype="multipart/form-data" class="form-material form-horizontal" 
 
-              method="POST" action="<?= base_url("index.php/contaspagar/realizar_cadastro/"); ?>">
-
+              method="POST" action="<?= base_url("index.php/contasPagar/realizar_cadastro/"); ?>">
+            <input type="hidden" name="txtDescontaCaixa" id="txtDescontaCaixa" value="0">
             <div class="row">
 
                 <div class="col-sm-12">
@@ -39,8 +39,6 @@
                     <div class="white-box">
 
                         <h3 class="box-title">Informações de Cadastro</h3>
-
-
 
                         <div class="form-group">
 
@@ -76,7 +74,7 @@
 
                                 <select id="txtCategoria" name="txtCategoria" class="form-control">
 
-                                    <option value="0" selected hidden>Selecione o Serviço Prestado</option>
+                                    <option value="0" selected hidden >Selecione o Serviço Prestado</option>
 
                                     <?php foreach($categorias->result() as $item){ ?>
 
@@ -101,8 +99,6 @@
                                 <select id="txtStatus" name="txtStatus" class="form-control">
 
                                     <option value="#" selected hidden>Selecione o Status do Pagamento</option>
-
-                                    <option value="-1">Cancelado</option>
 
                                     <option value="0">Pendente</option>
 

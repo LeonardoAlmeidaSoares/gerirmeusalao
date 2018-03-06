@@ -71,10 +71,8 @@ $last = null;
                         </div>
 
                         <div class="legendaGrafico form-control">
-                            <div class="quadradinho pago" style="display: table-cell;"></div>Pago
-                            <div class="quadradinho nao-pago" style="display: table-cell;"></div>Nao Pago
-
-                            
+                            <div class="quadradinho pago" style="display: table-cell;"></div>Valor Recebido
+                            <div class="quadradinho nao-pago" style="display: table-cell;"></div>Valor Total a Receber                            
                         </div>
                     </div>
                    
@@ -100,7 +98,8 @@ $last = null;
                         array(
                             "colaborador" => $item["nome"], 
                             "valor" => $item["valor"],
-                            "comissao" => getComissao($item)
+                            "comissao" => getComissao($item),
+                            "codFuncionario" => $item["codFuncionario"]
                             )
                         );
                 }else{
@@ -108,7 +107,8 @@ $last = null;
                         array(
                             "colaborador" => $item["nome"], 
                             "valor" => $item["valor"],
-                            "comissao" => getComissao($item)
+                            "comissao" => getComissao($item),
+                            "codFuncionario" => $item["codFuncionario"]
                         )
                     );
                 }
@@ -130,13 +130,16 @@ $last = null;
 
                         <li class="">
                             <a class="tab-page" href="#section-<?= $item->mes;?>">
-                                <span><?= $arrMonths[substr($item->mes,0,2)] . "/" . substr($item->mes,3,4);?></span>
+                                <span>
+                                    <?= $arrMonths[substr($item->mes,0,2)] . "/" . substr($item->mes,3,4);?>
+                                </span>
                             </a>
                         </li>
 
                         <?php }$last = "";} ?>
                     </ul>
                 </nav>
+                <?php $dadosTotais = 0; $dadosComissao = 0;?>
                 <div class="content-wrap">
                     <section id="ultimos-n-meses" class="content-current">
                         <h2>Média dos Últimos 12 Meses</h2>
@@ -176,6 +179,7 @@ $last = null;
                                     <th>Colaborador</th>
                                     <th>Quantia Total</th>
                                     <th>Comissão</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -184,6 +188,11 @@ $last = null;
                                     <td><?= $itemC["colaborador"];?></td>
                                     <td>R$<?= number_format($itemC["valor"], 2, ",", ".");?></td>
                                     <td>R$ <?= number_format($itemC["comissao"], 2, ",", ".");?></td>
+                                    <td>
+                                        <a href="<?= base_url("index.php/relatorio/faturamentoFuncionario/$itemC[codFuncionario]/$item->mes");?>">
+                                            <span class="fa fa-user"></span>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -192,6 +201,7 @@ $last = null;
                                     <th>Valor Total</th>
                                     <th style="text-align: left;">R$ <?= number_format(array_sum(array_column($data[$item->mes], 'valor')) , 2, ",", ".");?></th>
                                     <th style="text-align: left;">R$ <?= number_format(array_sum(array_column($data[$item->mes], 'comissao')) , 2, ",", ".");?></th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -226,8 +236,8 @@ $last = null;
 <style>
     .legendaGrafico{
         text-align: center;
-        width: 25%;
-        margin-left: 37.5%;
+        width: 50%;
+        margin-left: 25%;
         border-radius: 5px;
         padding: 8px 0px;
         display: table

@@ -96,10 +96,33 @@ class ContasReceber extends CI_Controller {
     
     public function criarNotaServicoNaoFinalizado($cod){
 
-        $codCompromisso = $this->db->get_where("notaEntrada", array("codNotaEntrada" => $cod))->row(0)->codCompromisso;
+        $this->load->Model("Model_servico", "serv");
+        $this->load->Model("Model_compromissos", "agenda");
+
+        $codCompromisso = $this->db->get_where("notaentrada", array("codNotaEntrada" => $cod))->row(0)->codCompromisso;
        
         $this->db->where("codCompromisso", $codCompromisso)
                 ->update("compromisso", array("status" => 1));
+
+        $resumo = "<b>REALIZOU: </b>";
+
+        $dados = $this->agenda->getCompromisso($codCompromisso);
+        $dadosNota = $this->entradas->getByCompromisso($codCompromisso);
+
+        $aux = array(
+            "codFuncionario" => $dados->row(0)->codFuncionario,
+            "codCliente" => $dados->row(0)->codCliente,
+            "codServico" => $dados->row(0)->codServico,
+            "horario" => $dados->row(0)->horario,
+            "codNotaEntrada" => $dadosNota->row(0)->codNotaEntrada
+        );
+
+        $this->db->insert("servicoprestado", $aux);
+
+        $dadosServico = $this->serv->getServico($dados->row(0)->codServico, $_SESSION["empresa"]->codEmpresa)->row(0);
+
+        $resumo .= "<br>" . $dadosServico->descricao;
+        $this->db->where("codCompromisso", $codCompromisso)->update("compromisso", array("resumo"=> $resumo));
 
         redirect(base_url("index.php/contasReceber/nota/$cod"));
     }
@@ -110,8 +133,6 @@ class ContasReceber extends CI_Controller {
         
         $notaEntrada = $this->entradas->getEntrada($codEntrada);
         
-        $dados = $this->entradas->getInvoice($codEntrada);
-
         if(is_null($notaEntrada)){
             $_SESSION["msg_erro"] = "Nota de Entrada Inexistente";
             redirect(base_url("index.php/contasReceber")); 
@@ -119,14 +140,19 @@ class ContasReceber extends CI_Controller {
             $notaEntrada = $notaEntrada->row(0);
         }
 
+        $dados = $this->entradas->getInvoice($codEntrada);
         $parametros = array(
             "dados" => $dados,
             "cliente" => $this->clientes->getCliente($notaEntrada->codCliente)->row(0),
             "contasEmAberto" => $this->entradas->getDividas($notaEntrada->codCliente),
-            "descricaoServicos" => $this->entradas->getServicosDetalhados($codEntrada),
             "codNota" => $codEntrada
         );
-        
+
+        if($notaEntrada->codCompromisso > 0)
+            $parametros["descricaoServicos"] = $this->entradas->getServicosDetalhados($codEntrada);
+        else
+            $parametros["descricaoServicos"] = $this->entradas->getProdutosDetalhados($codEntrada);
+
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
@@ -159,14 +185,14 @@ class ContasReceber extends CI_Controller {
         $status = intval(trim(filter_input(INPUT_POST, "status")));
         $formaPagto = trim(filter_input(INPUT_POST, "formaPagto"));
 
-        $dadosNota = $this->db->get_where("notaEntrada", array("codNotaEntrada" => $codNota));
+        $dadosNota = $this->db->get_where("notaentrada", array("codNotaEntrada" => $codNota));
 
         if($dadosNota->row(0)->status == 1){
             echo json_encode(array("msg"=>"Nota já foi paga", "type" => "error", "title" => "Opss..."));
             exit();
         }
 
-        $this->db->where("codNotaEntrada", $codNota)->update("notaEntrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i"), "formaPagto" => $formaPagto));
+        $this->db->where("codNotaEntrada", $codNota)->update("notaentrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i"), "formaPagto" => $formaPagto));
 
         if($formaPagto == "DINHEIRO"){
             if($status == 1){
@@ -186,6 +212,19 @@ class ContasReceber extends CI_Controller {
 
         echo json_encode(array("msg"=>"Pagamento Realizado com Sucesso", "type" => "success", "title" => "Finalizado"));
 
+    }
+
+    public function vencendoHoje(){
+
+        $parametros = array(
+            "entradas" => $this->entradas->getEntradasVencendoHoje($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('contas_receber/listagem_contas_vencendo_hoje', $parametros);
+        $this->load->view('inc/footer');
     }
 
 }

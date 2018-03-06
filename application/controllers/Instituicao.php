@@ -144,15 +144,30 @@ class Instituicao extends CI_Controller {
         $this->load->view('cadastro_funcionario', $parametrosCadastro);
         $this->load->view('inc/footer');
     }
-    
+
     public function alterarSenha(){
         
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
-        $this->load->view('alterar_senha'/*, $parametros*/);
+        $this->load->view('alterar_senha');
         $this->load->view('inc/footer');
         
+    }
+
+    public function novo(){
+
+      $parametros = array(
+        "estados" => $this->db->get("estado")
+      );
+
+      $this->load->view('paginas_comuns/cadastrar_empresa', $parametros);
+        
+    }
+    public function cadastrarEmpresa(){
+
+      var_dump($_POST);
+
     }
 
 }

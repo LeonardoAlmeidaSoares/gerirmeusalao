@@ -80,7 +80,7 @@ class Model_rendimentos extends CI_Model {
 
     public function getMediaRendimentosUltimoAno($codEmpresa){
         return $this->db->select("sum(ne.valor) as valor, c.codFuncionario, f.nome, 
-            SUM((SELECT (IF(ne.formaPagto = 'DINHEIRO', (f.comissaoDinheiro * ne.valor), (f.comissaoCartao * ne.valor)) / 100)))as comissao ")
+            SUM((SELECT (IF(ne.formaPagto = 'DINHEIRO', ((100 - f.comissaoDinheiro) * ne.valor), ((100 - f.comissaoCartao) * ne.valor)) / 100)))as comissao ")
             ->from("notaentrada ne")
             ->join("compromisso c", "c.codCompromisso = ne.codCompromisso")
             ->join("funcionario f", "f.codFuncionario = c.codFuncionario")
@@ -89,6 +89,19 @@ class Model_rendimentos extends CI_Model {
             ->group_by("c.codFuncionario")
             ->order_by("dataPagto desc, valor desc")
             ->get();
+    }
+
+    public function getRendimentoPorColaborador($codEmpresa, $codFuncionario, $mes){
+        $this->db->select("notaentrada.valor, cliente.nome, servicoprestado.horario, servico.descricao");
+        $this->db->from("servicoprestado");
+        $this->db->join("notaentrada","notaentrada.codNotaEntrada = servicoprestado.codNotaEntrada");
+        $this->db->join("cliente","cliente.codCliente = servicoprestado.codCliente");
+        $this->db->join("servico", "servico.codServico = servicoprestado.codServico");
+        $this->db->where("notaentrada.status", 1);
+        $this->db->where("notaentrada.codEmpresa", $codEmpresa);
+        $this->db->where("servicoprestado.codFuncionario", $codFuncionario);
+        $this->db->where("DATE_FORMAT(notaentrada.datapagto,'%m-%Y')", $mes);
+        return $this->db->get();
     }
 
 }

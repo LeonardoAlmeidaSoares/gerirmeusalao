@@ -15,7 +15,9 @@
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
 
-                <h4 class="page-title">Contas a Receber</h4> </div>
+                <h4 class="page-title">Contas a Receber</h4> 
+
+            </div>
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
@@ -51,6 +53,8 @@
 
                                 <tr>
 
+                                    <th>#</th>
+
                                     <th>Descrição</th>
 
                                     <th>Tipo</th>
@@ -75,7 +79,9 @@
 
                                 <tr>
 
-                                    <td><?= $item->discriminacao;?></td>
+                                    <td><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT);?></td>
+
+                                    <td><?= preg_replace("/\%[^)]+\%/","",$item->discriminacao);?></td>
 
                                     <td><?= $item->descricao;?></td>
 
@@ -89,7 +95,7 @@
 
                                     <td>
 
-                                        <?php if($item->status == 0){ ?>
+                                        <?php if($item->status < 2){ ?>
                                         <?php if($item->qtd > 0){?>
                                             <a href="<?=base_url("index.php/contasReceber/nota/$item->codNotaEntrada");?>">
                                                 <span class="ti-money pointer"></span>

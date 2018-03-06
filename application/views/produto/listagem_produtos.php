@@ -46,6 +46,8 @@
 
                                 <tr>
 
+                                    <th>#</th>
+
                                     <th>Descrição</th>
 
                                     <th>Valor</th>
@@ -63,6 +65,8 @@
                                 <?php foreach($produtos->result() as $item){?>
 
                                 <tr>
+
+                                    <td><?= str_pad($item->codProduto, 6, "0", STR_PAD_LEFT);?></td>
 
                                     <td><?= $item->descricao;?></td>
 

@@ -1,6 +1,16 @@
 <!-- Page Content -->
+<?php 
 
-<?php $valorTotal = 0;?>
+function getNomeIndividuo($item){
+
+    //$pos2 = strpos($item, '%');
+    $pos1 = strpos($item, '%');
+    return str_replace("%","",substr($item, $pos1+1));
+
+}
+
+$valorTotal = 0;?>
+
 <input type="hidden" id="codNota" name="codNota" value="<?= $codNota;?>" />
 
 <div id="page-wrapper">
@@ -74,13 +84,16 @@
                             <div class="pull-right text-right"> 
 
                                 <address>
-
+                                    <?php if($cliente->codCliente > 0){ ?>
                                     <h3 class="font-bold"><?= $cliente->nome; ?></h3>
 
                                     <br/> <?= $cliente->logradouro; ?>, <?= $cliente->numero; ?> <?= $cliente->complemento; ?>
 
                                     <br/> <?= $cliente->bairro; ?>, <?= $cliente->cidade . "/" . $cliente->UF; ?>
 
+                                    <?php } else { ?>
+                                        <h3 class="font-bold"><?= getNomeIndividuo($dados->row(0)->discriminacao); ?></h3>
+                                    <?php } ?>
                                     <p class="m-t-30">
 
                                         <b>Data da Nota</b> 
@@ -121,7 +134,7 @@
 
                                             <th class="text-left">#</th>
 
-                                            <th>Serviço Prestado</th>
+                                            <th>Descrição</th>
 
                                             <th class="text-right">Quantidade</th>
 
@@ -141,7 +154,7 @@
 
                                         <tr>
 
-                                            <td class="text-left"><?= str_pad($item->codServico, 6,"0",STR_PAD_LEFT);?></td>
+                                            <td class="text-left"><?= str_pad($item->Codigo, 6,"0",STR_PAD_LEFT);?></td>
 
                                             <td><?= $item->descricao;?></td>
 
@@ -182,10 +195,14 @@
                             <hr>
 
                             <div class="text-right">
-
-                                <button class="btn btn-danger" id="btnConfirma"> Confirmar Pagamento </button>
-
-                                <button id="print" class="btn btn-default btn-outline" type="button"> <span><i class="fa fa-print"></i> Imprimir </span> </button>
+                                <?php if($dados->row(0)->status == 0){ ?>
+                                    <button class="btn btn-danger" id="btnConfirma"> Confirmar Pagamento </button>
+                                <?php } ?>
+                                <button id="print" class="btn btn-default hidden-print btn-outline" type="button"> 
+                                    <span>
+                                        <i class="fa fa-print"></i> Imprimir 
+                                    </span> 
+                                </button>
 
                             </div>
 

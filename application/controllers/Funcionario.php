@@ -32,7 +32,7 @@ class Funcionario extends CI_Controller {
         $parametrosCadastro = array(
             "estados" => $this->db->get_where("estado"),
             "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
-            "cargos" => $this->cargos->getCargos()
+            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codEmpresa))
         );
 
         $this->load->view('inc/header');
@@ -43,6 +43,7 @@ class Funcionario extends CI_Controller {
     }
 
     public function realizar_cadastro() {
+
         $parametrosInsercao = array(
            "email" => trim(filter_input(INPUT_POST, "txtEmail"), FILTER_SANITIZE_EMAIL),
            "nascimento" => trim(filter_input(INPUT_POST, "txtNascimento")),
@@ -66,8 +67,11 @@ class Funcionario extends CI_Controller {
         }
 
         if (isset($_POST["txtCod"])) {
+
            $cod = intval(trim(filter_input(INPUT_POST, "txtCod")));
+          
            $this->func->Alterar($cod, $parametrosInsercao);
+        
         } else {
             if ($this->func->Inserir($parametrosInsercao)) {
                 

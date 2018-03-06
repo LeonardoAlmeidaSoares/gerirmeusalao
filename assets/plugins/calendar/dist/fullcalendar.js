@@ -11500,15 +11500,15 @@ Calendar.defaults = {
 	// locale
 	isRTL: false,
 	buttonText: {
-		prev: "prev",
-		next: "next",
-		prevYear: "prev year",
-		nextYear: "next year",
-		year: 'year', // TODO: locale files need to specify this
-		today: 'today',
-		month: 'month',
-		week: 'week',
-		day: 'day'
+		prev: "Anterior",
+		next: "Próximo",
+		prevYear: "Ano Passado",
+		nextYear: "Próximo Ano",
+		year: 'Ano', // TODO: locale files need to specify this
+		today: 'Hoje',
+		month: 'Mês',
+		week: 'Semana',
+		day: 'Dia'
 	},
 
 	buttonIcons: {
@@ -14556,7 +14556,7 @@ fcViews.list = {
 	defaults: {
 		buttonText: 'list', // text to display for English
 		listDayFormat: 'LL', // like "January 1, 2016"
-		noEventsMessage: 'No events to display'
+		noEventsMessage: 'Não Há Compromisso Cadastrado'
 	}
 };
 

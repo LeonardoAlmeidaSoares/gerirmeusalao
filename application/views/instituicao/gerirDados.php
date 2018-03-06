@@ -27,24 +27,31 @@
                             <div class="user-btm-box">
                                 <!-- .row -->
                                 <div class="row text-center m-t-10">
-                                    <div class="col-md-6 b-r">
+                                    <div class="col-md-12 b-r">
                                         <strong>Nome</strong>
                                         <p><?= $dadosInstituicao->nome;?></p>
                                     </div>
-                                    <div class="col-md-6">
+                                </div>
+                                <hr>
+                                <div class="row text-center m-t-10">
+                                    <div class="col-md-12">
                                         <strong>Usuário</strong>
-                                        <p>SOU EU</p>
+                                        <p><?= $_SESSION["usuario"]->nome;?></p>
                                     </div>
                                 </div>
                                 <!-- /.row -->
                                 <hr>
                                 <!-- .row -->
                                 <div class="row text-center m-t-10">
-                                    <div class="col-md-6 b-r">
+                                    <div class="col-md-12 b-r">
                                         <strong>Email</strong>
                                         <p><?= $dadosInstituicao->email;?></p>
                                     </div>
-                                    <div class="col-md-6">
+                                    
+                                </div>
+                                <hr>
+                                <div class="row text-center m-t-10">
+                                    <div class="col-md-12 b-r">
                                         <strong>Telefone</strong>
                                         <p><?= $dadosInstituicao->telefone;?></p>
                                     </div>
@@ -117,7 +124,7 @@
                                 <div class="tab-pane active" id="tab-funcionarios">
                                     <div class="row">
                                         <?php foreach($listaFuncionarios->result() as $item){?>
-                                        <div class="col-md-6 col-sm-6">
+                                        <div class="col-md-12 col-sm-12">
                                             <div class="white-box">
                                                 <div class="row">
                                                     <div class="col-md-4 col-sm-4 text-center">
@@ -167,8 +174,8 @@
                                                 <input type="text" id="txtTelefone" name="txtTelefone" class="form-control" placeholder="CNPJ da Empresa" value="<?= $dadosInstituicao->telefone;?>"> </div>
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                                        <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Cadastrar</button>
+                                        <button type="reset" class="btn btn-inverse waves-effect waves-light">Cancelar</button>
                                     </form>
                                 </div>
                                 <!-- /.tabs 3 -->
@@ -212,6 +219,7 @@
         </div>
         <!-- /#page-wrapper -->
         <script src="<?= base_url("assets/plugins/sweetalert/sweetalert.min.js"); ?>" type="text/javascript"></script>
-        <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css"); ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css"); ?>" rel="stylesheet" type="text/css"/>    
+        <script src="<?= base_url("assets/plugins/mask-plugin/dist/jquery.mask.min.js");?>" type="text/javascript"></script>
         <script type="text/javascript" src="<?= base_url("assets/paginas/instituicao.js");?>"></script>
     

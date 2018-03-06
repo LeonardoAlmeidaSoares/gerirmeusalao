@@ -16,7 +16,7 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa</a>
+                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" title="Fluxo de Caixa" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa</a>
 
                 <ol class="breadcrumb">
 
@@ -50,7 +50,7 @@
 
                             <div class="row row-in">
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br" id="click-link-todos-clientes">
 
                                     <div class="col-in row">
 
@@ -82,7 +82,7 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br  b-r-none">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br  b-r-none" id="click-link-agenda-hoje">
 
                                     <div class="col-in row">
 
@@ -110,7 +110,7 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br" id="click-link-aniversariantes">
 
                                     <div class="col-in row">
 
@@ -142,7 +142,7 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br" id="click-link-lembretes-hoje">
 
                                     <div class="col-in row">
 
@@ -170,7 +170,7 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br" id="click-link-vencendo-hoje">
 
                                     <div class="col-in row">
 
@@ -198,7 +198,7 @@
 
                                 </div>
 
-                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br">
+                                <div class="col-lg-4 col-md-4 col-sm-4 row-in-br" id="click-link-recebendo-hoje">
 
                                     <div class="col-in row">
 
@@ -318,9 +318,11 @@
 
                 <h3 class="box-title">Situação dos Colaboradores</h3>
 
+                <div class="row">
+
                 <?php foreach ($colaboradores->result() as $item) { ?>
 
-                    <div class="col-md-4 col-sm-4" id="divFunc<?= $item->codFuncionario; ?>">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4" id="divFunc<?= $item->codFuncionario; ?>">
 
                         <div class="white-box" style="border-width:5px; border-style:groove; border-radius: 10px; border-color: <?= $codBorda[$item->status]; ?>">
 
@@ -389,6 +391,8 @@
                     </div>
 
                 <?php } ?>
+
+                </div>
 
             </div>
 

@@ -67,6 +67,7 @@ function getIdade($nasc) {
                             <thead>
 
                                 <tr>
+                                    <th>#</th>
 
                                     <th>Nome</th>
 
@@ -87,6 +88,7 @@ function getIdade($nasc) {
                                 <?php foreach ($clientes->result() as $item) { ?>
 
                                     <tr>
+                                        <td><?= str_pad($item->codCliente, 6, "0", STR_PAD_LEFT);?></td>
 
                                         <td><?= $item->nome; ?></td>
 
@@ -102,6 +104,10 @@ function getIdade($nasc) {
 
                                                 <span class="fa fa-edit pointer alter"></span>
 
+                                            </a>
+
+                                            <a href="<?= base_url("index.php/cliente/historico/$item->codCliente");?>" title="Visualizar Histórico do Cliente">
+                                                <span class="icon-user"></span>
                                             </a>
 
                                         </td>

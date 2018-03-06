@@ -1,5 +1,9 @@
 $(function(){
 
+	$("#print").on("click", function(){
+		window.print();
+	});
+
 	$("#btnConfirma").on("click", function(){
 		var $codNota = $("#codNota").val();
 		swal({
@@ -57,17 +61,3 @@ $(function(){
 	});
 	
 });
-
-
-/*
-$.ajax({
-    url: "../alterarStatus/",
-    method: "POST",
-    data: {
-        "codNota" : $codNota,
-        "status": 1,
-        "formaPagto": "CARTAO"
-    }
-}).success(function (response) {
-	swal('Finalizado!','Seu Pagamento foi recebido pelo sistema','success');
-});*/
