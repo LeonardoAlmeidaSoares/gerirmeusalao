@@ -81,7 +81,7 @@
 
                                     <td><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT);?></td>
 
-                                    <td><?= $item->discriminacao;?></td>
+                                    <td><?= preg_replace("/\%[^)]+\%/","",$item->discriminacao);?></td>
 
                                     <td><?= $item->descricao;?></td>
 

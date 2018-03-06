@@ -43,7 +43,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				"dadosSalao" => $this->db->get_where("empresa", array("codEmpresa" => $item->codEmpresa))->row(0)
 			);
 
-	        
 	        $this->email->to($item->email);
 	        $this->email->message($this->load->view("emails/avisoMarcacao", $parametrosEmail, TRUE));
 
@@ -52,5 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	        $this->db->where("codCompromisso", $item->codCompromisso)->update("compromisso", array("avisoEnviado"=>1));
 	    }
 
+	}
+
+	public function teste(){
+		$this->db->query("update cliente set codCliente = 0 where codCliente = 38");
 	}
 }

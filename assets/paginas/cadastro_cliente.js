@@ -34,10 +34,4 @@ $(function(){
         }
     });
 
-    $("#frmCad").on("submit", function(evt){
-        if($("#txtEmail").val() == ""){
-            swal
-        }
-    });
-
 });

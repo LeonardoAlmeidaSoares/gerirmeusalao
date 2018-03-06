@@ -28,6 +28,19 @@ class Model_entradas extends CI_Model {
                         ->get();
     }
     
+    public function getEntradasVencendoHoje($codEmpresa){
+        return $this->db->select("n.*, c.descricao, cli.nome as nomeCliente, IF(n.codVenda = 0,
+                   (select count(*) from servicoprestado sp where sp.codNotaEntrada = n.codNotaEntrada),
+                   (select count(*) from itemvenda iv join venda v on v.codVenda = iv.codVenda where v.codNotaEntrada = n.codNotaEntrada)) as qtd")
+                        ->from("notaentrada n")
+                        ->join("cliente cli", "n.codCliente = cli.codCliente")
+                        ->join("categoriaentrada c", "c.codCategoriaEntrada = n.codCategoriaEntrada")
+                        ->where("n.codEmpresa", $codEmpresa)
+                        ->where("DATE(n.dataVencimento) = CURDATE()", NULL)
+                        ->where("n.status", 0)
+                        ->get();   
+    }
+
     public function Inserir($parametros){
         return $this->db->insert("notaentrada", $parametros);
     }

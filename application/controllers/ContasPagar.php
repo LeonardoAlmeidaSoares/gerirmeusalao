@@ -117,4 +117,17 @@ class ContasPagar extends CI_Controller {
         
     }
     
+    public function vencendoHoje() {
+        
+        $parametros = array(
+            "saidas" => $this->saidas->getSaidasVencendoHoje($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('contas_pagar/listagem_contas_vencidas', $parametros);
+        $this->load->view('inc/footer');
+    }
+
 }

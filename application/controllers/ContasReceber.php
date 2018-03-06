@@ -119,7 +119,7 @@ class ContasReceber extends CI_Controller {
 
         $this->db->insert("servicoprestado", $aux);
 
-        $dadosServico = $this->serv->getServico($dados->row(0)->codServico)->row(0);
+        $dadosServico = $this->serv->getServico($dados->row(0)->codServico, $_SESSION["empresa"]->codEmpresa)->row(0);
 
         $resumo .= "<br>" . $dadosServico->descricao;
         $this->db->where("codCompromisso", $codCompromisso)->update("compromisso", array("resumo"=> $resumo));
@@ -133,8 +133,6 @@ class ContasReceber extends CI_Controller {
         
         $notaEntrada = $this->entradas->getEntrada($codEntrada);
         
-        $dados = $this->entradas->getInvoice($codEntrada);
-
         if(is_null($notaEntrada)){
             $_SESSION["msg_erro"] = "Nota de Entrada Inexistente";
             redirect(base_url("index.php/contasReceber")); 
@@ -142,6 +140,7 @@ class ContasReceber extends CI_Controller {
             $notaEntrada = $notaEntrada->row(0);
         }
 
+        $dados = $this->entradas->getInvoice($codEntrada);
         $parametros = array(
             "dados" => $dados,
             "cliente" => $this->clientes->getCliente($notaEntrada->codCliente)->row(0),
@@ -213,6 +212,19 @@ class ContasReceber extends CI_Controller {
 
         echo json_encode(array("msg"=>"Pagamento Realizado com Sucesso", "type" => "success", "title" => "Finalizado"));
 
+    }
+
+    public function vencendoHoje(){
+
+        $parametros = array(
+            "entradas" => $this->entradas->getEntradasVencendoHoje($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('contas_receber/listagem_contas_vencendo_hoje', $parametros);
+        $this->load->view('inc/footer');
     }
 
 }

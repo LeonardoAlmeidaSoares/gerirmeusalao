@@ -80,7 +80,7 @@ class Model_rendimentos extends CI_Model {
 
     public function getMediaRendimentosUltimoAno($codEmpresa){
         return $this->db->select("sum(ne.valor) as valor, c.codFuncionario, f.nome, 
-            SUM((SELECT (IF(ne.formaPagto = 'DINHEIRO', ((100 - f.comissaoDinheiro) * ne.valor), ((100 - f.comissaoCartao_) * ne.valor)) / 100)))as comissao ")
+            SUM((SELECT (IF(ne.formaPagto = 'DINHEIRO', ((100 - f.comissaoDinheiro) * ne.valor), ((100 - f.comissaoCartao) * ne.valor)) / 100)))as comissao ")
             ->from("notaentrada ne")
             ->join("compromisso c", "c.codCompromisso = ne.codCompromisso")
             ->join("funcionario f", "f.codFuncionario = c.codFuncionario")

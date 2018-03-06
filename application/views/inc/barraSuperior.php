@@ -35,6 +35,13 @@
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right pull-right">
+
+                <li class="dropdown"> 
+                    <a title="Novo Atendimento" href="<?= base_url("index.php/agenda/cadastro");?>" class="dropdown-toggle waves-effect waves-light">
+                        <span class="ti-calendar"></span>
+                    </a>
+                </li>
+
                     <li class="dropdown"> 
                         <a class="dropdown-toggle waves-effect waves-light" href="<?= base_url("index.php/venda/");?>">
                             <i class="ti-shopping-cart"></i>

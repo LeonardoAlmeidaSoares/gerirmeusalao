@@ -28,24 +28,27 @@
             </div-->
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php foreach ($funcionarios->result() as $item) { ?>
-                    <a class="lnk-sel-func" style="border-width:5px; cursor: pointer; text-decoration: none; border-radius: 10px;" codFunc="<?= $item->codFuncionario; ?>">
-                        <div class="col-md-3 col-sm-3" id="divFunc<?= $item->codFuncionario; ?>">
-                            <div class="white-box">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-4 text-center">
-                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 70px;margin-top: 10px;" class="img-circle img-responsive">
-                                    </div>
-                                    <div class="col-md-8 col-sm-8">
-                                        <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
-                                        <small><?= $item->cargo; ?></small>
-                                        <p></p>
+                <div class="row">
+                    <?php foreach ($funcionarios->result() as $item) { ?>
+                    <div class="lnk-sel-func col-xs-12 col-sm-6 col-md-4 col-lg-3" id="divFunc<?= $item->codFuncionario; ?>"  codFunc="<?= $item->codFuncionario; ?>">
+                        <a class="" style="border-width:5px; width:100%;cursor: pointer; text-decoration: none; border-radius: 10px;">
+                            
+                                <div class="white-box">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 text-center">
+                                            <img src="<?= $item->imagem; ?>" alt="user" style="height: 70px;margin-top: 10px;" class="img-circle img-responsive">
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
+                                            <small><?= $item->cargo; ?></small>
+                                            <p></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                <?php } ?>
+                    <?php } ?>
+                </div>
             </div>
 
             <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
@@ -122,7 +125,7 @@
         <script src="<?= base_url("assets/plugins/moment/moment.js"); ?>"></script>
         <script src="<?= base_url("assets/plugins/calendar/jquery-ui.min.js"); ?>"></script>
         <script src="<?= base_url("assets/plugins/calendar/dist/locale/pt-br.js"); ?>" type="text/javascript"></script>
-        <script src='<?= base_url("assets/plugins/calendar/dist/fullcalendar.min.js"); ?>'></script>
+        <script src='<?= base_url("assets/plugins/calendar/dist/fullcalendar.js"); ?>'></script>
         <script src="<?= base_url("assets/plugins/typehead/typeahead.bundle.js"); ?>" type="text/javascript"></script>
         <link href="<?= base_url("assets/plugins/bootstrap-switch/bootstrap-switch.min.css");?>" rel="stylesheet" type="text/css"/>
         <script src="<?= base_url("assets/plugins/bootstrap-switch/bootstrap-switch.min.js");?>" type="text/javascript"></script>

@@ -40,9 +40,9 @@ class Tiposaida extends CI_Controller {
             "codEmpresa" => $_SESSION["empresa"]->codEmpresa
         );
 
-        $this->db->insert("categoriaentrada", $parametros);
-        $_SESSION["msg_ok"] = "Tipo de Entrada Cadastrado com sucesso";
-        redirect(base_url("index.php/tipoentrada/"));
+        $this->db->insert("categoriasaida", $parametros);
+        $_SESSION["msg_ok"] = "Tipo de Saída Cadastrado com sucesso";
+        redirect(base_url("index.php/tiposaida/"));
 
     }
 

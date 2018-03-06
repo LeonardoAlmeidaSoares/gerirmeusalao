@@ -79,6 +79,42 @@ $(function () {
 
     });
 
+    $("#click-link-todos-clientes")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/cliente/";
+    });
+
+    $("#click-link-agenda-hoje")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/agenda/listagemHoje";
+    });
+
+    $("#click-link-aniversariantes")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/cliente/aniversariantes";
+    });
+
+    $("#click-link-lembretes-hoje")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/lembrete/listagemHoje";
+    });
+
+    $("#click-link-vencendo-hoje")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/contasPagar/vencendoHoje";
+    });
+
+    $("#click-link-recebendo-hoje")
+        .css("cursor", "pointer")
+        .on("click", function(){
+            location.href="index.php/contasReceber/vencendoHoje";
+    });
+
     // Create the chart
     Highcharts.chart('graf1', {
         chart: {

@@ -9,7 +9,7 @@ class Model_funcionarios extends CI_Model {
         return $this->db->select("f.nome, c.descricao as cargo, f.telefone, f.codFuncionario, f.imagem")
                         ->from("funcionario f")
                         ->join("cargo c", "c.codCargo = f.codCargo")
-                        ->where("codEmpresa", $codEmpresa)
+                        ->where("f.codEmpresa", $codEmpresa)
                         ->get();
     }
 

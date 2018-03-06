@@ -74,7 +74,7 @@
 
                                 <select id="txtCategoria" name="txtCategoria" class="form-control">
 
-                                    <option value="0" selected hidden>Selecione o Serviço Prestado</option>
+                                    <option value="0" selected hidden >Selecione o Serviço Prestado</option>
 
                                     <?php foreach($categorias->result() as $item){ ?>
 

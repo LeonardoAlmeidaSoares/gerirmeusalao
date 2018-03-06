@@ -54,6 +54,19 @@ class Lembrete extends CI_Controller {
 
     }
 
+    public function ListagemHoje() {
+        $parametrosListagem = array(
+            "lembretes" => $this->lemb->getLembretes($_SESSION["empresa"]->codEmpresa)
+        );
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('lembrete/listagem_lembretes_hoje', $parametrosListagem);
+        $this->load->view('inc/footer');
+        
+    }
+
     public function getLembrete(){
 
         $cod = intval(trim(filter_input(INPUT_POST, "codLembrete")));

@@ -1,6 +1,4 @@
-<?php
-
-if (!defined('BASEPATH'))
+<?php if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Model_caixa extends CI_Model {
