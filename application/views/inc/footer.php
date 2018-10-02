@@ -1,5 +1,9 @@
-<footer class="footer text-center"> 2018 &copy; Sistema de Salão 
-	<!--img src="<?= base_url("assets/img/logoMotivando.jpeg");?>" class="img-responsive" style="width: 15%;" /-->
+<footer class="footer text-center"> 2018 &copy; Gerir Meu Salão
+	<center>
+        <a target="_blank" href="http://www.lpsistemas.info">
+            <!--img src="<?= base_url("assets/img/identidade.png");?>" class="img-responsive" style="width: 48px;" /-->
+        </a>
+    </center>
 </footer>
 		
 </div>

@@ -92,7 +92,7 @@ class Cliente extends CI_Controller {
             "estados" => $this->db->get_where("estado"),
             "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
             "dados" => $this->cliente->getCliente($codCliente)->row(0),
-            "servicosprestados" => $this->cliente->getServicosPrestados($codCliente, $_SESSION["empresa"]->odEmpresa)
+            "servicosprestados" => $this->cliente->getServicosPrestados($codCliente, $_SESSION["empresa"]->codEmpresa)
         );
 
         $this->load->view('inc/header');
