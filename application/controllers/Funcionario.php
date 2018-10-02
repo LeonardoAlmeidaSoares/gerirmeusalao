@@ -128,7 +128,7 @@ class Funcionario extends CI_Controller {
         $parametrosCadastro = array(
             "estados" => $this->db->get_where("estado"),
             "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
-            "cargos" => $this->cargos->getCargos(),
+            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codCidade)),
             "codProcesso" => $cod,
             "dados" => $this->db->get_where("funcionario", array("codFuncionario" => $cod))->row(0)
         );

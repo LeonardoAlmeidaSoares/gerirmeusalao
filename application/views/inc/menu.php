@@ -4,7 +4,7 @@
 
     <div class="sidebar-nav navbar-collapse">
 
-        <ul class="nav" id="side-menu">
+        <ul class="nav" id="side-menu" style="background: url('<?= base_url("assets/img/fundo_selecionado.jpg");?>');">
 
             <li class="sidebar-search hidden-sm hidden-md hidden-lg">
                 <!-- input-group -->
@@ -177,3 +177,26 @@
 </div>
 
 <!-- Left navbar-header end -->
+
+<style>
+  ::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+    background-color:#F5F5F5 ;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #01c0c8; 
+    background-image: -webkit-linear-gradient(45deg,
+                                              transparent 35%,
+                                              rgba(0, 0, 0, .2) 25%,
+                                              transparent 70%t)
+}
+</style>

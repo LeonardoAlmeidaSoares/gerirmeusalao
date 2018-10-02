@@ -1,4 +1,4 @@
-<?php $codBorda = array("rgba(0,255,0,0.4)", "rgba(255,0,0,0.4)", "rgba(0,0,255,0.4)"); ?> 
+<?php $codBorda = array("rgba(1, 192, 200, 0.4)", "rgba(255,0,0,0.4)", "rgba(0,0,255,0.4)"); ?> 
 
 <!-- Page Content -->
 
@@ -16,7 +16,9 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" title="Fluxo de Caixa" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa</a>
+                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
+                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
+                </a>
 
                 <ol class="breadcrumb">
 
@@ -324,7 +326,7 @@
 
                     <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4" id="divFunc<?= $item->codFuncionario; ?>">
 
-                        <div class="white-box" style="border-width:5px; border-style:groove; border-radius: 10px; border-color: <?= $codBorda[$item->status]; ?>">
+                        <div class="white-box" style="background: url('<?= base_url("assets/img/fundo_selecionado2.jpg");?>');border-width:5px; border-style:groove; border-radius: 10px; border-color: <?= $codBorda[$item->status]; ?>">
 
                             <div class="row">
 
@@ -378,7 +380,7 @@
 
                                     <abbr title="Phone">Tel:</abbr> 
 
-                                    <?= $item->telefone; ?>
+                                        <?= $item->telefone; ?>
 
                                     <p></p>
 

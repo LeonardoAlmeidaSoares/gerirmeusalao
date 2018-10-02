@@ -29,12 +29,12 @@ if (!defined('BASEPATH'))
         return $this->db->get_where("cidade", array("codEstado" => $ret->row(0)->codEstado));
 
     }
-
+	/*
     public function getEstado($codCidade){
 
         $estado = $this->db->get_where("")
 
     }
-        
+   */     
 
 }

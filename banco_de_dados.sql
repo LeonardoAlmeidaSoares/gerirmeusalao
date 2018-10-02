@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `gerirmeusalao_homologacao` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `gerirmeusalao_homologacao`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: gerirmeusalao
+-- Host: 127.0.0.1    Database: gerirmeusalao_homologacao
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.22-MariaDB
+-- Server version	5.5.5-10.1.30-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,14 +18,75 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `caixa`
+--
+
+DROP TABLE IF EXISTS `caixa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `caixa` (
+  `codEmpresa` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `valorInicio` double NOT NULL,
+  `valorFinal` double NOT NULL,
+  `codUsuarioInicio` int(11) NOT NULL,
+  `codUsuarioFinal` int(11) NOT NULL,
+  `HorarioInicio` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `HorarioFinal` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`codEmpresa`,`data`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `caixa`
+--
+
+LOCK TABLES `caixa` WRITE;
+/*!40000 ALTER TABLE `caixa` DISABLE KEYS */;
+INSERT INTO `caixa` VALUES (1,'2018-01-30',0,20,1,1,'2018-01-30 18:53:46','2018-01-30 23:00:00');
+/*!40000 ALTER TABLE `caixa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cargo`
+--
+
+DROP TABLE IF EXISTS `cargo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cargo` (
+  `codCargo` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codCargo`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `cargo`
 --
 
 LOCK TABLES `cargo` WRITE;
 /*!40000 ALTER TABLE `cargo` DISABLE KEYS */;
-INSERT INTO `cargo` VALUES (1,'Cabeleireiro(a)'),(2,'Massagista'),(3,'Manicure'),(4,'Pedicure'),(5,'Depiladora'),(6,'Maquiador(a)');
+INSERT INTO `cargo` VALUES (1,'Cabeleireiro(a)',1),(2,'Massagista',1),(3,'Manicure',1),(4,'Pedicure',1),(5,'Depiladora',1),(6,'Maquiador(a)',1),(7,'Teste',1);
 /*!40000 ALTER TABLE `cargo` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `categoriaentrada`
+--
+
+DROP TABLE IF EXISTS `categoriaentrada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categoriaentrada` (
+  `codCategoriaEntrada` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codCategoriaEntrada`),
+  KEY `fk_categoriaEntrada_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categoriaentrada`
@@ -31,9 +94,26 @@ UNLOCK TABLES;
 
 LOCK TABLES `categoriaentrada` WRITE;
 /*!40000 ALTER TABLE `categoriaentrada` DISABLE KEYS */;
-INSERT INTO `categoriaentrada` VALUES (1,'Serviço Prestado',1);
+INSERT INTO `categoriaentrada` VALUES (1,'Serviço Prestado',1),(2,'Venda Realizada',1),(3,'Teste',1);
 /*!40000 ALTER TABLE `categoriaentrada` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `categoriasaida`
+--
+
+DROP TABLE IF EXISTS `categoriasaida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categoriasaida` (
+  `codcategoriaSaida` int(11) NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codcategoriaSaida`),
+  KEY `fk_categoriaSaida_empresa1_idx` (`codEmpresa`),
+  KEY `codcategoriaSaida` (`codcategoriaSaida`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categoriasaida`
@@ -41,9 +121,26 @@ UNLOCK TABLES;
 
 LOCK TABLES `categoriasaida` WRITE;
 /*!40000 ALTER TABLE `categoriasaida` DISABLE KEYS */;
-INSERT INTO `categoriasaida` VALUES (1,'Pagamento de Salário',1),(2,'Compra de Produtos Para Serviço',1),(3,'Vale',1);
+INSERT INTO `categoriasaida` VALUES (1,'Pagamento de Salário',1),(2,'Compra de Produtos Para Serviço',1),(3,'Vale',1),(0,'Teste',1);
 /*!40000 ALTER TABLE `categoriasaida` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `cidade`
+--
+
+DROP TABLE IF EXISTS `cidade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cidade` (
+  `codCidade` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) DEFAULT NULL,
+  `codEstado` int(11) NOT NULL,
+  `capital` int(11) DEFAULT NULL,
+  PRIMARY KEY (`codCidade`),
+  KEY `fk_cidade_estado1_idx` (`codEstado`)
+) ENGINE=MyISAM AUTO_INCREMENT=9715 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cidade`
@@ -56,14 +153,141 @@ INSERT INTO `cidade` VALUES (1,'Acrelandia',1,0),(2,'Assis Brasil',1,0),(3,'Bras
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cliente`
+--
+
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cliente` (
+  `codCliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `nascimento` varchar(10) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `CEP` varchar(9) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `telefone` varchar(16) DEFAULT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `codCidade` int(11) NOT NULL,
+  `sexo` varchar(10) NOT NULL DEFAULT 'FEMININO',
+  PRIMARY KEY (`codCliente`),
+  KEY `fk_cliente_empresa_idx` (`codEmpresa`),
+  KEY `fk_cliente_cidade1_idx` (`codCidade`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (29,'Cliente de Teste 1','cliente1@teste.com','2000-03-06','/assets/upload/12112300_990482951012268_245514152134130403_n2018-01-16_030328282323.jpg','017.455.879-56','36895-228','Rua de Teste','55','teste',NULL,'(32) 9 9861-8682',1,3402,'FEMININO'),(30,'Cliente de Testes','mail@gmail.com','2001-02-01','/assets/upload/12112300_990482951012268_245514152134130403_n2018-01-18_161637371515.jpg','079.412.563-63','36790-000','minha casa','44','teste',NULL,'(32) 3 4269-9497',1,3402,'FEMININO'),(0,'Cliente Inválido',NULL,NULL,NULL,'0000000000',NULL,NULL,NULL,NULL,NULL,NULL,1,1,'FEMININO');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `compromisso`
+--
+
+DROP TABLE IF EXISTS `compromisso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `compromisso` (
+  `codCompromisso` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(255) NOT NULL DEFAULT '',
+  `horario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `codServico` int(11) NOT NULL DEFAULT '0',
+  `codFuncionario` int(11) NOT NULL DEFAULT '0',
+  `codEmpresa` int(11) NOT NULL DEFAULT '0',
+  `codCliente` int(11) NOT NULL DEFAULT '0',
+  `diaInteiro` int(11) DEFAULT NULL,
+  `dataFim` timestamp NULL DEFAULT NULL,
+  `valor` double NOT NULL,
+  `avisoEnviado` tinyint(4) NOT NULL DEFAULT '1',
+  `resumo` text NOT NULL,
+  PRIMARY KEY (`codCompromisso`),
+  KEY `fk_compromisso_servico1_idx` (`codServico`),
+  KEY `fk_compromisso_funcionario1_idx` (`codFuncionario`),
+  KEY `fk_compromisso_empresa1_idx` (`codEmpresa`),
+  KEY `fk_compromisso_cliente1_idx` (`codCliente`)
+) ENGINE=MyISAM AUTO_INCREMENT=215 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `compromisso`
+--
+
+LOCK TABLES `compromisso` WRITE;
+/*!40000 ALTER TABLE `compromisso` DISABLE KEYS */;
+INSERT INTO `compromisso` VALUES (206,'Cabeleireiro para Cliente de Testes','2018-01-27 08:00:00',2,35,23,1,30,NULL,'2018-01-27 08:15:00',45,1,'<b>REALIZOU: </b><br>Cabeleireiro'),(207,'Cabeleireiro para Cliente de Teste 1','2018-01-27 08:00:00',2,35,23,1,29,NULL,'2018-01-27 08:15:00',45,1,'<b>REALIZOU: </b><br>Cabeleireiro'),(208,'Cabeleireiro para Cliente de Teste 1','2018-02-27 19:30:00',2,35,23,1,29,NULL,'2018-02-27 19:45:00',50,1,'<b>REALIZOU: </b><br>Cabeleireiro'),(211,'','2018-02-27 20:00:00',2,35,23,1,0,NULL,'2018-02-27 20:15:00',50,1,''),(210,'Serviço sem agenda','2018-02-27 19:00:00',2,35,23,1,0,NULL,'2018-02-27 19:15:00',50,1,''),(212,'Cabeleireiro para Matildete','2018-02-27 21:00:00',1,35,23,1,0,NULL,'2018-02-27 21:15:00',50,1,'<b>REALIZOU: </b><br>Cabeleireiro'),(213,'Cabeleireiro para Cliente de Testes','2018-03-06 18:00:00',2,35,23,1,30,NULL,'2018-03-06 18:15:00',50,1,'<b>REALIZOU: </b><br>Cabeleireiro'),(214,'Cabeleireiro para Cliente de Teste 1','2018-03-07 22:00:00',2,35,23,1,29,NULL,'2018-03-07 22:15:00',50,1,'<b>REALIZOU: </b><br>Cabeleireiro');
+/*!40000 ALTER TABLE `compromisso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empresa`
+--
+
+DROP TABLE IF EXISTS `empresa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `empresa` (
+  `codEmpresa` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `favicon` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `cnpj` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `cep` char(9) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `telefone` varchar(16) DEFAULT NULL,
+  `contato` varchar(45) DEFAULT NULL,
+  `codCidade` int(11) NOT NULL,
+  `codEstado` int(11) DEFAULT NULL,
+  `email` varchar(45) NOT NULL,
+  `facebook` varchar(75) NOT NULL,
+  `instagram` varchar(45) NOT NULL,
+  `twitter` varchar(45) NOT NULL,
+  `googleplus` varchar(120) NOT NULL,
+  PRIMARY KEY (`codEmpresa`),
+  KEY `fk_empresa_cidade1_idx` (`codCidade`),
+  KEY `fk_empresa_estado1_idx` (`codEstado`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `empresa`
 --
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
-INSERT INTO `empresa` VALUES (1,'Belissima - Salão de Beleza','http://www.salaodasmeninas.com.br/wp-content/uploads/2017/02/Favicon-Sal%C3%A3o-das-meninas.png',1,NULL,NULL,NULL,NULL,NULL,NULL,'http://3.bp.blogspot.com/--ciXd2VUxIk/TnIHQGP1r8I/AAAAAAAAAAU/J8JwCelytIg/s1600/logo.png',NULL,NULL,3402,11),(2,'Mel Andrade e equipe',NULL,1,'55.204.955/0001-52','Av. JK','585','Loja 2','Centro','36880000',NULL,NULL,NULL,3402,11);
+INSERT INTO `empresa` VALUES (1,'Belissima - Salão de Beleza','http://www.salaodasmeninas.com.br/wp-content/uploads/2017/02/Favicon-Sal%C3%A3o-das-meninas.png',1,'93.814.053/0001-27','Rua dos Democratas','44','Segundo Andar','São Pedro','36880-000','http://3.bp.blogspot.com/--ciXd2VUxIk/TnIHQGP1r8I/AAAAAAAAAAU/J8JwCelytIg/s1600/logo.png','(32) 9 9119-4038',NULL,3402,11,'salaobelissima@gmail.com.br','','','','');
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `estado`
+--
+
+DROP TABLE IF EXISTS `estado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `estado` (
+  `codEstado` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL,
+  `uf` char(2) NOT NULL,
+  PRIMARY KEY (`codEstado`)
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `estado`
@@ -76,11 +300,498 @@ INSERT INTO `estado` VALUES (1,'Acre','AC'),(2,'Alagoas','AL'),(3,'Amazonas','AM
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'gerirmeusalao'
+-- Table structure for table `funcionario`
+--
+
+DROP TABLE IF EXISTS `funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `funcionario` (
+  `codFuncionario` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `telefone` varchar(17) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `comissaoDinheiro` double NOT NULL,
+  `comissaoCartao` double NOT NULL,
+  `imagem` varchar(255) NOT NULL,
+  `codCargo` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `nascimento` date NOT NULL,
+  `sexo` varchar(10) NOT NULL,
+  `salario` double NOT NULL,
+  PRIMARY KEY (`codFuncionario`),
+  KEY `fk_funcionario_empresa1_idx` (`codEmpresa`),
+  KEY `fk_funcionario_cargo1_idx` (`codCargo`)
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `funcionario`
+--
+
+LOCK TABLES `funcionario` WRITE;
+/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+INSERT INTO `funcionario` VALUES (23,'Funcionario','(22) 9 2222-5555','teste@teste.com.br',20,20,'http://localhost/gerirmeusalao/assets/img/client_male.png',1,1,'1985-11-15','FEMININO',150);
+/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `itemvenda`
+--
+
+DROP TABLE IF EXISTS `itemvenda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `itemvenda` (
+  `codProduto` int(11) NOT NULL,
+  `codVenda` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `precoUnitario` double NOT NULL,
+  PRIMARY KEY (`codProduto`,`codVenda`),
+  KEY `fk_produto_has_venda_venda1_idx` (`codVenda`),
+  KEY `fk_produto_has_venda_produto1_idx` (`codProduto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `itemvenda`
+--
+
+LOCK TABLES `itemvenda` WRITE;
+/*!40000 ALTER TABLE `itemvenda` DISABLE KEYS */;
+INSERT INTO `itemvenda` VALUES (9,12,2,60),(9,11,1,60),(9,10,6,60),(9,9,1,60),(9,8,1,60);
+/*!40000 ALTER TABLE `itemvenda` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `TRIGGER_REMOVE_PRODUTO` BEFORE INSERT ON `itemvenda` FOR EACH ROW update produto set estoque = estoque - new.quantidade where codProduto = new.codProduto */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `lembrete`
+--
+
+DROP TABLE IF EXISTS `lembrete`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lembrete` (
+  `codLembrete` int(11) NOT NULL AUTO_INCREMENT,
+  `codEmpresa` int(11) NOT NULL,
+  `mensagem` text NOT NULL,
+  `dataLeitura` date NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `titulo` varchar(75) NOT NULL,
+  PRIMARY KEY (`codLembrete`),
+  KEY `FK_Empresa_lembrete_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lembrete`
+--
+
+LOCK TABLES `lembrete` WRITE;
+/*!40000 ALTER TABLE `lembrete` DISABLE KEYS */;
+INSERT INTO `lembrete` VALUES (1,1,'Esse é um lembrete de teste','2018-01-23',0,'Lembrete de Teste'),(2,1,'Outro Teste','2018-01-23',1,'Teste'),(3,1,'Mais um test','2018-01-24',0,'Outro Teste'),(4,1,'Hoje vence a conta de código 11','2018-02-02',0,'Lembrete de Pagamento'),(5,1,'Hoje vence a conta de código 12','2018-02-02',0,'Lembrete de Pagamento');
+/*!40000 ALTER TABLE `lembrete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `movimentacaofinanceira`
+--
+
+DROP TABLE IF EXISTS `movimentacaofinanceira`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `movimentacaofinanceira` (
+  `codMovimentacao` int(11) NOT NULL AUTO_INCREMENT,
+  `tipoMovimentacao` enum('ENT','SAI') NOT NULL,
+  `valor` double NOT NULL,
+  `codUsuario` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `horario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comentario` text NOT NULL,
+  PRIMARY KEY (`codMovimentacao`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `movimentacaofinanceira`
+--
+
+LOCK TABLES `movimentacaofinanceira` WRITE;
+/*!40000 ALTER TABLE `movimentacaofinanceira` DISABLE KEYS */;
+INSERT INTO `movimentacaofinanceira` VALUES (8,'ENT',45,1,1,'2018-01-24 23:46:18','Gerado a partir da compra 32'),(9,'ENT',60,1,1,'2018-01-25 19:13:16','Gerado a partir da compra 38'),(10,'ENT',0,1,1,'2018-01-27 07:24:45','Gerado a partir da compra 41'),(11,'ENT',45,1,1,'2018-01-27 07:33:08','Gerado a partir da compra 39'),(12,'ENT',45,1,1,'2018-01-27 07:33:30','Gerado a partir da compra 40'),(13,'ENT',60,1,1,'2018-01-27 07:43:38','Gerado a partir da compra 43'),(14,'SAI',10,1,1,'2018-01-31 21:17:23','<p>teste</p>'),(15,'SAI',200,1,1,'2018-01-31 21:24:21','<p>teste</p>'),(16,'ENT',120,1,1,'2018-03-02 23:44:08','Gerado a partir da compra 49');
+/*!40000 ALTER TABLE `movimentacaofinanceira` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notaentrada`
+--
+
+DROP TABLE IF EXISTS `notaentrada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notaentrada` (
+  `codNotaEntrada` int(11) NOT NULL AUTO_INCREMENT,
+  `valor` double NOT NULL,
+  `status` int(11) NOT NULL,
+  `discriminacao` text NOT NULL,
+  `dataCriacao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dataVencimento` datetime NOT NULL,
+  `codCliente` int(11) DEFAULT NULL,
+  `codCategoriaEntrada` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `datapagto` timestamp NULL DEFAULT NULL,
+  `codCompromisso` int(11) DEFAULT NULL,
+  `codVenda` int(11) NOT NULL,
+  `formaPagto` varchar(45) DEFAULT 'DINHEIRO',
+  PRIMARY KEY (`codNotaEntrada`),
+  KEY `fk_notaEntrada_categoriaEntrada1_idx` (`codCategoriaEntrada`),
+  KEY `fk_notaEntrada_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notaentrada`
+--
+
+LOCK TABLES `notaentrada` WRITE;
+/*!40000 ALTER TABLE `notaentrada` DISABLE KEYS */;
+INSERT INTO `notaentrada` VALUES (42,0,0,'Relativo a venda [10]','2018-01-27 02:36:27','2018-01-27 00:00:00',29,2,1,NULL,0,10,''),(41,0,1,'Relativo a venda [9]','2018-01-27 02:09:52','2018-01-27 00:00:00',29,2,1,'2018-01-27 07:24:00',0,9,'DINHEIRO'),(40,45,1,'Valor Referente a Serviço de Código [207]','2018-01-27 02:02:52','2018-01-27 06:15:00',29,1,1,'2018-01-27 07:33:00',207,0,'DINHEIRO'),(39,45,1,'Valor Referente a Serviço de Código [206]','2018-01-27 02:01:29','2018-01-27 06:15:00',30,1,1,'2018-01-27 07:33:00',206,0,'DINHEIRO'),(38,60,1,'Relativo a venda [8]','2018-01-25 14:04:40','2018-01-25 00:00:00',29,2,1,'2018-01-25 19:13:00',0,8,'DINHEIRO'),(43,60,1,'Relativo a venda [11]','2018-01-27 02:43:29','2018-01-27 00:00:00',29,2,1,'2018-01-27 07:43:00',0,11,'DINHEIRO'),(44,50,0,'Valor Referente a Serviço de Código [208]','2018-02-27 13:39:55','2018-02-27 16:45:00',29,1,1,NULL,208,0,'DINHEIRO'),(45,50,0,'Valor Referente a Serviço de Código [209]','2018-02-27 15:07:36','2018-02-27 16:15:00',0,1,1,NULL,209,0,'DINHEIRO'),(46,50,0,'Valor Referente a Serviço de Código [210]','2018-02-27 15:09:49','2018-02-27 16:15:00',0,1,1,NULL,210,0,'DINHEIRO'),(47,50,0,'Valor Referente a Serviço de Código [211]','2018-02-27 15:13:52','2018-02-27 17:15:00',0,1,1,NULL,211,0,'DINHEIRO'),(48,50,0,'Valor Referente a Serviço de Código [212]','2018-02-27 15:17:57','2018-02-27 18:15:00',0,1,1,NULL,212,0,'DINHEIRO'),(49,120,1,'Relativo a venda [12]','2018-03-02 16:43:42','2018-03-02 00:00:00',29,2,1,'2018-03-02 23:44:00',0,12,'DINHEIRO'),(50,50,0,'Valor Referente a Serviço de Código [213]','2018-03-06 11:23:30','2018-03-06 15:15:00',30,1,1,NULL,213,0,'DINHEIRO'),(51,50,0,'Valor Referente a Serviço de Código [214]','2018-03-07 16:54:13','2018-03-07 19:15:00',29,1,1,NULL,214,0,'DINHEIRO');
+/*!40000 ALTER TABLE `notaentrada` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notasaida`
+--
+
+DROP TABLE IF EXISTS `notasaida`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notasaida` (
+  `codNotaSaida` int(11) NOT NULL AUTO_INCREMENT,
+  `valor` double NOT NULL,
+  `status` int(11) NOT NULL,
+  `discriminacao` text NOT NULL,
+  `dataCriacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dataVencimento` timestamp NULL DEFAULT NULL,
+  `dataPagto` timestamp NULL DEFAULT NULL,
+  `codcategoriaSaida` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codNotaSaida`),
+  KEY `fk_notaSaida_categoriaSaida1_idx` (`codcategoriaSaida`),
+  KEY `fk_notaSaida_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notasaida`
+--
+
+LOCK TABLES `notasaida` WRITE;
+/*!40000 ALTER TABLE `notasaida` DISABLE KEYS */;
+INSERT INTO `notasaida` VALUES (11,200,1,'<p>teste</p>','2018-01-31 18:19:46','2018-02-02 02:00:00','2018-01-31 21:24:00',1,1),(10,10,1,'<p>teste</p>','2018-01-31 18:17:23','2018-02-04 02:00:00','2018-01-31 02:00:00',2,1),(12,44,0,'<p>teste</p>','2018-01-31 18:23:21','2018-02-02 02:00:00',NULL,1,1);
+/*!40000 ALTER TABLE `notasaida` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pagamento`
+--
+
+DROP TABLE IF EXISTS `pagamento`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pagamento` (
+  `codPagamento` int(11) NOT NULL AUTO_INCREMENT,
+  `parcela` char(5) NOT NULL,
+  `valor` double NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `dataVencimento` datetime NOT NULL,
+  `dataPagamento` timestamp NULL DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `codFormaPagto` int(11) DEFAULT NULL,
+  `codTransacao` int(11) DEFAULT NULL,
+  `comissaoParceiro` varchar(45) NOT NULL,
+  `valorComissao` double DEFAULT NULL,
+  `statusComissao` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`codPagamento`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pagamento`
+--
+
+LOCK TABLES `pagamento` WRITE;
+/*!40000 ALTER TABLE `pagamento` DISABLE KEYS */;
+INSERT INTO `pagamento` VALUES (1,'01/12',200,1,'2018-03-31 00:00:00',NULL,NULL,NULL,NULL,'',NULL,0);
+/*!40000 ALTER TABLE `pagamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissaousuario`
+--
+
+DROP TABLE IF EXISTS `permissaousuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permissaousuario` (
+  `codPermissaoUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `codUsuario` int(11) NOT NULL,
+  `perm_efetuarCadastro` int(11) NOT NULL DEFAULT '0',
+  `perm_efetuarAlteracao` int(11) NOT NULL DEFAULT '0',
+  `perm_cadastrarUsuario` int(11) NOT NULL DEFAULT '0',
+  `perm_alterarDadosEmpresa` int(11) NOT NULL DEFAULT '0',
+  `perm_verRelatorios` int(11) NOT NULL DEFAULT '0',
+  `perm_verNotas` int(11) NOT NULL DEFAULT '0',
+  `perm_marcarCompromissos` int(11) NOT NULL DEFAULT '0',
+  `perm_cadastrarFuncionario` int(11) NOT NULL DEFAULT '0',
+  `perm_cadastrarProdutosServicos` int(11) NOT NULL DEFAULT '0',
+  `perm_designarCompromisso` int(11) NOT NULL DEFAULT '0' COMMENT '0 => Ninguem/ 1=> Somente para si / 2 => Controle Total',
+  `perm_alterarPermissoes` int(11) NOT NULL,
+  `perm_cadastrarVenda` int(11) NOT NULL,
+  PRIMARY KEY (`codPermissaoUsuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissaousuario`
+--
+
+LOCK TABLES `permissaousuario` WRITE;
+/*!40000 ALTER TABLE `permissaousuario` DISABLE KEYS */;
+INSERT INTO `permissaousuario` VALUES (1,1,2,2,2,2,2,2,2,2,2,2,2,2),(11,15,2,2,2,2,2,2,2,2,2,0,2,0);
+/*!40000 ALTER TABLE `permissaousuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produto`
+--
+
+DROP TABLE IF EXISTS `produto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produto` (
+  `codProduto` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` text NOT NULL,
+  `valorCompra` double DEFAULT NULL,
+  `valorVenda` double NOT NULL,
+  `estoque` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codProduto`),
+  KEY `fk_produto_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produto`
+--
+
+LOCK TABLES `produto` WRITE;
+/*!40000 ALTER TABLE `produto` DISABLE KEYS */;
+INSERT INTO `produto` VALUES (9,'Produto de Teste',45,60,87,1);
+/*!40000 ALTER TABLE `produto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtoservico`
+--
+
+DROP TABLE IF EXISTS `produtoservico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produtoservico` (
+  `codServico` int(11) NOT NULL,
+  `codProduto` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  PRIMARY KEY (`codServico`,`codProduto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtoservico`
+--
+
+LOCK TABLES `produtoservico` WRITE;
+/*!40000 ALTER TABLE `produtoservico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produtoservico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servico`
+--
+
+DROP TABLE IF EXISTS `servico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servico` (
+  `codServico` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL,
+  `valorComum` double NOT NULL,
+  `valorPromocional` double NOT NULL,
+  `horariosEstimados` int(11) NOT NULL DEFAULT '1',
+  `tempoRemarcacao` int(11) DEFAULT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  PRIMARY KEY (`codServico`),
+  KEY `fk_servico_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servico`
+--
+
+LOCK TABLES `servico` WRITE;
+/*!40000 ALTER TABLE `servico` DISABLE KEYS */;
+INSERT INTO `servico` VALUES (35,'Cabeleireiro',50,45,1,NULL,1);
+/*!40000 ALTER TABLE `servico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servicoprestado`
+--
+
+DROP TABLE IF EXISTS `servicoprestado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `servicoprestado` (
+  `codFuncionario` int(11) NOT NULL,
+  `codCliente` int(11) NOT NULL,
+  `codServico` int(11) NOT NULL,
+  `horario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `codNotaEntrada` int(11) NOT NULL,
+  KEY `fk_servicoPrestado_funcionario1_idx` (`codFuncionario`),
+  KEY `fk_servicoPrestado_cliente1_idx` (`codCliente`),
+  KEY `fk_servicoPrestado_servico1_idx` (`codServico`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicoprestado`
+--
+
+LOCK TABLES `servicoprestado` WRITE;
+/*!40000 ALTER TABLE `servicoprestado` DISABLE KEYS */;
+INSERT INTO `servicoprestado` VALUES (23,30,35,'2018-01-27 08:00:00',39),(23,30,35,'2018-01-27 08:00:00',39),(23,29,35,'2018-01-27 08:00:00',40),(23,29,35,'2018-01-27 08:00:00',40),(23,0,35,'2018-02-27 19:00:00',46),(23,30,35,'2018-01-27 08:00:00',39),(23,0,35,'2018-02-27 20:00:00',47),(23,29,35,'2018-02-27 19:30:00',44),(23,29,35,'2018-02-27 19:30:00',44),(23,0,35,'2018-02-27 21:00:00',48),(23,29,35,'2018-02-27 19:30:00',44),(23,30,35,'2018-03-06 18:00:00',50),(23,30,35,'2018-03-06 18:00:00',50),(23,29,35,'2018-03-07 22:00:00',51);
+/*!40000 ALTER TABLE `servicoprestado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tipopermissao`
+--
+
+DROP TABLE IF EXISTS `tipopermissao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tipopermissao` (
+  `codTipoPermissao` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `perm_efetuarCadastro` int(11) NOT NULL,
+  `perm_efetuarAlteracao` int(11) NOT NULL,
+  `perm_cadastrarUsuario` int(11) NOT NULL,
+  `perm_alterarDadosEmpresa` int(11) NOT NULL,
+  `perm_verRelatorios` int(11) NOT NULL,
+  `perm_verNotas` int(11) NOT NULL,
+  `perm_marcarCompromissos` int(11) NOT NULL,
+  `perm_cadastrarFuncionario` int(11) NOT NULL DEFAULT '0',
+  `perm_cadastrarProdutosServicos` int(11) NOT NULL DEFAULT '0',
+  `perm_alterarPermissoes` int(11) NOT NULL,
+  `perm_cadastrarVenda` int(11) NOT NULL,
+  PRIMARY KEY (`codTipoPermissao`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipopermissao`
+--
+
+LOCK TABLES `tipopermissao` WRITE;
+/*!40000 ALTER TABLE `tipopermissao` DISABLE KEYS */;
+INSERT INTO `tipopermissao` VALUES (1,'Programador',2,2,2,2,2,2,2,2,2,2,0),(2,'Gerente',2,2,2,2,2,2,2,2,2,2,0),(3,'Atendente',2,2,2,2,2,2,2,2,2,2,0),(4,'Usuario',2,2,2,2,2,2,2,2,2,2,0);
+/*!40000 ALTER TABLE `tipopermissao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `codUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `email` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `status` int(11) NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `codPermissao` int(11) NOT NULL DEFAULT '1',
+  `alterarSenha` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`codUsuario`),
+  KEY `fk_usuario_empresa1_idx` (`codEmpresa`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'Leo Soares','leonardoalmeidasoares23@gmail.com','a31d08e164641e21ba9b892ffa6a3d57',1,1,'',1,0),(15,'Funcionario de Teste','teste@teste.com.br','3515d2f2540f4e0cdfc77ddd4455028f',1,1,'http://localhost/gerirmeusalao/assets/img/client_male.png',4,1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `venda`
+--
+
+DROP TABLE IF EXISTS `venda`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `venda` (
+  `codVenda` int(11) NOT NULL AUTO_INCREMENT,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `valor` double NOT NULL,
+  `codEmpresa` int(11) NOT NULL,
+  `codCliente` int(11) NOT NULL,
+  `codNotaEntrada` int(11) NOT NULL,
+  `resumoVenda` text NOT NULL,
+  PRIMARY KEY (`codVenda`),
+  KEY `fk_venda_empresa1_idx` (`codEmpresa`),
+  KEY `fk_venda_cliente1_idx` (`codCliente`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `venda`
+--
+
+LOCK TABLES `venda` WRITE;
+/*!40000 ALTER TABLE `venda` DISABLE KEYS */;
+INSERT INTO `venda` VALUES (8,'2018-01-25 16:04:40',60,1,29,38,''),(9,'2018-01-27 04:09:52',0,1,29,41,'<b>COMPRA DE:</b><br/>1 unidade(s)  de '),(10,'2018-01-27 04:36:27',0,1,29,42,'<b>COMPRA DE:</b><br/>6 unidade(s)  de Produto de Teste'),(11,'2018-01-27 04:43:29',60,1,29,43,'<b>COMPRA DE:</b><br/>1 unidade(s)  de Produto de Teste'),(12,'2018-03-02 19:43:42',120,1,29,49,'<b>COMPRA DE:</b><br/>2 unidade(s)  de Produto de Teste');
+/*!40000 ALTER TABLE `venda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'gerirmeusalao_homologacao'
 --
 
 --
--- Dumping routines for database 'gerirmeusalao'
+-- Dumping routines for database 'gerirmeusalao_homologacao'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -92,4 +803,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-15 15:44:57
+-- Dump completed on 2018-09-29 15:09:58

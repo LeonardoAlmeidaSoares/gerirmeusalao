@@ -12,19 +12,14 @@
 
     <section id="wrapper" class="login-register">
 
-        
-
         <div class="login-box login-sidebar">
 
-            <div class="white-box">
-
+            <div class="white-box" style="background-color: rgba(0,0,0,0.6);border: none;height: 100%;">
+                <a href="javascript:void(0)" class="text-center db">
+                    <img src="<?= base_url("assets/img/logo_h.png"); ?>" alt="Home" style="width: 100%;" />
+                </a>
+                
                 <form method="POST" class="form-horizontal form-material" id="loginform" action="<?= base_url("index.php/salao/login"); ?>">
-
-                    <a href="javascript:void(0)" class="text-center db">
-
-                        <img src="<?= base_url("assets/img/logo_h.png"); ?>" alt="Home" style="width: 100%;" />
-
-                    </a>
 
                     <?php if(isset($_SESSION["msg"])){ ?>
 
@@ -42,7 +37,7 @@
 
                         <div class="col-xs-12">
 
-                            <input class="form-control text-center" type="text" id="txtEmail" name="txtEmail" required="" placeholder="Email"> 
+                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5;" type="text" id="txtEmail" name="txtEmail" required="" placeholder="Email"> 
 
                         </div>
 
@@ -52,7 +47,7 @@
 
                         <div class="col-xs-12">
 
-                            <input class="form-control text-center" name="txtSenha" id="txtSenha" type="password" required="" placeholder="Senha"> 
+                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5;" name="txtSenha" id="txtSenha" type="password" required="" placeholder="Senha"> 
 
                         </div>
 
@@ -62,17 +57,17 @@
 
                         <div class="col-md-12">
 
+
+
                             <div class="checkbox checkbox-primary pull-left p-t-0">
 
                                 <input id="checkbox-signup" type="checkbox">
 
-                                <label for="checkbox-signup"> Lembrar de mim </label>
+                                <label for="checkbox-signup" style="color: #fff;font-family: 'Poppins',sans-serif;"> Lembrar de mim </label>
 
                             </div> 
 
-                            <a href="javascript:void(0)" id="to-recover" 
-
-                               class="text-dark pull-right">
+                            <a href="javascript:void(0)" id="to-recover" style="color: #fff !important;" class="text-dark pull-right">
 
                                 <i class="fa fa-lock m-r-5"></i> 
 
@@ -122,15 +117,15 @@
 
                 </form>
 
-                <form class="form-horizontal" id="recoverform" action="index.html">
+                <form class="form-horizontal" id="recoverform" action="<?= base_url("index.php/usuario/recuperarSenha");?>">
 
                     <div class="form-group ">
 
                         <div class="col-xs-12">
+                            <br>
+                            <h3 class="text-center" style="color: #fff;font-weight: bold;">Recuperar Senha</h3>
 
-                            <h3>Recover Password</h3>
-
-                            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+                            <p class="text-muted text-center" style="color: #FFF !important;">Diga-nos seu email e enviaremos para voce </p>
 
                         </div>
 
@@ -140,17 +135,19 @@
 
                         <div class="col-xs-12">
 
-                            <input class="form-control" type="text" required="" placeholder="Email"> </div>
+                            <input class="form-control" type="text" required placeholder="Digite Seu Email"> 
+                        </div>
 
                     </div>
 
                     <div class="form-group text-center m-t-20">
 
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
 
-                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">ENVIAR</button>
 
                         </div>
+
 
                     </div>
 
@@ -177,4 +174,3 @@
     <!-- Custom Theme JavaScript -->
 
     <script src="<?= base_url("assets/js/custom.min.js"); ?>"></script>
-

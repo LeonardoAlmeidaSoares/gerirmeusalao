@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <?php $nome = isset($_SESSION["empresa"]) ? $_SESSION["empresa"]->nome : NOME_DO_SISTEMA;?>
-    <?php $fav = isset($_SESSION["empresa"]) ? $_SESSION["empresa"]->favicon : FAV_DEFAULT;?>    
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?= $fav; ?>">
+        <meta name="author" content="PL Sitemas">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(FAV_DEFAULT); ?>">
         <title><?= $nome; ?></title>
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url("assets/bootstrap/dist/css/bootstrap.min.css"); ?>" rel="stylesheet">
