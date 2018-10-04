@@ -1,6 +1,6 @@
 <?php $perm = $_SESSION["permissoes"];?> 
 <!-- Left navbar-header -->
-    <div class="navbar-default sidebar hidden-print" role="navigation" style="overflow: scroll;">
+    <div class="navbar-default sidebar hidden-print" role="navigation" style="overflow: scroll; z-index:9999; margin:0px; padding:0px;">
 
     <div class="sidebar-nav navbar-collapse">
 
@@ -15,6 +15,17 @@
                 </div>
                 <!-- /input-group -->
             </li>
+			<li>
+			 <div class="circle">
+
+                    <a class="logo hidden-xs" href="<?= base_url();?>" >
+
+                        <img src="<?= $_SESSION["empresa"]->logo;?>" alt="home" />
+
+                    </a>
+
+                </div>
+			</li>
             <li class="user-pro">
                 <a href="#" class="waves-effect">
                     <img src="<?= (!empty($_SESSION["usuario"]->imagem)) 
@@ -73,20 +84,20 @@
             </li>
             <?php } ?>
             <?php if(intval($perm->perm_verNotas) > 0){ ?>
-            <li> 
+            <!--li> 
                 <a href="<?= base_url("index.php/ContasReceber/"); ?>" class="waves-effect">
                     <i class="icon-credit-card p-r-10"></i> 
                     <span class="hide-menu">Contas a Receber </span>
                 </a> 
-            </li>
+            </li-->
             <?php } ?>
             <?php if(intval($perm->perm_verNotas) > 0){ ?>
-            <li> 
+            <!--li> 
                 <a href="<?= base_url("index.php/ContasPagar/"); ?>" class="waves-effect">
                     <i class="icon-credit-card p-r-10"></i> 
                     <span class="hide-menu"> Contas a Pagar</span>
                 </a> 
-            </li>
+            </li-->
             <?php } ?>
             <?php if(intval($perm->perm_cadastrarProdutosServicos) > 0){ ?>
             <li> 
@@ -106,12 +117,12 @@
             
             <?php } ?>
             <?php if(intval($perm->perm_alterarPermissoes) > 0){ ?>
-            <li> 
+            <!--li> 
                 <a href="<?= base_url("index.php/Permissao/"); ?>" class="waves-effect">
                     <i class="icon-pin p-r-10"></i> 
                     <span class="hide-menu"> Permissões</span>
                 </a> 
-            </li>
+            </li-->
             <?php } ?>
             
             <?php if(intval($perm->perm_marcarCompromissos) > 0){ ?>
@@ -129,7 +140,7 @@
                 </a> 
             </li>
 
-            <li class="nav-small-cap"> Outros Cadastros</li>
+            <li class="nav-small-cap">--- Outros Cadastros</li>
             <?php if(intval($perm->perm_efetuarCadastro) > 0){ ?>
             <li> 
                 <a href="<?= base_url("index.php/Cargo/"); ?>" class="waves-effect">
@@ -139,20 +150,20 @@
             </li>
             <?php } ?>
             <?php if(intval($perm->perm_efetuarCadastro) > 0){ ?>
-            <li> 
+            <!--li> 
                 <a href="<?= base_url("index.php/tipoentrada/"); ?>" class="waves-effect">
                     <i class="icon-layers p-r-10"></i> 
                     <span class="hide-menu">Tipos de Entrada</span>
                 </a> 
-            </li>
+            </li-->
             <?php } ?>
             <?php if(intval($perm->perm_efetuarCadastro) > 0){ ?>
-            <li> 
+            <!--li> 
                 <a href="<?= base_url("index.php/tiposaida/"); ?>" class="waves-effect">
                     <i class="icon-layers p-r-10"></i> 
                     <span class="hide-menu">Tipos de Saída</span>
                 </a> 
-            </li>
+            </li-->
             <?php } ?>
             <!--li> 
                 <a href="#" class="waves-effect">

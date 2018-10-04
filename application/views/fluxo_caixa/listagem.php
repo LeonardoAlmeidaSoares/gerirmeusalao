@@ -87,13 +87,13 @@ function get_tipo_movimentacao($cod){
                     <div class="col-md-5 col-lg-3 col-sm-6 col-xs-12">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="bg-theme m-b-15" style="background-color: #03a9f3 !important;">
+                                <div class="bg-theme m-b-15" style="background-color: #429238 !important;">
                                     <div class="row p-20">
                                         <div class="col-md-12 col-xs-12">
                                             <h3>
                                                 <b class="text-white">Total de Entradas</b>
                                             </h3>
-                                            <sup style="float: right;"><?= date("d/m/Y");?></sup>
+                                            <sup style="float: right; color:#fff;"><?= date("d/m/Y");?></sup>
                                             <center>
                                             <h1 class="text-white">
                                                 <sup>
@@ -108,13 +108,13 @@ function get_tipo_movimentacao($cod){
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="bg-theme m-b-15">
+                                <div class="bg-theme m-b-15" style="background-color:#ff3535 !important;">
                                     <div class="row p-20">
                                         <div class="col-md-12 col-xs-12">
                                             <h3>
                                                 <b class="text-white">Total de Saídas</b>
                                             </h3>
-                                            <sup style="float: right;"><?= date("d/m/Y");?></sup>
+                                            <sup style="float: right; color:#fff;"><?= date("d/m/Y");?></sup>
                                             <center>
                                             <h1 class="text-white">
                                                 <sup>

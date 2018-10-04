@@ -17,7 +17,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 
                 <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
-                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
+                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa
                 </a>
 
                 <ol class="breadcrumb">
@@ -326,7 +326,7 @@
 
                     <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4" id="divFunc<?= $item->codFuncionario; ?>">
 
-                        <div class="white-box" style="background: url('<?= base_url("assets/img/fundo_selecionado2.jpg");?>');border-width:5px; border-style:groove; border-radius: 10px; border-color: <?= $codBorda[$item->status]; ?>">
+                        <div class="white-box" style="background: url('<?= base_url("assets/img/fundo_selecionado2.jpg");?>');border-width:3px; border-style:groove; border-radius: 10px; border-color: <?= $codBorda[$item->status]; ?>">
 
                             <div class="row">
 
@@ -334,7 +334,7 @@
 
                                     <a href="#">
 
-                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 110px;margin-top: 10px;" class="img-circle img-responsive">
+                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 75px; margin-top: 10px;" class="img-circle img-responsive">
 
                                     </a>
 
@@ -343,7 +343,6 @@
                                 <div class="col-md-8 col-sm-8">
 
                                     <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
-
                                     <small><?= $item->cargo; ?></small>
 
                                     <p></p>
@@ -356,7 +355,7 @@
 
                                             case 0:
 
-                                                echo "LIVRE";
+                                                echo "<span style='color:green;'>LIVRE";
 
                                                 break;
 

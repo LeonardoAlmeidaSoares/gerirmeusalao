@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-ERROR - 2018-10-02 01:17:41 --> Severity: error --> Exception: syntax error, unexpected '}' C:\xampp\htdocs\gerirmeusalao\application\models\Model_cidades.php 37
-ERROR - 2018-10-02 01:37:38 --> Severity: error --> Exception: Too few arguments to function Model_cargos::getCargos(), 0 passed in C:\xampp\htdocs\gerirmeusalao\application\controllers\Funcionario.php on line 131 and exactly 1 expected C:\xampp\htdocs\gerirmeusalao\application\models\Model_cargos.php 8
-ERROR - 2018-10-02 01:45:13 --> Severity: Notice --> Undefined property: stdClass::$odEmpresa C:\xampp\htdocs\gerirmeusalao\application\controllers\Cliente.php 95
+ERROR - 2018-10-02 00:25:20 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-10-02 00:25:20 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-10-02 00:25:20 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_entrada\listagem_categoria_entrada.php 59
+ERROR - 2018-10-02 00:25:42 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-10-02 00:25:42 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-10-02 00:25:42 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-10-02 00:25:42 --> Severity: Notice --> Undefined property: stdClass::$codCargo C:\wamp\www\gerirmeusalao\application\views\categoria_saida\listagem_categoria_saida.php 59
+ERROR - 2018-10-02 23:19:00 --> 404 Page Not Found: Usuario/recuperarSenha

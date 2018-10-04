@@ -73,7 +73,7 @@
 
                         <div class="form-group">
 
-                            <label class="col-md-12" for="txtValor">Valor Comum</label>
+                            <label class="col-md-12" for="txtValor">Valor</label>
 
                             <div class="col-md-12">
 
@@ -82,8 +82,10 @@
                             </div>
 
                         </div>
-
-                        <div class="form-group">
+                        
+                        <input value="0" type="hidden" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
+                        
+                        <!--div class="form-group">
 
                             <label class="col-md-12" for="txtValorP">Valor Promocional</label>
 
@@ -93,7 +95,7 @@
 
                             </div>
 
-                        </div>
+                        </div-->
 
                         
 

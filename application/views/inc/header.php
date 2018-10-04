@@ -17,7 +17,7 @@
         <!-- animation CSS -->
         <link href="<?= base_url("assets/css/animate.css"); ?>" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="<?= base_url("assets/css/style.min.css"); ?>" rel="stylesheet">
+        <link href="<?= base_url("assets/css/style.css"); ?>" rel="stylesheet">
         <!-- jQuery -->
         <script src="<?= base_url("assets/plugins/jquery/dist/jquery.min.js"); ?>"></script>
         <!-- color CSS -->

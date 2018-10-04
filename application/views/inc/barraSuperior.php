@@ -23,16 +23,6 @@
                     <i class="ti-menu"></i>
 
                 </a>
-                
-                <div class="top-left-part" style="text-align: center;">
-
-                    <a class="logo hidden-xs" href="<?= base_url();?>" >
-
-                        <img src="<?= $_SESSION["empresa"]->logo;?>" alt="home" style="width: 120px" />
-
-                    </a>
-
-                </div>
 
                 <ul class="nav navbar-top-links navbar-right pull-right">
 

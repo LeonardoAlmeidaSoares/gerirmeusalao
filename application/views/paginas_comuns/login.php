@@ -14,7 +14,7 @@
 
         <div class="login-box login-sidebar">
 
-            <div class="white-box" style="background-color: rgba(0,0,0,0.6);border: none;height: 100%;">
+            <div class="white-box" style="background-color: rgba(0,0,0,0.8);border: none;height: 100%;">
                 <a href="javascript:void(0)" class="text-center db">
                     <img src="<?= base_url("assets/img/logo_h.png"); ?>" alt="Home" style="width: 100%;" />
                 </a>
@@ -37,7 +37,7 @@
 
                         <div class="col-xs-12">
 
-                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5;" type="text" id="txtEmail" name="txtEmail" required="" placeholder="Email"> 
+                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5; color:#fff;" type="text" id="txtEmail" name="txtEmail" required="" placeholder="Email"> 
 
                         </div>
 
@@ -47,7 +47,7 @@
 
                         <div class="col-xs-12">
 
-                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5;" name="txtSenha" id="txtSenha" type="password" required="" placeholder="Senha"> 
+                            <input class="form-control text-center" style="border-bottom: 1px solid #A0DAF5; color:#fff;" name="txtSenha" id="txtSenha" type="password" required="" placeholder="Senha"> 
 
                         </div>
 
@@ -125,7 +125,7 @@
                             <br>
                             <h3 class="text-center" style="color: #fff;font-weight: bold;">Recuperar Senha</h3>
 
-                            <p class="text-muted text-center" style="color: #FFF !important;">Diga-nos seu email e enviaremos para voce </p>
+                            <p class="text-muted text-center" style="color: #FFF !important;">Diga-nos seu email e enviaremos para você!							</p>
 
                         </div>
 
@@ -144,10 +144,17 @@
 
                         <div class="col-xs-6">
 
-                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">ENVIAR</button>
+                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" style="background-color:#03a9f3; border-color:#03a9f3;" type="submit">ENVIAR</button>
+								
+								
+								<br><br>
+								<p>
+								<a href="javascript:void(0)" id="to-login" style="color: #fff !important;" class="text-dark pull-center">
+								Voltar</a>
+								</p>
+						</div>
 
-                        </div>
-
+				
 
                     </div>
 
@@ -173,4 +180,4 @@
 
     <!-- Custom Theme JavaScript -->
 
-    <script src="<?= base_url("assets/js/custom.min.js"); ?>"></script>
+    <script src="<?= base_url("assets/js/custom.js"); ?>"></script>

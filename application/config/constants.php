@@ -96,6 +96,9 @@ define("CAMINHO_IMAGEM_COLABORADOR_PADRAO","client_male.png");
 define("CAMINHO_IMAGEM_COLABORADOR_PADRAO_MULHER","client_male.png");
 define("NOME_DO_SISTEMA", "Gerir Meu Salão");
 define("FAV_DEFAULT", "assets/img/logo_icon.png");
+define('CAMINHO_IMAGENS_FUNCIONARIOS', dirname(dirname(dirname(__FILE__))) . "\assets\upload\colaboradores");
+define('CAMINHO_IMAGENS_CLIENTES', dirname(dirname(dirname(__FILE__))) . "\assets\upload\clientes");
+
 
 define("COD_PERMISSAO_ATENDENTE", 1 );
 define("COD_PERMISSAO_GERENTE", 2);

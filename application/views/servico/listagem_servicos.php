@@ -58,7 +58,7 @@
 
                                     <th>Valor</th>
 
-                                    <th>Valor Promocional</th>
+                                    <!--th>Valor Promocional</th-->
 
                                     <th>Ações</th>
 
@@ -78,7 +78,7 @@
 
                                     <td><?= "R$ " . number_format($item->valorComum, 2, ",",".");?></td>
 
-                                    <td><?= "R$ " . number_format($item->valorPromocional, 2, ",",".");?></td>
+                                    <!--td><?= "R$ " . number_format($item->valorPromocional, 2, ",",".");?></td-->
 
                                     <td>
 

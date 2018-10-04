@@ -36,13 +36,13 @@ class Servicos extends CI_Controller {
     
     public function realizar_cadastro(){
         
-        $parametrsInsercao = array(
+        $parametrosInsercao = array(
             "descricao" => trim(filter_input(INPUT_POST, "txtDescricao")),
             "valorComum" => doubleval(trim(filter_input(INPUT_POST, "txtValor"))),
             "valorPromocional" => doubleval(trim(filter_input(INPUT_POST, "txtValorP"))),
             //"estoque" => intval(trim(filter_input(INPUT_POST, "txtEstoque")))
         );
-        
+                
         $parametrosInsercao["codEmpresa"] = intval($_SESSION["empresa"]->codEmpresa);
         
         if(isset($_POST["txtCod"])){

@@ -43,6 +43,16 @@ class Cliente extends CI_Controller {
 
     public function realizar_cadastro() {
 
+        if(isset($_FILES["txtImagem"])){
+            $imagem = $_FILES["txtImagem"];
+            $arr_nome_imagem = explode(".", $imagem["name"]);
+            $nome_imagem = trim(uniqid() . "." . $arr_nome_imagem[count($arr_nome_imagem) - 1]);
+            $upload_name = CAMINHO_IMAGENS_CLIENTES . "\\" . $nome_imagem;
+        } else {
+            $arr_nome_imagem = [];
+            $nome_imagem = "";
+        }
+        
         $parametrosInsercao = array(
             "email" => trim(filter_input(INPUT_POST, "txtEmail"), FILTER_SANITIZE_EMAIL),
             "nascimento" => trim(filter_input(INPUT_POST, "txtNascimento")),
@@ -55,24 +65,23 @@ class Cliente extends CI_Controller {
             "bairro" => trim(filter_input(INPUT_POST, "txtBairro")),
             "logradouro" => trim(filter_input(INPUT_POST, "txtLogradouro")),
             "numero" => trim(filter_input(INPUT_POST, "txtNumero")),
-            "complemento" => trim(filter_input(INPUT_POST, "txtComplemento"))
+            "complemento" => trim(filter_input(INPUT_POST, "txtComplemento")),
+            "imagem" => "assets/upload/clientes/" . $nome_imagem
         );
         
-        if (!empty($_FILES['txtImagem']['name'])) {
-                $imagem = explode(".", $_FILES['txtImagem']['name']);
-                $comp = date('Y-m-d_HHiiss');
-                $nomecerto_cadastrar = "/assets/upload/" . $imagem[0] . $comp . '.' . $imagem[1];
-                $uploadfile = dirname(getcwd()) . "/assets/upload/" . $imagem[0] . $comp . '.' . $imagem[1];
-                move_uploaded_file($_FILES['txtImagem']['tmp_name'], $uploadfile);
+        
+        if (empty($parametrosInsercao["imagem"])) {
+            
+            $parametrosInsercao["imagem"] = ($parametrosInsercao["sexo"] == "MASCULINO")
+                    ? base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO)
+                    : base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER);
+            
         } else {
-            if($parametrosInsercao["sexo"] == "MASCULINO"){
-                $nomecerto_cadastrar = base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO);
-            }else{
-                $nomecerto_cadastrar = base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER);
+            if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
+                var_dump("Houve um erro ao subir a imagem"); exit;
             }
         }
-        
-        $parametrosInsercao["imagem"] = $nomecerto_cadastrar;
+                
         $parametrosInsercao["codEmpresa"] = intval($_SESSION["empresa"]->codEmpresa);
         $parametrosInsercao["nascimento"] = 
                 substr($parametrosInsercao["nascimento"],6,4) . "-" . 

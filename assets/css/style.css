@@ -461,6 +461,26 @@ hr {
   right: -6px;
   top: -10px;
 }
+
+.circle {
+  background-color: #fff;
+  border-radius: 50%;
+  border-width:3px;
+  max-width: 80%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.circle img {
+  position: relative;
+  bottom: 0;
+  top:25%;
+  width: 100%;
+}
+
 @-moz-keyframes heartbit {
   0% {
     -moz-transform: scale(0);
@@ -648,12 +668,15 @@ label {
 .btn {
   border-radius: 0px;
 }
+
+
+
 .form-control {
   background-color: #ffffff;
   border: 1px solid #e4e7ea;
   border-radius: 0px;
   box-shadow: none;
-  color: #565656;
+  color: #fff;
   height: 38px;
   max-width: 100%;
   padding: 7px 12px;
@@ -1196,8 +1219,8 @@ pre {
 }
 .btn-danger,
 .btn-danger.disabled {
-  background: #fb9678;
-  border: 1px solid #fb9678;
+  background: #f7722d;
+  border: 1px solid #f7722d;
 }
 .btn-danger:hover,
 .btn-danger.disabled:hover,
@@ -2152,8 +2175,8 @@ table.dataTable thead .sorting:after {
   height: 17px;
 }
 .checkbox-primary input[type="checkbox"]:checked + label::before {
-  background-color: #ab8ce4;
-  border-color: #ab8ce4;
+  background-color: #03a9f3;
+  border-color: #03a9f3;
 }
 .checkbox-primary input[type="checkbox"]:checked + label::after {
   color: #ffffff;
@@ -3700,6 +3723,7 @@ table.focus-on tbody tr.focused td {
   border-radius: 0;
   box-shadow: none;
   float: none;
+  color:#000;
 }
 .form-material .form-control.focus,
 .form-material .form-control:focus {
@@ -3872,12 +3896,11 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(../../plugins/images/login-register.jpg) no-repeat center center / cover !important;
+  background: url(../img/login-register.webp) no-repeat center center / cover !important;
   height: 100%;
   position: fixed;
 }
 .login-box {
-  background: #ffffff;
   width: 400px;
   margin: 0 auto;
   margin-top: 10%;

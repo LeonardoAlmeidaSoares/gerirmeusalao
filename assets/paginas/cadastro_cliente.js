@@ -4,7 +4,7 @@ $(function(){
     $("#txtCep").mask('00000-000');
     $("#txtTelefone").mask('(00) 0 0000-0000');
     $("#txtCpf").mask('000.000.000-00');
-
+    /*
     $("#txtCpf").on("blur", function(){
         if($("#txtCpf").val().length > 0){
             if(!(ValidaCPF($(this).val()))){
@@ -13,7 +13,7 @@ $(function(){
             }
         }
     });    
-
+    */
     /* Validação */
     $("#frmCad").validate({
         rules:{
