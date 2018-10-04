@@ -52,7 +52,7 @@ function getDataAniversario($data){
 
                     <div class="user-bg"> 
 
-                        <img width="100%" alt="user" src="<?= base_url("assets/img/$dados->imagem"); ?>"> 
+                        <img width="100%" alt="user" src="<?= base_url($dados->imagem); ?>"> 
 
                     </div>
 
