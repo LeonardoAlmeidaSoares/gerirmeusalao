@@ -54,3 +54,35 @@ ERROR - 2018-10-04 18:19:20 --> Severity: Notice --> Array to string conversion 
 ERROR - 2018-10-04 18:19:43 --> Severity: Warning --> move_uploaded_file(C:\xampp\htdocs\gerirmeusalao\assets\upload\colaboradores\assets/upload/colaboradores/5bb63d9f6618a.jpeg): failed to open stream: No such file or directory C:\xampp\htdocs\gerirmeusalao\application\controllers\Funcionario.php 81
 ERROR - 2018-10-04 18:19:43 --> Severity: Warning --> move_uploaded_file(): Unable to move 'C:\xampp\tmp\phpC297.tmp' to 'C:\xampp\htdocs\gerirmeusalao\assets\upload\colaboradores\assets/upload/colaboradores/5bb63d9f6618a.jpeg' C:\xampp\htdocs\gerirmeusalao\application\controllers\Funcionario.php 81
 ERROR - 2018-10-04 18:20:40 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\gerirmeusalao\system\libraries\Email.php 1890
+ERROR - 2018-10-04 20:22:34 --> Severity: Warning --> move_uploaded_file(C:\wamp\www\gerirmeusalao\assets\upload\clientes\5bb6768a0cf68.jpg): failed to open stream: No such file or directory C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 20:22:34 --> Severity: Warning --> move_uploaded_file(): Unable to move 'C:\wamp\tmp\phpA07.tmp' to 'C:\wamp\www\gerirmeusalao\assets\upload\clientes\5bb6768a0cf68.jpg' C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Undefined index: empresa C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 18
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 18
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Undefined index: permissoes C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 1
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Undefined index: empresa C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 23
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 23
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Undefined index: usuario C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 36
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 36
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 53
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 62
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 70
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 78
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 86
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 94
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 102
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 110
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 119
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 128
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 144
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 152
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\inc\menu.php 160
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Undefined index: permissoes C:\wamp\www\gerirmeusalao\application\views\cliente\listagem_cliente.php 127
+ERROR - 2018-10-04 20:44:22 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\cliente\listagem_cliente.php 127
+ERROR - 2018-10-04 23:53:40 --> Severity: Notice --> Undefined index: txtImagem C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:53:40 --> Severity: Notice --> Undefined variable: upload_name C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:55:52 --> Severity: Notice --> Undefined index: txtImagem C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:55:52 --> Severity: Notice --> Undefined variable: upload_name C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:56:00 --> Severity: Notice --> Undefined index: txtImagem C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:56:00 --> Severity: Notice --> Undefined variable: upload_name C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:57:10 --> Severity: Notice --> Undefined index: txtImagem C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80
+ERROR - 2018-10-04 23:57:10 --> Severity: Notice --> Undefined variable: upload_name C:\wamp\www\gerirmeusalao\application\controllers\Cliente.php 80

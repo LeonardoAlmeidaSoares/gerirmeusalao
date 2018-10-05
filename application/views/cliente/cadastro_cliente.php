@@ -128,20 +128,16 @@
 
                         <div class="form-group">
                             <label class="col-sm-12">Imagem</label>
-                            <div class="col-sm-12">
-                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                    <div class="form-control" data-trigger="fileinput"> 
-                                        <i class="glyphicon glyphicon-file fileinput-exists"></i> 
-                                        <span class="fileinput-filename"></span>
-                                    </div> 
-                                    <span class="input-group-addon btn btn-default btn-file"> 
-                                        <span class="fileinput-new">Selecione o Arquivo</span> 
-                                        <span class="fileinput-exists">Alterar</span>
-                                        <input type="file" name="txtImagem" id="txtImagem"> 
-                                    </span> 
-                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> 
-                                </div>
-                            </div>
+                           <div class="col-md-12"> 
+		<div class="input-group input-file" name="Fichier1">
+			<span class="input-group-btn">
+        		<button class="btn btn-default btn-choose" name="txtImagem" id="txtImagem" type="button">Selecionar Imagem</button>
+    		</span>
+    		<input type="text" class="form-control" style="margin-left:10px;" placeholder=' Tamanho máximo: 2mb' />
+		</div>
+		</div>
+	
+                            
                         </div>
                         <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Cadastrar</button>
                         <button type="reset" class="btn btn-inverse waves-effect waves-light">Apagar</button>

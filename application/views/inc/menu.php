@@ -1,6 +1,6 @@
 <?php $perm = $_SESSION["permissoes"];?> 
 <!-- Left navbar-header -->
-    <div class="navbar-default sidebar hidden-print" role="navigation" style="overflow: scroll; z-index:9999; margin:0px; padding:0px;">
+    <div class="navbar-default scroll-perso sidebar hidden-print" role="navigation" style="overflow: scroll; z-index:9999; margin:0px; padding:0px;">
 
     <div class="sidebar-nav navbar-collapse">
 
@@ -16,13 +16,17 @@
                 <!-- /input-group -->
             </li>
 			<li>
-			 <div class="circle">
+			 <div class="circle1">
+			 
+				<div class="circle2">
 
                     <a class="logo hidden-xs" href="<?= base_url();?>" >
 
                         <img src="<?= $_SESSION["empresa"]->logo;?>" alt="home" />
 
                     </a>
+					
+					</div>
 
                 </div>
 			</li>

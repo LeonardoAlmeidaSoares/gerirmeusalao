@@ -342,7 +342,7 @@
 
                                 <div class="col-md-8 col-sm-8">
 
-                                    <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
+                                    <h3 class="box-title m-b-0"><i class="icon-user p-r-10"></i><?= $item->nome; ?></h3> 
                                     <small><?= $item->cargo; ?></small>
 
                                     <p></p>
@@ -377,11 +377,10 @@
 
                                     </address> 
 
-                                    <abbr title="Phone">Tel:</abbr> 
+                                    <span title="Phone"><i class="icon-phone p-r-5"></i></span> 
 
                                         <?= $item->telefone; ?>
 
-                                    <p></p>
 
                                 </div>
 

@@ -48,9 +48,9 @@ function getDataAniversario($data){
 
             <div class="col-md-4 col-xs-12">
 
-                <div class="white-box">
+                <div class="white-box arredondado">
 
-                    <div class="user-bg"> 
+                    <div class="user-bg "> 
 
                         <img width="100%" alt="user" src="<?= base_url($dados->imagem); ?>"> 
 

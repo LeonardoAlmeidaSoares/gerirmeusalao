@@ -64,7 +64,8 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  background: #01c0c8;
+  background-image: url('fundo_header.png');
+  background-color:#01c0c8;
   min-height: 61px;
 }
 .navbar-top-links > li > a {
