@@ -43,7 +43,6 @@
                             <i class="icon-options-vertical"></i>
                         </a>
 
-
                         <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown">
                             <li class="col-sm-3">
                                 <ul>
