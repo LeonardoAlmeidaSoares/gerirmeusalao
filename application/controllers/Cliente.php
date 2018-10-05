@@ -43,8 +43,8 @@ class Cliente extends CI_Controller {
 
     public function realizar_cadastro() {
 
-        if(isset($_FILES["txtImagem"])){
-            $imagem = $_FILES["txtImagem"];
+        if(isset($_FILES["imagem"])){
+            $imagem = $_FILES["imagem"];
             $arr_nome_imagem = explode(".", $imagem["name"]);
             $nome_imagem = trim(uniqid() . "." . $arr_nome_imagem[count($arr_nome_imagem) - 1]);
             $upload_name = CAMINHO_IMAGENS_CLIENTES . "\\" . $nome_imagem;
@@ -69,7 +69,6 @@ class Cliente extends CI_Controller {
             "imagem" => "assets/upload/clientes/" . $nome_imagem
         );
         
-        
         if (empty($parametrosInsercao["imagem"])) {
             
             $parametrosInsercao["imagem"] = ($parametrosInsercao["sexo"] == "MASCULINO")
@@ -77,7 +76,7 @@ class Cliente extends CI_Controller {
                     : base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER);
             
         } else {
-            if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
+            if (!move_uploaded_file($_FILES["imagem"]["tmp_name"], $upload_name)) {
                 var_dump("Houve um erro ao subir a imagem"); exit;
             }
         }

@@ -128,16 +128,14 @@
 
                         <div class="form-group">
                             <label class="col-sm-12">Imagem</label>
-                           <div class="col-md-12"> 
-		<div class="input-group input-file" name="Fichier1">
-			<span class="input-group-btn">
-        		<button class="btn btn-default btn-choose" name="txtImagem" id="txtImagem" type="button">Selecionar Imagem</button>
-    		</span>
-    		<input type="text" class="form-control" style="margin-left:10px;" placeholder=' Tamanho máximo: 2mb' />
-		</div>
-		</div>
-	
-                            
+                            <div class="col-md-12"> 
+                                <div class="input-group input-file" name="imagem">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btn-choose" name="txtImagem" id="txtImagem" type="button">Selecionar Imagem</button>
+                                    </span>
+                                    <input type="text" class="form-control" style="margin-left:10px;" placeholder=' Tamanho máximo: 2mb' />
+                                </div>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Cadastrar</button>
                         <button type="reset" class="btn btn-inverse waves-effect waves-light">Apagar</button>
