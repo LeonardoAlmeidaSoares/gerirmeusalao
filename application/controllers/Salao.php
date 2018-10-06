@@ -21,7 +21,6 @@ class Salao extends CI_Controller {
             if ($_SESSION["usuario"]->alterarSenha == 1) {
                 redirect(base_url("index.php/usuario/gerarNovaSenha"));
             }
-            
             if ($_SESSION["usuario"]->codPermissao == COD_PERMISSAO_COLABORADOR) {
 
                 $this->load->Model("Model_relatorios", "relatorios");

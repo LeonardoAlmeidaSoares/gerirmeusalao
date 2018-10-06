@@ -19,10 +19,7 @@ class Model_funcionarios extends CI_Model {
     }
 
     public function getFuncionario($codFuncionario) {
-        return $this->db->get_where("funcionario", [
-            "codFuncionario" => $codFuncionario,
-            "status" => 1
-        ]);
+        return $this->db->get_where("funcionario", array("codFuncionario" => $codFuncionario));
     }
 
     public function Alterar($cod, $parametros) {

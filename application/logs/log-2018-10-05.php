@@ -7,7 +7,6 @@ ERROR - 2018-10-05 17:56:17 --> Severity: Notice --> Undefined index: txtImagem 
 ERROR - 2018-10-05 18:00:01 --> Severity: Notice --> Undefined index: txtImagem C:\xampp\htdocs\gerirmeusalao\application\controllers\Cliente.php 79
 ERROR - 2018-10-05 18:03:27 --> 404 Page Not Found: Instituicao/assets
 ERROR - 2018-10-05 18:03:27 --> 404 Page Not Found: Instituicao/assets
-<<<<<<< HEAD
 ERROR - 2018-10-05 19:21:28 --> Severity: Parsing Error --> syntax error, unexpected '?>' C:\wamp\www\gerirmeusalao\application\views\instituicao\gerirDados.php 27
 ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Undefined index: empresa C:\wamp\www\gerirmeusalao\application\controllers\Instituicao.php 20
 ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Undefined index: empresa C:\wamp\www\gerirmeusalao\application\controllers\Instituicao.php 21
@@ -50,8 +49,3 @@ ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Trying to get property of n
 ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\instituicao\gerirDados.php 196
 ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\instituicao\gerirDados.php 202
 ERROR - 2018-10-05 19:22:38 --> Severity: Notice --> Trying to get property of non-object C:\wamp\www\gerirmeusalao\application\views\instituicao\gerirDados.php 208
-=======
-ERROR - 2018-10-05 18:26:15 --> Severity: Parsing Error --> syntax error, unexpected '=>' (T_DOUBLE_ARROW) C:\xampp\htdocs\gerirmeusalao\application\controllers\Util.php 62
-ERROR - 2018-10-05 18:38:44 --> 404 Page Not Found: Instituicao/assets
-ERROR - 2018-10-05 18:38:44 --> 404 Page Not Found: Instituicao/assets
->>>>>>> 4d991abcad6a2957c1cd3a9eef5a83cff538e159
