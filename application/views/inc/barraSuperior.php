@@ -8,13 +8,13 @@
 
     </div>
 
-    <div id="wrapper">
-
+    <div id="page-wrapper" style="height:100%; position:relative;">
+	
         <!-- Top Navigation -->
 
-        <nav class="navbar navbar-default navbar-static-top m-b-0  hidden-print">
+        <nav class="navbar  navbar-default navbar-static-top m-b-0  hidden-print">
 
-            <div class="navbar-header"> 
+            <div class="navbar-header "> 
 
                 <a class="navbar-toggle hidden-sm hidden-md hidden-lg " 
 
@@ -44,7 +44,7 @@
                         </a>
 
 
-                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown">
+                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#fff158; color:#fff;">
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Rendimentos</li>
@@ -132,4 +132,6 @@
 
             </div>
         </nav>
+		
+		</div>
         <!-- End Top Navigation -->

@@ -34,6 +34,7 @@ class Model_funcionarios extends CI_Model {
         ->join("funcionario f","c.codFuncionario = f.codFuncionario","right")
         ->join("cargo ca", "f.codCargo = ca.codCargo")
         ->where("f.codEmpresa", $codEmpresa)
+        ->where("f.status", 1)
         ->group_by("f.codFuncionario")
         ->get();
     }

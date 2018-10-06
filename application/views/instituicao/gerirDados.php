@@ -24,7 +24,7 @@
                     <div class="col-md-4 col-xs-12">
                         <div class="white-box">
                             <div class="user-bg text-center" style="width:100%; text-align:center; margin-left:auto; margin-top:10px; margin-right:auto; height:100%;"> 
-                                <img width="100%" alt="user" src="<?= $dadosInstituicao->logo;?>"> 
+                                <!--<img width="100%" alt="user" src="<?= $dadosInstituicao->logo;?>"> -->
                             </div>
                             <div class="user-btm-box">
                                 <!-- .row -->

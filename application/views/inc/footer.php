@@ -39,7 +39,7 @@
 
 <!-- Custom Theme JavaScript -->
 
-<script src="<?= base_url("assets/js/custom.min.js"); ?>"></script>
+<script src="<?= base_url("assets/js/custom.js"); ?>"></script>
 
 
 <br><br>

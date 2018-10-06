@@ -81,7 +81,7 @@ $(document).ready(function () {
                     height = 1;
                 }
                 if (height > topOffset) {
-                    $("#page-wrapper").css("min-height", (height) + "px");
+                    $("#pagex-wrapper").css("min-height", (height) + "px");
                 }
             },
             url = window.location,

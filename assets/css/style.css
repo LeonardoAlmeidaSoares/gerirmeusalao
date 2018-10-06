@@ -947,10 +947,17 @@ pre {
 }
 #page-wrapper {
   padding: 0px;
-  min-height: 568px;
   background: #edf1f5;
-  padding-bottom: 60px;
 }
+
+.topo {
+ margin:0px;
+ padding:0px;
+ position:r;
+ height:100%;
+ width:20%;
+}
+
 .footer {
   bottom: 0;
   color: #58666e;
@@ -16527,7 +16534,7 @@ ul.pro-amenities li span i {
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
   }
   .mega-dropdown-menu {
-    height: 340px;
+    height: 140px;
     overflow: auto;
   }
   .left-aside {
