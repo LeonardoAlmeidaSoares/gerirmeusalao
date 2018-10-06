@@ -43,8 +43,12 @@
                             <i class="icon-options-vertical"></i>
                         </a>
 
+<<<<<<< HEAD
 
                         <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#fff158; color:#fff;">
+=======
+                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown">
+>>>>>>> 4d991abcad6a2957c1cd3a9eef5a83cff538e159
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Rendimentos</li>
