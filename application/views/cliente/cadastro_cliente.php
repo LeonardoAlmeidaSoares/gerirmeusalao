@@ -5,7 +5,7 @@
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h4 class="page-title">Cadastrar Cliente</h4> </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa"); ?>" 
+                <a href="<?= base_url("salao/fluxoCaixa"); ?>" 
                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
@@ -17,7 +17,7 @@
             <!-- /.col-lg-12 -->
         </div>
         <form id="frmCad" enctype="multipart/form-data" class="form-material form-horizontal" 
-              method="POST" action="<?= base_url("index.php/cliente/realizar_cadastro/"); ?>">
+              method="POST" action="<?= base_url("cliente/realizar_cadastro/"); ?>">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="white-box">

@@ -6,7 +6,7 @@
                 <h4 class="page-title">Colaboradores</h4> 
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
+                <a href="<?= base_url("salao/fluxoCaixa");?>" 
                     class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
                 <ol class="breadcrumb">
@@ -40,11 +40,11 @@
                                         <td><?= $item->cargo; ?></td>
                                         <td><?= $item->telefone; ?></td>
                                         <td>
-                                            <a href="<?= base_url("index.php/funcionario/alterar/$item->codFuncionario/"); ?>" title="Alterar Dados de Colaborador">
+                                            <a href="<?= base_url("colaborador/editar/$item->codFuncionario/"); ?>" title="Alterar Dados de Colaborador">
                                                 <span class="fa fa-edit pointer alter"></span>
                                             </a>
                                             <?php if($_SESSION["permissoes"]->perm_cadastrarUsuario > 0){ ?>
-                                            <a href="<?= base_url("index.php/usuario/alterarSenha/$item->codFuncionario/"); ?>" title="Alterar Senha de Acesso ao Sistema">
+                                            <a href="<?= base_url("usuario/alterarSenha/$item->codFuncionario/"); ?>" title="Alterar Senha de Acesso ao Sistema">
                                                 <span class="fa fa-key pointer alter"></span>
                                             </a>
                                            
@@ -60,7 +60,7 @@
                         </table>
                         <br />
                         <?php if($_SESSION["permissoes"]->perm_cadastrarFuncionario == 2){ ?>
-                        <a href="<?= base_url("index.php/funcionario/cadastrar/"); ?>" class="btn btn-info pull-right">Novo</a>
+                        <a href="<?= base_url("colaborador/novo/"); ?>" class="btn btn-info pull-right">Novo</a>
                         <?php } ?>
                     </div>
                 </div>

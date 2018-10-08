@@ -10,6 +10,7 @@ class Cliente extends CI_Controller {
         session_start();
 
         $this->load->Model("Model_clientes", "cliente");
+        $this->load->Helper("Util_helper");
     }
 
     public function index() {

@@ -69,7 +69,7 @@
 
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
                 <li> 
-                    <a href="<?= base_url("Cliente/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("cliente/"); ?>" class="waves-effect">
                         <i class="icon-people p-r-10"></i> 
                         <span class="hide-menu">Clientes</span>
                     </a> 
@@ -85,7 +85,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_cadastrarUsuario) > 0) { ?>
                 <li> 
-                    <a href="<?= base_url("Usuario/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("usuario/"); ?>" class="waves-effect">
                         <i class="icon-emotsmile p-r-10"></i> 
                         <span class="hide-menu">Usuários</span>
                     </a> 
@@ -109,7 +109,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_cadastrarProdutosServicos) > 0) { ?>
                 <li> 
-                    <a href="<?= base_url("Produtos/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("produtos/"); ?>" class="waves-effect">
                         <i class="icon-puzzle p-r-10"></i> 
                         <span class="hide-menu"> Produtos</span>
                     </a> 
@@ -117,7 +117,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_cadastrarProdutosServicos) > 0) { ?>
                 <li> 
-                    <a href="<?= base_url("Servicos/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("servicos/"); ?>" class="waves-effect">
                         <i class="icon-tag p-r-10"></i> 
                         <span class="hide-menu"> Serviços</span>
                     </a> 
@@ -126,7 +126,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_alterarPermissoes) > 0) { ?>
                 <!--li> 
-                    <a href="<?= base_url("index.php/Permissao/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("Permissao/"); ?>" class="waves-effect">
                         <i class="icon-pin p-r-10"></i> 
                         <span class="hide-menu"> Permissões</span>
                     </a> 
@@ -142,7 +142,7 @@
                 </li>
             <?php } ?>
             <li> 
-                <a href="<?= base_url("index.php/lembrete/"); ?>" class="waves-effect">
+                <a href="<?= base_url("lembrete/"); ?>" class="waves-effect">
                     <i class="ti-alert p-r-10"></i> 
                     <span class="hide-menu">Lembrete</span>
                 </a> 
@@ -151,7 +151,7 @@
             <li class="nav-small-cap">--- Outros Cadastros</li>
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
                 <li> 
-                    <a href="<?= base_url("Cargo/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("cargo/"); ?>" class="waves-effect">
                         <i class="icon-layers p-r-10"></i> 
                         <span class="hide-menu">Cargos</span>
                     </a> 
@@ -159,7 +159,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
                 <!--li> 
-                    <a href="<?= base_url("tipoentrada/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("tipo_entrada/"); ?>" class="waves-effect">
                         <i class="icon-layers p-r-10"></i> 
                         <span class="hide-menu">Tipos de Entrada</span>
                     </a> 
@@ -167,7 +167,7 @@
             <?php } ?>
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
                 <!--li> 
-                    <a href="<?= base_url("tiposaida/"); ?>" class="waves-effect">
+                    <a href="<?= base_url("tipo_saida/"); ?>" class="waves-effect">
                         <i class="icon-layers p-r-10"></i> 
                         <span class="hide-menu">Tipos de Saída</span>
                     </a> 

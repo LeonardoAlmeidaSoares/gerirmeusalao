@@ -59,7 +59,7 @@
                             <div class="col-md-12">
 
                                 <select class="form-control" id="txtCodColaborador" name="txtCodColaborador">
-                                    <option value="0" selected hidden>Selecione o Colaborador</option>
+                                    <option value="" selected hidden>Selecione o Colaborador</option>
                                     <?php foreach($funcionarios->result() as $item){?>
                                         <option value="<?= $item->codFuncionario;?>"><?= $item->nome;?></option>
                                     <?php } ?>

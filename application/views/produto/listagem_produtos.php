@@ -5,7 +5,7 @@
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                 <h4 class="page-title">Produtos</h4> </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa"); ?>" 
+                <a href="<?= base_url("salao/fluxoCaixa"); ?>" 
                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
                 <ol class="breadcrumb">
@@ -39,7 +39,7 @@
                                         <td><?= "R$ " . number_format($item->valorVenda, 2, ",", "."); ?></td>
                                         <td><?= $item->estoque; ?></td>
                                         <td>
-                                            <a href="<?= base_url("index.php/produtos/alterar/$item->codProduto"); ?>" title="Alterar Dados do Produto">
+                                            <a href="<?= base_url("produto/editar/$item->codProduto"); ?>" title="Alterar Dados do Produto">
                                                 <span class="fa fa-edit pointer alter"></span>
                                             </a>
                                             
@@ -53,7 +53,7 @@
                         </table>
                         <br />
                         <?php if ($_SESSION["permissoes"]->perm_cadastrarProdutosServicos == 2) { ?>
-                            <a href="<?= base_url("index.php/produtos/cadastrar/"); ?>" class="btn btn-info pull-right">Novo</a>
+                            <a href="<?= base_url("produto/novo/"); ?>" class="btn btn-info pull-right">Novo</a>
                         <?php } ?>
                     </div>
                 </div>

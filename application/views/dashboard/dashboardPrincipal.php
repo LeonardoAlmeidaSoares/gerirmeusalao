@@ -16,7 +16,7 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
+                <a href="<?= base_url("salao/fluxoCaixa");?>" 
                     class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><span class=" icon-menu"></span> Caixa
                 </a>
 

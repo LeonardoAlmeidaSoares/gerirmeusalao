@@ -27,10 +27,14 @@ class Produtos extends CI_Controller {
 
     public function cadastrar() {
 
+        $parametros = [
+            "dados" => NULL
+        ];
+        
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
-        $this->load->view('produto/cadastro_produtos');
+        $this->load->view('produto/cadastro_produtos', $parametros);
         $this->load->view('inc/footer');
     }
 
@@ -52,7 +56,7 @@ class Produtos extends CI_Controller {
             $this->prod->Inserir($parametrosInsercao);
         }
 
-        redirect(base_url("index.php/produtos/"));
+        redirect(base_url("produto"));
     }
 
     public function alterar($cod) {

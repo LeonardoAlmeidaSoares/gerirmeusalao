@@ -54,7 +54,7 @@
                             <tbody>
                                 <?php foreach($lembretes->result() as $item) { ?>
                                 <tr>
-                                    <td><?= str_pad($item->Lembrete, 6, "0", STR_PAD_LEFT);?></td>
+                                    <td><?= str_pad($item->codLembrete, 6, "0", STR_PAD_LEFT);?></td>
                                     <td><?= $item->titulo;?></td>
                                     <td><?= date_format(date_create($item->dataLeitura), 'd/m/Y');?></td>
                                     <td>
