@@ -25,7 +25,7 @@ $(function () {
     
     $("#calendar").fullCalendar({
         locale: "pt-BR",
-        defaultView: "agendaWeek",
+        defaultView: "listWeek",
         events: events,
         ignoreTimezone: false,
 

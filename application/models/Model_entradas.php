@@ -25,6 +25,7 @@ class Model_entradas extends CI_Model {
                         ->join("cliente cli", "n.codCliente = cli.codCliente")
                         ->join("categoriaentrada c", "c.codCategoriaEntrada = n.codCategoriaEntrada")
                         ->where("n.codEmpresa", $codEmpresa)
+                        ->order_by("n.codNotaEntrada", "desc")
                         ->get();
     }
     
@@ -45,8 +46,10 @@ class Model_entradas extends CI_Model {
         return $this->db->insert("notaentrada", $parametros);
     }
     
-    public function getEntrada($codServico){
-        return $this->db->get_where("notaentrada", array("codNotaEntrada" => $codServico));
+    public function getEntrada($codEntrada){
+        return $this->db->get_where("notaentrada", [
+            "codNotaEntrada" => $codEntrada
+        ]);
     }
 
     public function getCategorias($codEmpresa){
