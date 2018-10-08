@@ -16,8 +16,8 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
-                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
+                <a href="<?= base_url("index.php/salao/fluxoCaixa"); ?>" 
+                   class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
                 <ol class="breadcrumb">
@@ -68,29 +68,33 @@
 
                             <tbody>
 
-                                <?php foreach($servicos->result() as $item){ ?>
+                                <?php foreach ($servicos->result() as $item) { ?>
 
-                                <tr>
+                                    <tr>
 
-                                    <td><?= str_pad($item->codServico, 6, "0", STR_PAD_LEFT);?></td>
+                                        <td><?= str_pad($item->codServico, 6, "0", STR_PAD_LEFT); ?></td>
 
-                                    <td><?= $item->descricao;?></td>
+                                        <td><?= $item->descricao; ?></td>
 
-                                    <td><?= "R$ " . number_format($item->valorComum, 2, ",",".");?></td>
+                                        <td><?= "R$ " . number_format($item->valorComum, 2, ",", "."); ?></td>
 
-                                    <!--td><?= "R$ " . number_format($item->valorPromocional, 2, ",",".");?></td-->
+                                        <!--td><?= "R$ " . number_format($item->valorPromocional, 2, ",", "."); ?></td-->
 
-                                    <td>
+                                        <td>
 
-                                        <a href="<?= base_url("index.php/servicos/alterar/$item->codServico/"); ?>" title="Alterar Dados de Serviço">
+                                            <a href="<?= base_url("index.php/servicos/alterar/$item->codServico/"); ?>" title="Alterar Dados de Serviço">
 
-                                            <span class="fa fa-edit pointer alter"></span>
+                                                <span class="fa fa-edit pointer alter"></span>
 
-                                        </a>
+                                            </a>
 
-                                    </td>
+                                            <a href="#" title="Excluir Serviço do Sistema" class='btnDelete' codigo='<?= $item->codServico; ?>'>
+                                                <span class="fa fa-remove pointer delete"></span>
+                                            </a>
 
-                                </tr>
+                                        </td>
+
+                                    </tr>
 
                                 <?php } ?>
 
@@ -100,9 +104,9 @@
 
                         <br />
 
-                        <?php if($_SESSION["permissoes"]->perm_cadastrarProdutosServicos == 2){ ?>
+                        <?php if ($_SESSION["permissoes"]->perm_cadastrarProdutosServicos == 2) { ?>
 
-                        <a href="<?= base_url("index.php/servicos/cadastrar/");?>" class="btn btn-info pull-right">Novo</a>
+                            <a href="<?= base_url("index.php/servicos/cadastrar/"); ?>" class="btn btn-info pull-right">Novo</a>
 
                         <?php } ?>
 
@@ -116,14 +120,14 @@
 
         </div>
 
-        </div>
+    </div>
 
-        <!-- /.row -->
+    <!-- /.row -->
 
-        <script src="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.js"); ?>" type="text/javascript"></script>
+    <script src="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.js"); ?>" type="text/javascript"></script>
 
-        <link href="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.css"); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.css"); ?>" rel="stylesheet" type="text/css" />
 
-        <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-        
+    <script src="<?= base_url("assets/paginas/listagem_servicos.js"); ?>" type="text/javascript"></script>

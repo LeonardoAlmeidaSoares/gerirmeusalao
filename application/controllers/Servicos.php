@@ -84,4 +84,13 @@ class Servicos extends CI_Controller {
         $this->load->view('servico/associar_produtos', $parametros);
         $this->load->view('inc/footer');
     }
+    
+    public function deletar(){
+        $cod_serv = intval(trim(filter_input(INPUT_POST, "codigo")));
+        
+        $this->serv->alterar($cod_serv, [
+            "status" => 0
+        ]);
+       
+    }
 }
