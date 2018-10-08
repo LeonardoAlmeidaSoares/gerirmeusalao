@@ -22,6 +22,8 @@
         <script src="<?= base_url("assets/plugins/jquery/dist/jquery.min.js"); ?>"></script>
         <!-- color CSS -->
         <link href="<?= base_url("assets/css/colors/megna.css"); ?>" id="theme" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
        <!-- Bootstrap Core JavaScript -->
         <script src="<?= base_url("assets/bootstrap/dist/js/tether.min.js"); ?>"></script>

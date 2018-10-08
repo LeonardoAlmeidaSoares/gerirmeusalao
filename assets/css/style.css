@@ -492,6 +492,11 @@ hr {
   width: 98%;
 }
 
+.fc-myCustomButton-button {
+  background-color:red;
+  font-size:22px;
+}
+
 .scroll-perso::-webkit-scrollbar-track {
     background-color: #F4F4F4;
 }

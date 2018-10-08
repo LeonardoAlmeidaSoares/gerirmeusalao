@@ -25,10 +25,28 @@ $(function () {
     
     $("#calendar").fullCalendar({
         locale: "pt-BR",
-        defaultView: "agendaWeek",
+        defaultView: "listWeek",
         events: events,
+		themeSystem: 'bootstrap4',
         ignoreTimezone: false,
-
+		prev: 'fa-chevron-left',
+		next: 'fa-chevron-right',
+		prevYear: 'fa-angle-double-left',
+		nextYear: 'fa-angle-double-right',
+		timeFormat: 'H(:mm)',
+		eventColor: '#378006',	
+		customButtons: {
+			myCustomButton: {
+			click: function() {
+			alert('clicked the custom button!');
+							  }
+						}
+  },
+  header: {
+    left: 'prev,next today ',
+    center: 'title',
+    right: 'myCustomButton'
+  },
         allDaySlot: false,
         dayClick: function (date, jsEvent, view) {
             if (codFuncionarioSelecionado > 0) {
