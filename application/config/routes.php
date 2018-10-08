@@ -11,6 +11,13 @@ $route['contas_receber'] = 'contasReceber';
 $route['contas_receber/novo'] = 'contasReceber/cadastrar';
 $route["contas_receber/(:num)"] = "contasReceber/nota/$1";
 
+/*Rotas Para Contas a Pagar*/
+
+$route['contas_pagar'] = 'contasPagar';
+$route['contas_pagar/novo'] = 'contasPagar/cadastrar';
+$route["contas_pagar/(:num)"] = "contasPagar/nota/$1";
+$route['contas_pagar/pagar'] = "contasPagar/EfetuarPagamento";
+
 /*Rotas para Funcionário*/
 
 //$route["colaborador'] = 'funcionario';

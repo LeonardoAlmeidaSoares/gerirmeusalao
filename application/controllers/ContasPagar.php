@@ -68,7 +68,7 @@ class ContasPagar extends CI_Controller {
             );
             
             $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
-
+            
         }
         
         $this->saidas->inserir($parametros);
@@ -89,31 +89,35 @@ class ContasPagar extends CI_Controller {
 
         }
 
-        redirect(base_url("index.php/contasPagar/"));
+        redirect(base_url("index.php/contas_pagar/"));
         
     }
     
     public function EfetuarPagamento(){
         
-        $codNota = intval(trim(filter_input(INPUT_POST,"codigo")));
+        $codNota = intval(trim(filter_input(INPUT_GET,"codigo")));
         $this->db->where("codNotaSaida", $codNota)->update("notasaida", array("status" => 1, "datapagto" => date("Y-m-d H:i")));
 
-        $origem = trim(filter_input(INPUT_POST, "origem"));
+        $origem = trim(filter_input(INPUT_GET, "origem"));
 
         $dadosNota = $this->db->get_where("notasaida", array("codNotaSaida" => $codNota));
 
-        if($origem == "caixa")
+        if($origem == "caixa"){
 
-        $parametrosMovimentacao = array(
-            "tipoMovimentacao" => "SAI",
-            "valor" => $dadosNota->row(0)->valor,
-            "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
-            "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
-            "horario" => date("Y-m-d H:i:s"),
-            "comentario" => $dadosNota->row(0)->discriminacao
-        );
+            $parametrosMovimentacao = array(
+                "tipoMovimentacao" => "SAI",
+                "valor" => $dadosNota->row(0)->valor,
+                "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
+                "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
+                "horario" => date("Y-m-d H:i:s"),
+                "comentario" => $dadosNota->row(0)->discriminacao
+            );
+            
+            $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
+            
+        }
         
-        $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
+        
         
     }
     
