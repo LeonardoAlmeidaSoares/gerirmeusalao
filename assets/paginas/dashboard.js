@@ -1,7 +1,5 @@
 $(function () {
 
-    var table = $('#myTable').DataTable();
-
     $(".hid").hide();
 
     $('#myTable tbody').on('click', '.btnStart', function () {
@@ -82,37 +80,37 @@ $(function () {
     $("#click-link-todos-clientes")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/cliente/";
+            location.href="icliente/";
     });
 
     $("#click-link-agenda-hoje")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/agenda/listagemHoje";
+            location.href="agenda/hoje";
     });
 
     $("#click-link-aniversariantes")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/cliente/aniversariantes";
+            location.href="cliente/aniversariantes";
     });
 
     $("#click-link-lembretes-hoje")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/lembrete/listagemHoje";
+            location.href="lembrete/hoje";
     });
 
     $("#click-link-vencendo-hoje")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/contasPagar/vencendoHoje";
+            location.href="contas_pagar/hoje";
     });
 
     $("#click-link-recebendo-hoje")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="index.php/contasReceber/vencendoHoje";
+            location.href="contas_receber/hoje";
     });
 
     // Create the chart

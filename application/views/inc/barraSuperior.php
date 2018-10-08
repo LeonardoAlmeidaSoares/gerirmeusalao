@@ -9,7 +9,7 @@
     </div>
 
     <div id="page-wrapper" style="height:100%; position:relative;">
-	
+
         <!-- Top Navigation -->
 
         <nav class="navbar  navbar-default navbar-static-top m-b-0  hidden-print">
@@ -26,14 +26,14 @@
 
                 <ul class="nav navbar-top-links navbar-right pull-right">
 
-                <li class="dropdown"> 
-                    <a title="Novo Atendimento" href="<?= base_url("index.php/agenda/cadastro");?>" class="dropdown-toggle waves-effect waves-light">
-                        <span class="ti-calendar"></span>
-                    </a>
-                </li>
+                    <li class="dropdown"> 
+                        <a title="Novo Atendimento" href="<?= base_url("agenda/cadastro"); ?>" class="dropdown-toggle waves-effect waves-light">
+                            <span class="ti-calendar"></span>
+                        </a>
+                    </li>
 
                     <li class="dropdown"> 
-                        <a class="dropdown-toggle waves-effect waves-light" href="<?= base_url("index.php/venda/");?>">
+                        <a class="dropdown-toggle waves-effect waves-light" href="<?= base_url("venda/"); ?>">
                             <i class="ti-shopping-cart"></i>
                         </a>
                     </li>
@@ -44,11 +44,11 @@
                         </a>
 
 
-                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#fff158; color:#fff;">
+                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#f9f1a0e0; color:#fff;">
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Rendimentos</li>
-                                    <li><a href="<?= base_url("index.php/relatorio/faturamento/");?>">Faturamento</a></li>
+                                    <li><a href="<?= base_url("relatorio/faturamento/"); ?>">Faturamento</a></li>
                                     <!--li><a href="form-layout.html">Form Layout</a></li>
                                     <li><a href="form-advanced.html">Form Addons</a></li>
                                     <li><a href="form-material-elements.html">Form Material</a></li>
@@ -124,7 +124,7 @@
                                 </div>
                             </li-->
                         </ul>
-                        
+
                     </li>
 
                     <!-- /.dropdown -->
@@ -132,6 +132,6 @@
 
             </div>
         </nav>
-		
-		</div>
-        <!-- End Top Navigation -->
+
+    </div>
+    <!-- End Top Navigation -->

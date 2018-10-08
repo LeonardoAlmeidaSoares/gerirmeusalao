@@ -1,39 +1,39 @@
-$(function(){
-    
-	$('#txtHorario').clockface();  
+$(function () {
 
-	$("#calendarioCadastro").fullCalendar({
-    	locale: "pt-BR",
+    $('#txtHorario').clockface();
+
+    $("#calendarioCadastro").fullCalendar({
+        locale: "pt-BR",
         defaultView: "listDay",
         events: {
-	        url: '../agenda/getListaCompromissos',
-	        type: 'POST',
-	        data: {
-	            codColaborador: 0,
-	        }
-	    }
+            url: '../agenda/getListaCompromissos',
+            type: 'POST',
+            data: {
+                codColaborador: 0
+            }
+        }
     });
 
-    $("#txtCodColaborador").on("change", function(){
+    $("#txtCodColaborador").on("change", function () {
 
-    	codColaborador = $("#txtCodColaborador :selected").val();
+        codColaborador = $("#txtCodColaborador :selected").val();
 
-    	$("#calendarioCadastro").fullCalendar( 'destroy' );
-    	$("#calendarioCadastro").fullCalendar({
-	    	locale: "pt-BR",
-	        defaultView: "listDay",
-	        events: {
-		        url: '../agenda/getListaCompromissos',
-		        type: 'POST',
-		        data: {
-		            codColaborador: codColaborador,
-		        }
-		    }
-	    });
+        $("#calendarioCadastro").fullCalendar('destroy');
+        $("#calendarioCadastro").fullCalendar({
+            locale: "pt-BR",
+            defaultView: "listDay",
+            events: {
+                url: '../agenda/getListaCompromissos',
+                type: 'POST',
+                data: {
+                    codColaborador: codColaborador,
+                }
+            }
+        });
     });
-    
+
     $("#frmCad").validate({
-        rules:{
+        rules: {
             txtCliente: "required",
             txtHorario: {
                 required: true,
@@ -42,7 +42,7 @@ $(function(){
             },
             txtServico: "required",
             txtCodColaborador: "required"
-        }, 
+        },
         messages: {
             txtCliente: "Campo Necessário",
             txtHorario: {
@@ -51,7 +51,7 @@ $(function(){
                 maxlength: "Valor Incorreto"
             },
             txtServico: "Campo Necessário",
-            txtCodColaborador : "Campo Necessário",
+            txtCodColaborador: "Campo Necessário",
         }
     });
 

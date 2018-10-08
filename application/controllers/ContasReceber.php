@@ -19,6 +19,8 @@ class ContasReceber extends CI_Controller {
             "entradas" => $this->entradas->getEntradas($_SESSION["empresa"]->codEmpresa)
         );
         
+        //echo $this->db->last_query();exit;
+        
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
@@ -90,7 +92,7 @@ class ContasReceber extends CI_Controller {
             }
         }
 
-        redirect(base_url("index.php/contasReceber/"));
+        redirect(base_url("index.php/contas_receber/"));
         
     }
     
@@ -124,7 +126,7 @@ class ContasReceber extends CI_Controller {
         $resumo .= "<br>" . $dadosServico->descricao;
         $this->db->where("codCompromisso", $codCompromisso)->update("compromisso", array("resumo"=> $resumo));
 
-        redirect(base_url("index.php/contasReceber/nota/$cod"));
+        redirect(base_url("index.php/contas_receber/nota/$cod"));
     }
 
     public function nota($codEntrada){
@@ -135,7 +137,7 @@ class ContasReceber extends CI_Controller {
         
         if(is_null($notaEntrada)){
             $_SESSION["msg_erro"] = "Nota de Entrada Inexistente";
-            redirect(base_url("index.php/contasReceber")); 
+            redirect(base_url("index.php/contas_receber")); 
         } else {
             $notaEntrada = $notaEntrada->row(0);
         }

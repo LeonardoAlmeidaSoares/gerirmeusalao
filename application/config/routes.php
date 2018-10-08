@@ -1,60 +1,65 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------------
-| This file lets you re-map URI requests to specific controller functions.
-|
-| Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a
-| URL normally follow this pattern:
-|
-|	example.com/class/method/id/
-|
-| In some instances, however, you may want to remap this relationship
-| so that a different class/function is called than the one
-| corresponding to the URL.
-|
-| Please see the user guide for complete details:
-|
-|	https://codeigniter.com/user_guide/general/routing.html
-|
-| -------------------------------------------------------------------------
-| RESERVED ROUTES
-| -------------------------------------------------------------------------
-|
-| There are three reserved routes:
-|
-|	$route['default_controller'] = 'welcome';
-|
-| This route indicates which controller class should be loaded if the
-| URI contains no data. In the above example, the "welcome" class
-| would be loaded.
-|
-|	$route['404_override'] = 'errors/page_missing';
-|
-| This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
-|
-|	$route['translate_uri_dashes'] = FALSE;
-|
-| This is not exactly a route, but allows you to automatically route
-| controller and method names that contain dashes. '-' isn't a valid
-| class or method name character, so it requires translation.
-| When you set this option to TRUE, it will replace ALL dashes in the
-| controller and method URI segments.
-|
-| Examples:	my-controller/index	-> my_controller/index
-|		my-controller/my-method	-> my_controller/my_method
-*/
 $route['default_controller'] = 'Salao';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+/*Rotas Para Clientes*/
+
+$route['cliente'] = 'Cliente';
+$route['cliente/novo'] = 'cliente/cadastrar';
+$route["cliente/editar/(:num)"] = "cliente/alterar/$1";
+$route["cliente/(:num)"] = "cliente/historico/$1";
+$route['cliente/aniversariantes'] = 'cliente/aniversariantes';
+
+/*Rotas Para Contas a Receber*/
+
+$route['contas_receber'] = 'contasReceber';
+$route['contas_receber/novo'] = 'contasReceber/cadastrar';
+$route["contas_receber/(:num)"] = "contasReceber/nota/$1";
+$route["contas_receber/hoje"] = "contasReceber/vencendoHoje";
+
+/*Rotas Para Contas a Pagar*/
+
+$route['contas_pagar'] = 'contasPagar';
+$route['contas_pagar/novo'] = 'contasPagar/cadastrar';
+$route["contas_pagar/(:num)"] = "contasPagar/nota/$1";
+$route["contas_pagar/hoje"] = "contasPagar/vencendoHoje";
+$route['contas_pagar/pagar'] = "contasPagar/EfetuarPagamento";
+
 /*Rotas para Funcionário*/
 
-//$route['colaborador'] = 'funcionario';
-//$route['colaborador/update/(:num)'] = "funcionario/alterar/(:num)";
-//$route['colaborador/senha/(:num)'] = "funcionario/alterarSenha/(:num)";
+$route['colaborador'] = 'funcionario';
+$route['colaborador/novo'] = 'funcionario/cadastrar';
+$route['colaborador/editar/(:num)'] = "funcionario/Alterar/$1";
+
+/*Rotas para Usuario*/
+
+$route['usuario'] = 'Usuario';
+$route['usuario/novo'] = 'Usuario/cadastrar';
+$route['usuario/editar/(:num)'] = "Usuario/Alterar/$1";
+
+/*Rotas para Produtos*/
+
+$route['produto'] = 'Produtos';
+$route['produto/novo'] = 'Produtos/cadastrar';
+$route['produto/editar/(:num)'] = "Produtos/Alterar/$1";
+
+/*Rotas para Serviços*/
+
+$route['servico'] = 'Servicos';
+$route['servico/novo'] = 'Servicos/cadastrar';
+$route['servico/editar/(:num)'] = "Servicos/Alterar/$1";
+
+/* Rotas para Tipo de Saida*/
+$route['tiposaida'] = 'tipo_saida';
+
+/* Rotas para Tipo de Saida*/
+$route['lembrete'] = 'lembrete';
+$route['lembrete/novo'] = 'lembrete/cadastrar';
+$route['lembrete/hoje'] = 'lembrete/ListagemHoje';
+
+/* Rotas para Agenda*/
+$route['agenda'] = 'agenda';
+$route['agenda/hoje'] = 'agenda/listagemHoje';

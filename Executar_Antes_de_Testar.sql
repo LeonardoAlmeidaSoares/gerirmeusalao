@@ -8,8 +8,5 @@
  * Created: 04/10/2018
  */
 
-ALTER TABLE `gerirmeusalao_homologacao`.`funcionario` 
-ADD COLUMN `status` INT NOT NULL DEFAULT 1 AFTER `salario`;
-
-ALTER TABLE `gerirmeusalao_homologacao`.`produto` 
-ADD COLUMN `status` INT NOT NULL DEFAULT 1 AFTER `codEmpresa`;
+ALTER TABLE `gerirmeusalao_homologacao`.`servico` 
+ADD COLUMN `status` INT NULL DEFAULT 1 AFTER `codEmpresa`;

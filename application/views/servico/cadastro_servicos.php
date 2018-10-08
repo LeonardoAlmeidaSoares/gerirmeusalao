@@ -1,10 +1,10 @@
 <!-- Page Content -->
-
 <?php 
 
-    function Dataget($field, $valor = 0){
+    function Dataget($dados, $field, $valor = 0){
+        
         if(isset($dados)){
-            return ($valor == 0) ?$dados->$field : $dados->field * $valor;
+            return ($valor == 0) ?$dados->$field : $dados->$field * $valor;
         }else{
             return "";
         }
@@ -24,7 +24,7 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
+                <a href="<?= base_url("salao/fluxoCaixa");?>" 
                     class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
@@ -44,7 +44,7 @@
 
         <form id="frmCad" enctype="multipart/form-data" class="form-material form-horizontal" 
 
-              method="POST" action="<?= base_url("index.php/servicos/realizar_cadastro/");?>">
+              method="POST" action="<?= base_url("servico/realizar_cadastro/");?>">
 
             <div class="row">
 
@@ -65,7 +65,7 @@
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget("descricao");?>" type="text" id="txtDescricao" name="txtDescricao" class="form-control" placeholder="Descreva o Serviço"> 
+                                <input value="<?= Dataget($dados, "descricao");?>" type="text" id="txtDescricao" name="txtDescricao" class="form-control" placeholder="Descreva o Serviço"> 
 
                             </div>
 
@@ -77,7 +77,7 @@
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget("valorComum", 100);?>" type="text" id="txtValor" name="txtValor" class="form-control" placeholder="Insira o Valor do Serviço"> 
+                                <input value="<?= Dataget($dados, "valorComum", 100);?>" type="text" id="txtValor" name="txtValor" class="form-control" placeholder="Insira o Valor do Serviço"> 
 
                             </div>
 
@@ -91,13 +91,11 @@
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget("valorPromocional", 100) ;?>" type="text" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
+                                <input value="<?= Dataget($dados, "valorPromocional", 100) ;?>" type="text" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
 
                             </div>
 
                         </div-->
-
-                        
 
                         <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Cadastrar</button>
 
@@ -114,7 +112,5 @@
     </div>
 
     <script src="<?= base_url("assets/plugins/jquery.validate.js");?>" type="text/javascript"></script>
-
     <script src="<?= base_url("assets/plugins/mask-plugin/src/jquery.mask.js");?>" type="text/javascript"></script>
-
     <script src="<?= base_url("assets/paginas/cadastro_servicos.js");?>" type="text/javascript"></script>
