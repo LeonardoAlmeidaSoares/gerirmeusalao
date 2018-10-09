@@ -17,15 +17,15 @@ var substringMatcher = function (strs) {
 };
 $(function () {
 
-	$("#modalCadastro").hide();
+    $("#modalCadastro").hide();
 
     $("#btnDeleteEvent").hide();
     var vetorServicos = [];
     var codFuncionarioSelecionado = 0;
-    
+
     $("#calendar").fullCalendar({
         locale: "pt-BR",
-        defaultView: "listWeek",
+        defaultView: "agendaWeek",
         events: events,
         ignoreTimezone: false,
 
@@ -53,72 +53,72 @@ $(function () {
                     });
                     $.each(vet.Servicos, function ($index, $value) {
                         $("#txtServico").append(
-                            $("<option>")
-                            .html($value.descricao)
-                            .val($value.codServico)
-                            .attr("duracao", $value.horariosEstimados * 15)
-                            .attr("valor", $value.valorComum)
-                        );
+                                $("<option>")
+                                .html($value.descricao)
+                                .val($value.codServico)
+                                .attr("duracao", $value.horariosEstimados * 15)
+                                .attr("valor", $value.valorComum)
+                                );
                     });
-                    $.blockUI({ 
+                    $.blockUI({
                         message: $('#modalCadastro'),
-                        overlayCSS: { 
-                            backgroundColor: '#01c0c8' 
+                        overlayCSS: {
+                            backgroundColor: '#01c0c8'
                         }
-                    }); 
+                    });
                 });
             } else {
-                swal('Não Se Esqueça','Voce deve selecionar o colaborador antes','info');
+                swal('Não Se Esqueça', 'Voce deve selecionar o colaborador antes', 'info');
             }
         },
         eventClick: function (calEvent, jsEvent, view) {
+            var $data = [];
             swal({
                 title: "O que aconteceu?",
                 text: "O Compromisso foi finalizado ou cancelado?",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Cancela-lo",
-                cancelButtonText: "Finaliza-lo",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            }, function (isConfirm) {
-                if (isConfirm) {
-                    //Cancelado
-                    $data = {"status": -1, "codEvento": calEvent.id};
-                    swal("Cancelado!", "Esse compromisso foi cancelado com sucesso", "error");
-                } else {
+                confirmButtonText: "Cancelar",
+                cancelButtonText: "Finalizar"
+            }).then(function ($return) {
+                //console.log($return);return;
+                //Cancelado
+                $data = {"status": -1, "codEvento": calEvent.id};
+                swal("Cancelado!", "Esse compromisso foi cancelado com sucesso", "error");
+            }, function (dismiss) {
+                alert("oi");
+                /*if (dismiss === 'cancel') {
                     //finalizado
                     $data = {"status": 2, "codEvento": calEvent.id};
                     swal("Finalizado", "Finalização computada com sucesso", "success");
-                }
-
-                $.ajax({
-                    url: "/agenda/alterarStatus/",
-                    method: "POST",
-                    data: $data
-                }).success(function (response) {
+                } else {
+                    throw dismiss;
+                }*/
+            });
+            /*
+            $.ajax({
+                url: "alterarStatus/",
+                method: "POST",
+                data: $data
+            }).success(function (response) {
+                $('#calendar').fullCalendar('removeEvents', calEvent.id);
+                swal({
+                    title: "Finalização computada com sucesso",
+                    text: "Criar Uma nota de entrada?",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Sim",
+                    cancelButtonText: "Não",
+                }, function (isConfirm) {
                     if (isConfirm) {
-                        $('#calendar').fullCalendar('removeEvents', calEvent.id);
-                    } else {
-                        swal({
-                            title: "Finalização computada com sucesso",
-                            text: "Criar Uma nota de entrada?",
-                            type: "success",
-                            showCancelButton: true,
-                            confirmButtonColor: "#DD6B55",
-                            confirmButtonText: "Sim",
-                            cancelButtonText: "Não",
-                            closeOnConfirm: false,
-                            closeOnCancel: false
-                        }, function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = "/contasReceber/cadastrar/" + calEvent.id;
-                            }
-                        });
+                        window.location.href = "/contasReceber/cadastrar/" + calEvent.id;
                     }
                 });
+
             });
+            */
         },
         eventRender: function eventRender(event, element, view) {
             if (codFuncionarioSelecionado > 0) {
@@ -131,35 +131,35 @@ $(function () {
 
     $("#divServicosPrestados").hide();
     /*
-    $("#btnFinalServico").on("click", function(evt){
-        evt.preventDefault();
-        $.ajax({
-            url: "cadastrarNovo/",
-            method: "POST",
-            data: {
-                "txtCodFunc": codFuncionarioSelecionado,
-                "txtHorario": $("#txtHorario").val(),
-                "nomeCliente": $("#txtCliente").val(),
-                "listaServicos": JSON.stringify(vetorServicos)
-            }
-        }).success(function (response) {
-            console.log(response);
-        });
-    });
-    */
+     $("#btnFinalServico").on("click", function(evt){
+     evt.preventDefault();
+     $.ajax({
+     url: "cadastrarNovo/",
+     method: "POST",
+     data: {
+     "txtCodFunc": codFuncionarioSelecionado,
+     "txtHorario": $("#txtHorario").val(),
+     "nomeCliente": $("#txtCliente").val(),
+     "listaServicos": JSON.stringify(vetorServicos)
+     }
+     }).success(function (response) {
+     console.log(response);
+     });
+     });
+     */
 
-    $("#btnClose").on("click", function(){
+    $("#btnClose").on("click", function () {
         $.unblockUI();
     });
 
-    $(".lnk-sel-func").on("click", function(evt){
+    $(".lnk-sel-func").on("click", function (evt) {
         evt.preventDefault();
-        $(".white-box").css("border","none");
+        $(".white-box").css("border", "none");
         codFuncionarioSelecionado = parseInt($(this).attr("codFunc"));
         $("#txtCodFunc").val(codFuncionarioSelecionado);
         $("#calendar").fullCalendar('rerenderEvents');
         $(this).children().children().css("border", "2px solid #01C0C8");
-        $('html,body').animate({scrollTop: $("#calendar").offset().top},'slow');
+        $('html,body').animate({scrollTop: $("#calendar").offset().top}, 'slow');
 
     });
 

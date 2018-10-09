@@ -37,19 +37,19 @@ $(function () {
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     $.ajax({
-                    url: "pagar/",
-                    method: "GET",
-                    data: {
-                        "codigo": cod,
-                        "formaPagto": "DINHEIRO",
-                        "origem": "outro"
-                    }
-                }).success(function (response) {
-                    console.log(response);
-                    $this.hide('slow');
-                    $this.parent().prev().html("Pago");
-                    swal("Feito", "Nota Finalizada com sucesso", "success");
-                });
+                        url: "pagar/",
+                        method: "GET",
+                        data: {
+                            "codigo": cod,
+                            "formaPagto": "DINHEIRO",
+                            "origem": "outro"
+                        }
+                    }).success(function (response) {
+                        console.log(response);
+                        $this.hide('slow');
+                        $this.parent().prev().html("Pago");
+                        swal("Feito", "Nota Finalizada com sucesso", "success");
+                    });
                 } else {
                     throw dismiss;
                 }

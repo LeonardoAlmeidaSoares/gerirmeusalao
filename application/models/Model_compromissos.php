@@ -93,7 +93,7 @@ class Model_compromissos extends CI_Model {
 
      public function getListaCompromissosDetalhadosVencendoHoje($codEmpresa){
         return $this->db->select("comp.codCliente, serv.valorComum, cli.nome as cliente, comp.codCompromisso, 
-                    func.nome as funcionario, comp.descricao, comp.status")
+                    func.nome as funcionario, comp.descricao, comp.horario, comp.status")
                 ->from("compromisso comp")
                 ->join("servico serv","serv.codServico = comp.codServico")
                 ->join("funcionario func","func.codFuncionario = comp.codFuncionario")

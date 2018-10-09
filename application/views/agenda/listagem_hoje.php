@@ -40,15 +40,6 @@
 
                     <p class="text-muted m-b-30">Listagem de Compromissos de Hoje</p>
 
-                    <!--div class="pull-right" style="margin-top: -70px;">
-                        <select class="form-control" id="txtFiltroLista">
-                            <option value="0">Todos os Colaboradores</option>
-                            <?php foreach($colaboradores->result() as $item){ ?>
-                                <option value="<?=$item->nome;?>"><?=$item->nome;?></option>
-                            <?php } ?>
-                        </select>
-                    </div-->
-
                     <div class="table-responsive">
 
                         <table id="myTable" class="table table-striped table-hover">
@@ -56,6 +47,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Titulo</th>
+                                    <th>Horário</th>  
                                     <th>Colaborador</th>
                                 </tr>
                             </thead>
@@ -64,8 +56,8 @@
                                 <tr>
                                     <td><?= str_pad($item->codCompromisso, 6, "0", STR_PAD_LEFT);?></td>
                                     <td><?= $item->descricao;?></td>
+                                    <td><?= date("H:i", strtotime($item->horario));?></td>
                                     <td><?= $item->funcionario;?></td>
-                                    
                                 </tr>
                                 <?php } ?>
                             </tbody>
