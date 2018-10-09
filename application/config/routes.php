@@ -17,8 +17,10 @@ $route['cliente/aniversariantes'] = 'cliente/aniversariantes';
 
 $route['contas_receber'] = 'contasReceber';
 $route['contas_receber/novo'] = 'contasReceber/cadastrar';
+$route['contas_receber/novo/(:num)'] = 'contasReceber/cadastrar/$1';
 $route["contas_receber/(:num)"] = "contasReceber/nota/$1";
 $route["contas_receber/hoje"] = "contasReceber/vencendoHoje";
+$route['contas_receber/status'] = "contasReceber/alterarStatus";
 
 /*Rotas Para Contas a Pagar*/
 

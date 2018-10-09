@@ -25,7 +25,7 @@ $(function () {
 
     $("#calendar").fullCalendar({
         locale: "pt-BR",
-        defaultView: "agendaWeek",
+        defaultView: "listWeek",
         events: events,
         ignoreTimezone: false,
 
@@ -72,7 +72,7 @@ $(function () {
             }
         },
         eventClick: function (calEvent, jsEvent, view) {
-            var $data = [];
+            var $data = {};
             swal({
                 title: "O que aconteceu?",
                 text: "O Compromisso foi finalizado ou cancelado?",
@@ -82,43 +82,44 @@ $(function () {
                 confirmButtonText: "Cancelar",
                 cancelButtonText: "Finalizar"
             }).then(function ($return) {
-                //console.log($return);return;
                 //Cancelado
-                $data = {"status": -1, "codEvento": calEvent.id};
-                swal("Cancelado!", "Esse compromisso foi cancelado com sucesso", "error");
-            }, function (dismiss) {
-                alert("oi");
-                /*if (dismiss === 'cancel') {
-                    //finalizado
-                    $data = {"status": 2, "codEvento": calEvent.id};
-                    swal("Finalizado", "Finalização computada com sucesso", "success");
-                } else {
-                    throw dismiss;
-                }*/
-            });
-            /*
-            $.ajax({
-                url: "alterarStatus/",
-                method: "POST",
-                data: $data
-            }).success(function (response) {
-                $('#calendar').fullCalendar('removeEvents', calEvent.id);
-                swal({
-                    title: "Finalização computada com sucesso",
-                    text: "Criar Uma nota de entrada?",
-                    type: "success",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Sim",
-                    cancelButtonText: "Não",
-                }, function (isConfirm) {
-                    if (isConfirm) {
-                        window.location.href = "/contasReceber/cadastrar/" + calEvent.id;
+
+                $.ajax({
+                    url: "alterarStatus/",
+                    method: "POST",
+                    data: {
+                        "status": -1,
+                        "codEvento": calEvent.id
                     }
+                }).success(function (response) {
+                    $('#calendar').fullCalendar('removeEvents', calEvent.id);
+                    swal("Cancelado!", "Esse compromisso foi cancelado com sucesso", "error");
                 });
 
+            }, function (dismiss) {
+                //Finalizado
+                $.ajax({
+                    url: "alterarStatus/",
+                    method: "POST",
+                    data: {
+                        "status": 2,
+                        "codEvento": calEvent.id
+                    }
+                }).success(function (response) {
+                    $('#calendar').fullCalendar('removeEvents', calEvent.id);
+                    swal({
+                        title: "Finalização computada com sucesso",
+                        text: "Criar Uma nota de entrada?",
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Sim",
+                        cancelButtonText: "Não"
+                    }).then(function ($return) {
+                        document.location = "../contas_receber/novo/" + calEvent.id;
+                    });
+                });
             });
-            */
         },
         eventRender: function eventRender(event, element, view) {
             if (codFuncionarioSelecionado > 0) {

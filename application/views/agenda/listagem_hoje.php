@@ -53,12 +53,12 @@
                             </thead>
                             <tbody>
                                 <?php foreach($compromissos->result() as $item) { ?>
-                                <tr>
-                                    <td><?= str_pad($item->codCompromisso, 6, "0", STR_PAD_LEFT);?></td>
-                                    <td><?= $item->descricao;?></td>
-                                    <td><?= date("H:i", strtotime($item->horario));?></td>
-                                    <td><?= $item->funcionario;?></td>
-                                </tr>
+                                    <tr>
+                                        <td><?= str_pad($item->codCompromisso, 6, "0", STR_PAD_LEFT);?></td>
+                                        <td><?= $item->descricao;?></td>
+                                        <td><?= date("H:i", strtotime($item->horario));?></td>
+                                        <td><?= $item->funcionario;?></td>
+                                    </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
