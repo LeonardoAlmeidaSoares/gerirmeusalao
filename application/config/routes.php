@@ -33,12 +33,14 @@ $route['contas_pagar/pagar'] = "contasPagar/EfetuarPagamento";
 $route['colaborador'] = 'funcionario';
 $route['colaborador/novo'] = 'funcionario/cadastrar';
 $route['colaborador/editar/(:num)'] = "funcionario/Alterar/$1";
+$route['colaborador/(:num)'] = "funcionario/visualizar/$1";
 
 /*Rotas para Usuario*/
 
 $route['usuario'] = 'Usuario';
 $route['usuario/novo'] = 'Usuario/cadastrar';
 $route['usuario/editar/(:num)'] = "Usuario/Alterar/$1";
+$route['usuario/(:num)'] = "Usuario/visualizar/$1";
 
 /*Rotas para Produtos*/
 

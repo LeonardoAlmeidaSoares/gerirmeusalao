@@ -90,7 +90,7 @@ $(function () {
                 } else {
                     //finalizado
                     $data = {"status": 2, "codEvento": calEvent.id};
-                    //swal("Finalizado", "Finalização computada com sucesso", "success");
+                    swal("Finalizado", "Finalização computada com sucesso", "success");
                 }
 
                 $.ajax({

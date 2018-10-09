@@ -20,7 +20,7 @@
 
                     <div class="circle2">
 
-                        <a class="logo hidden-xs" href="<?= base_url(); ?>" >
+                        <a class="logo hidden-xs" href="<?= base_url("instituicao"); ?>" >
 
                             <img src="<?= base_url($_SESSION["empresa"]->logo); ?>" alt="home" />
 

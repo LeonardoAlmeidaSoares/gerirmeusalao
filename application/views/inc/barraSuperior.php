@@ -60,22 +60,22 @@
 
                                 </ul>
                             </li>
-                            <!--li class="col-sm-3">
+                            <li class="col-sm-3">
                                 <ul>
-                                    <li class="dropdown-header">Advance Forms</li>
-                                    <li><a href="form-dropzone.html">File Dropzone</a></li>
-                                    <li><a href="form-pickers.html">Form-pickers</a></li>
+                                    <li class="dropdown-header">Colaboradores</li>
+                                    <li><a href="<?= base_url("relatorio/servicos_prestados");?>">Serviços Prestados</a></li>
+                                    <!--li><a href="form-pickers.html">Form-pickers</a></li>
                                     <li><a href="icheck-control.html">Icheck Form Controls</a></li>
                                     <li><a href="form-wizard.html">Form-wizards</a></li>
                                     <li><a href="form-typehead.html">Typehead</a></li>
                                     <li><a href="form-xeditable.html">X-editable</a></li>
                                     <li><a href="form-summernote.html">Summernote</a></li>
                                     <li><a href="form-bootstrap-wysihtml5.html">Bootstrap wysihtml5</a></li>
-                                    <li><a href="form-tinymce-wysihtml5.html">Tinymce wysihtml5</a></li>
+                                    <li><a href="form-tinymce-wysihtml5.html">Tinymce wysihtml5</a></li-->
 
                                 </ul>
                             </li>
-                            <li class="col-sm-3">
+                            <!--li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Table Example</li>
                                     <li><a href="basic-table.html">Basic Tables</a></li>

@@ -9,7 +9,7 @@
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa"); ?>" 
+                <a href="<?= base_url("salao/fluxoCaixa"); ?>" 
                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
@@ -131,7 +131,9 @@
                                         <div class="white-box">
                                             <div class="row">
                                                 <div class="col-md-4 col-sm-4 text-center">
-                                                    <a href="contact-detail.html"><img src="<?= base_url($item->imagem); ?>" alt="user" class="img-circle img-responsive"></a>
+                                                    <a href="#">
+                                                        <img src="<?= base_url($item->imagem); ?>" alt="user" class="img-circle img-responsive">
+                                                    </a>
                                                 </div>
                                                 <div class="col-md-8 col-sm-8">
                                                     <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
