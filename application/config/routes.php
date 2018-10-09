@@ -21,6 +21,7 @@ $route['contas_receber/novo/(:num)'] = 'contasReceber/cadastrar/$1';
 $route["contas_receber/(:num)"] = "contasReceber/nota/$1";
 $route["contas_receber/hoje"] = "contasReceber/vencendoHoje";
 $route['contas_receber/status'] = "contasReceber/alterarStatus";
+$route['contas_receber/servico_pendente/(:num)'] = "contasReceber/criarNotaServicoNaoFinalizado/$1";
 
 /*Rotas Para Contas a Pagar*/
 
