@@ -21,7 +21,6 @@
 <link href="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.css"); ?>" rel="stylesheet" type="text/css" />
 
 <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <script src="<?= base_url("assets/plugins/datatables-buttons/js/dataTables.buttons.min.js");?>" type="text/javascript"></script>
 
 <script src="<?= base_url("assets/plugins/sidebar-nav/dist/sidebar-nav.min.js"); ?>"></script>
 

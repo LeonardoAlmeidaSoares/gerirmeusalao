@@ -15,8 +15,6 @@ class Agenda extends CI_Controller {
     
     public function index() {
         
-        //var_dump($_SESSION["permissoes"]);
-        
         $this->load->Model("Model_clientes", "clientes");
         $this->load->Model("Model_funcionarios", "func");
         

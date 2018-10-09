@@ -80,7 +80,7 @@ $(function () {
     $("#click-link-todos-clientes")
         .css("cursor", "pointer")
         .on("click", function(){
-            location.href="icliente/";
+            location.href="cliente";
     });
 
     $("#click-link-agenda-hoje")

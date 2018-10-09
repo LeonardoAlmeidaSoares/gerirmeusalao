@@ -135,6 +135,26 @@ class Funcionario extends CI_Controller {
         }
         redirect(base_url("index.php/funcionario"));
     }
+    
+    public function visualizar($codFuncionario){
+        
+        //$this->load->Model("Model_cidades", "cidades");
+        //$this->load->Model("Model_cargos", "cargos");
+
+        /*
+        $parametrosCadastro = array(
+            "estados" => $this->db->get_where("estado"),
+            "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
+            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codEmpresa)),
+            "dados" => NULL
+        );
+        */
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('funcionarios/visualizar'/*, $parametrosCadastro*/);
+        $this->load->view('inc/footer');
+    }
 
     public function alterar($cod) {
 

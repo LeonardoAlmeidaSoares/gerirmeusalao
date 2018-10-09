@@ -19,7 +19,7 @@ function get_tipo_movimentacao($cod){
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("isalao/fluxoCaixa");?>" 
+                <a href="<?= base_url("salao/fluxoCaixa");?>" 
                     class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
@@ -49,7 +49,7 @@ function get_tipo_movimentacao($cod){
                     <div class="col-md-7 col-lg-9 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <?php $valorTotal = 0;?>
-                            <table id="table" class="table table-hover table-condensed">
+                            <table id="myTable" class="table table-hover table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Código</th>

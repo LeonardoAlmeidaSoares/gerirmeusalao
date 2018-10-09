@@ -17,18 +17,7 @@
         </div>
         <!-- row -->
         <div class="row">
-            <!--div class="col-md-3 col-xs-12 col-sm-12 col-lg-3">
-                <div class="white-box">
-                    <a href="#" class="btn btn-custom btn-block waves-effect waves-light">Funcionários</a>
-                    <div class="list-group mail-list m-t-20"> 
-                        <a href="#" class="list-group-item list-func active" codFunc="0">Todos</a> 
-                        <?php foreach ($funcionarios->result() as $item) { ?>
-                            <a href="#" class="list-group-item list-func" codFunc="<?= $item->codFuncionario; ?>"><?= $item->nome; ?></a> 
-                        <?php } ?>
-                    </div>
-                </div>
-            </div-->
-
+            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                     <?php foreach ($funcionarios->result() as $item) { ?>
