@@ -23,9 +23,12 @@
         <div class="row">
             <div class="col-md-4 col-xs-12">
                 <div class="white-box">
+				
                     <div class="user-bg text-center" id="div_img_logo"
-                         style="width:100%; text-align:center; margin-left:auto; margin-top:10px; margin-right:auto; height:100%;"> 
-                        <img width="100%" alt="user" src="<?= base_url($dadosInstituicao->logo); ?>" id="logo_atual" class="dz-message">
+                         style="width:100%; text-align:center; margin-left:auto; margin-top:10px; margin-right:auto; height:100%;">
+						 <div class="subss">Clique para substituir imagem</div>
+                         <img width="100%"  alt="user" src="<?= base_url($dadosInstituicao->logo); ?>" id="logo_atual" class="dz-message">
+						 
                     </div>
                     <div class="user-btm-box">
                         <!-- .row -->
@@ -127,15 +130,15 @@
                         <div class="tab-pane active" id="tab-funcionarios">
                             <div class="row">
                                 <?php foreach ($listaFuncionarios->result() as $item) { ?>
-                                    <div class="col-md-12 col-sm-12">
+                                    <div class="col-md-12 col-sm-12" >
                                         <div class="white-box">
                                             <div class="row">
-                                                <div class="col-md-4 col-sm-4 text-center">
+                                                <div class="col-md-3 col-sm-4 text-center">
                                                     <a href="#">
-                                                        <img src="<?= base_url($item->imagem); ?>" alt="user" class="img-circle img-responsive">
+                                                        <img src="<?= base_url($item->imagem); ?>" alt="user" style="height:100px; width:100px;" class="img-circle img-responsive">
                                                     </a>
                                                 </div>
-                                                <div class="col-md-8 col-sm-8">
+                                                <div class="col-md-9 col-sm-6">
                                                     <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
                                                     <small><?= $item->cargo; ?></small>
                                                     <p> </p>

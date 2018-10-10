@@ -44,7 +44,7 @@
                         </a>
 
 
-                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#f9f1a0e0; color:#fff;">
+                        <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown" style="background-color:#fff09e; color:#fff;">
                             <li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Rendimentos</li>

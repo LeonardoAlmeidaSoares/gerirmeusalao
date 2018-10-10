@@ -58,7 +58,7 @@
 
                                         <div class="col-md-6 col-sm-6 col-xs-6"> 
 
-                                            <i class="ti-user text-danger"></i>
+                                            <i class="ti-user" style="color:#ff911b;"></i>
 
                                             <h5 class="text-muted vb">QUANTIDADE DE CLIENTES</h5> 
 
@@ -66,7 +66,7 @@
 
                                         <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                            <h3 class="counter text-right m-t-15 text-danger"><?= $totalClientes; ?></h3> 
+                                            <h3 class="counter text-right m-t-15" style="color:#ff911b;"><?= $totalClientes; ?></h3> 
 
                                         </div>
 
@@ -118,7 +118,7 @@
 
                                         <div class="col-md-6 col-sm-6 col-xs-6"> 
 
-                                            <i class="ti-gift text-success"></i>
+                                            <i class="ti-gift" style="color:#c5259c" ></i>
 
                                             <h5 class="text-muted vb">CLIENTES ANIVERSARIANTES</h5> 
 
@@ -126,7 +126,7 @@
 
                                         <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                            <h3 class="counter text-right m-t-15 text-success"><?= $aniversariantes; ?></h3> 
+                                            <h3 class="counter text-right m-t-15" style="color:#c5259c"><?= $aniversariantes; ?></h3> 
 
                                         </div>
 
@@ -148,13 +148,13 @@
 
                                     <div class="col-in row">
 
-                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-receipt text-warning"></i>
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-receipt" style="color:#ffd21f;"></i>
 
                                             <h5 class="text-muted vb">LEMBRETES DE HOJE</h5> </div>
 
                                         <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                            <h3 class="counter text-right m-t-15 text-warning"><?= $mensagensParaHoje; ?></h3> 
+                                            <h3 class="counter text-right m-t-15" style="color:#ffd21f;"><?= $mensagensParaHoje; ?></h3> 
 
                                         </div>
 
@@ -204,13 +204,13 @@
 
                                     <div class="col-in row">
 
-                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-money text-dark"></i>
+                                        <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-money text-inverse"></i>
 
                                             <h5 class="text-muted vb">RECEBENDO HOJE</h5> </div>
 
                                         <div class="col-md-6 col-sm-6 col-xs-6">
 
-                                            <h3 class="counter text-right m-t-15 text-dark"><?= $vencimentosRecebendoHoje;?></h3> 
+                                            <h3 class="counter text-right m-t-15 text-inverse"><?= $vencimentosRecebendoHoje;?></h3> 
 
                                         </div>
 
@@ -334,7 +334,7 @@
 
                                     <a href="#">
 
-                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 75px; margin-top: 10px;" class="img-circle img-responsive">
+                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 75px; width:100%; margin-top: 10px;" class="img-circle img-responsive">
 
                                     </a>
 

@@ -108,7 +108,7 @@ function get_tipo_movimentacao($cod){
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="bg-theme m-b-15" style="background-color:#ff3535 !important;">
+                                <div class="bg-theme m-b-15" style="background-color:#d92020 !important;">
                                     <div class="row p-20">
                                         <div class="col-md-12 col-xs-12">
                                             <h3>
