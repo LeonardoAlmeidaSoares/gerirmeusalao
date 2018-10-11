@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <?php $nome = isset($_SESSION["empresa"]) ? $_SESSION["empresa"]->nome : NOME_DO_SISTEMA;?>
+    <?php $nome = isset($_SESSION["empresa"]) ? $_SESSION["empresa"]->nome : NOME_DO_SISTEMA; ?>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,51 +22,53 @@
         <script src="<?= base_url("assets/plugins/jquery/dist/jquery.min.js"); ?>"></script>
         <!-- color CSS -->
         <link href="<?= base_url("assets/css/colors/megna.css"); ?>" id="theme" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-       <!-- Bootstrap Core JavaScript -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+        <!-- Bootstrap Core JavaScript -->
         <script src="<?= base_url("assets/bootstrap/dist/js/tether.min.js"); ?>"></script>
         <script src="<?= base_url("assets/bootstrap/dist/js/bootstrap.min.js"); ?>"></script>
         <script src="<?= base_url("assets/plugins/bootstrap-extension/js/bootstrap-extension.min.js"); ?>"></script>
-        <script src="<?= base_url("assets/js/functions.js");?>"></script>
+        <script src="<?= base_url("assets/js/functions.js"); ?>"></script>
 
-        <script src="<?= base_url("assets/plugins/sweetalert/sweetalert.min.js");?>" type="text/javascript"></script>
+        <script src="<?= base_url("assets/plugins/sweetalert/sweetalert.min.js"); ?>" type="text/javascript"></script>
 
-        <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css");?>" rel="stylesheet" type="text/css"/>
-        <script src="<?= base_url("assets/plugins/shortcut.js");?>" type="text/javascript"></script>
-		
-		<script type="text/javascript">
-		function bs_input_file() {
-	$(".input-file").before(
-		function() {
-			if ( ! $(this).prev().hasClass('input-ghost') ) {
-				var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
-				element.attr("name",$(this).attr("name"));
-				element.change(function(){
-					element.next(element).find('input').val((element.val()).split('\\').pop());
-				});
-				$(this).find("button.btn-choose").click(function(){
-					element.click();
-				});
-				$(this).find("button.btn-reset").click(function(){
-					element.val(null);
-					$(this).parents(".input-file").find('input').val('');
-				});
-				$(this).find('input').css("cursor","pointer");
-				$(this).find('input').mousedown(function() {
-					$(this).parents('.input-file').prev().click();
-					return false;
-				});
-				return element;
-			}
-		}
-	);
-}
-$(function() {
-	bs_input_file();
-});
-		</script>
+        <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css"); ?>" rel="stylesheet" type="text/css"/>
+        <script src="<?= base_url("assets/plugins/shortcut.js"); ?>" type="text/javascript"></script>
+        <link href="<?= base_url("assets/plugins/select2/css/materialize.css"); ?>" rel="stylesheet" type="text/css"/>
+        <script src="<?= base_url("assets/plugins/select2/js/select2.full.min.js"); ?>" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            function bs_input_file() {
+                $(".input-file").before(
+                        function () {
+                            if (!$(this).prev().hasClass('input-ghost')) {
+                                var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+                                element.attr("name", $(this).attr("name"));
+                                element.change(function () {
+                                    element.next(element).find('input').val((element.val()).split('\\').pop());
+                                });
+                                $(this).find("button.btn-choose").click(function () {
+                                    element.click();
+                                });
+                                $(this).find("button.btn-reset").click(function () {
+                                    element.val(null);
+                                    $(this).parents(".input-file").find('input').val('');
+                                });
+                                $(this).find('input').css("cursor", "pointer");
+                                $(this).find('input').mousedown(function () {
+                                    $(this).parents('.input-file').prev().click();
+                                    return false;
+                                });
+                                return element;
+                            }
+                        }
+                );
+            }
+            $(function () {
+                bs_input_file();
+            });
+        </script>
 
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

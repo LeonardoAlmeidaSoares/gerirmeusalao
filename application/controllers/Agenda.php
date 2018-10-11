@@ -229,7 +229,7 @@ class Agenda extends CI_Controller {
             "codFuncionario" => intval(trim(filter_input(INPUT_POST, "txtCodColaborador"))),
             "horario" => $horario,
             "codServico" => intval(trim(filter_input(INPUT_POST, "txtServico"))),
-            "codCliente" => 0,
+            "codCliente" => isset($_POST["txtCodCliente"])?intval(trim(filter_input(INPUT_POST, "txtCodCliente"))) :0,
             "descricao" => $servico->descricao . " para " . trim(filter_input(INPUT_POST, "txtCliente")),
             "status" => 0,
             "codEmpresa" => $codEmpresa,
@@ -307,4 +307,23 @@ class Agenda extends CI_Controller {
         
     }
 
+    public function novo(){
+        
+        $this->load->Model("Model_servico", "servicos");
+        $this->load->Model("Model_funcionarios", "colaboradores");
+        $this->load->Model("Model_clientes", "clientes");
+
+        $parametros = array(
+            "funcionarios" => $this->colaboradores->getFuncionarios($_SESSION["empresa"]->codEmpresa),
+            "servicos" => $this->servicos->getServicos($_SESSION["empresa"]->codEmpresa),
+            'clientes' => $this->clientes->getClientes($_SESSION["empresa"]->codEmpresa)
+        );
+
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('agenda/cadastro', $parametros);
+        $this->load->view('inc/footer');
+        
+    }
 }

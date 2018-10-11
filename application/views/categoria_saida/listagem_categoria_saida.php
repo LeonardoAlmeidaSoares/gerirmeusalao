@@ -12,7 +12,7 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
+                <a href="<?= base_url("salao/fluxoCaixa");?>" 
                     class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
@@ -47,7 +47,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Titulo</th>
-                                    <th>Ações</th>
+                                    <!--th>Ações</th-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,9 +55,9 @@
                                 <tr>
                                     <td><?= str_pad($item->codcategoriaSaida, 6, "0", STR_PAD_LEFT);?></td>
                                     <td><?= $item->descricao;?></td>
-                                    <td>
-                                        <!--span class="ti-eye pointer visualizar" cod="<?= $item->codCargo;?>"></span-->
-                                    </td>
+                                    <!--td>
+                                        <!--span class="ti-eye pointer visualizar" cod="<?= $item->codCargo;?>"></span>
+                                    </td-->
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -65,7 +65,7 @@
                         <br />
 
 
-                        <a href="<?= base_url("index.php/tiposaida/cadastrar/");?>" class="btn btn-info pull-right">Novo</a>
+                        <a href="<?= base_url("tipo_saida/novo/");?>" class="btn btn-info pull-right">Novo</a>
 
                     </div>
 

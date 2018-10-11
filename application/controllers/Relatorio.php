@@ -98,4 +98,34 @@ class Relatorio extends CI_Controller {
         $this->load->view('relatorio/relatorio_listagem_aniversariantes', $parametros);
         $this->load->view('inc/footer');
     }
+    
+    public function servicosPrestados(){
+        
+        $codEmpresa = intval($_SESSION["empresa"]->codEmpresa);
+        
+        $this->load->Model("Model_funcionarios", "func");
+        
+        $parametros = [
+            "colaboradores" => $this->func->getFuncionarios($codEmpresa)
+        ];
+        
+        $this->load->view('inc/header');
+        $this->load->view('inc/barraSuperior');
+        $this->load->view('inc/menu');
+        $this->load->view('relatorio/servicos/listagem_servicos_prestados', $parametros);
+        $this->load->view('inc/footer');
+        
+    }
+    
+    public function getRelatorioServicosPrestados(){
+        
+        $this->load->Model("Model_relatorios", "rel");
+        
+        $codFuncionario = intval(trim(filter_input(INPUT_POST, "codFuncionario")));
+        
+        $this->load->view("relatorio/servicos/listagem_servicos_prestados/detalhes",[
+            "dados" => $this->rel->getServicosPrestados($codFuncionario)
+        ]);
+        
+    }
 }

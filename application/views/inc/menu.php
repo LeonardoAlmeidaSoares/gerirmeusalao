@@ -158,20 +158,20 @@
                 </li>
             <?php } ?>
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
-                <!--li> 
+                <li> 
                     <a href="<?= base_url("tipo_entrada/"); ?>" class="waves-effect">
                         <i class="icon-layers p-r-10"></i> 
                         <span class="hide-menu">Tipos de Entrada</span>
                     </a> 
-                </li-->
+                </li>
             <?php } ?>
             <?php if (intval($perm->perm_efetuarCadastro) > 0) { ?>
-                <!--li> 
+                <li> 
                     <a href="<?= base_url("tipo_saida/"); ?>" class="waves-effect">
                         <i class="icon-layers p-r-10"></i> 
                         <span class="hide-menu">Tipos de Saída</span>
                     </a> 
-                </li-->
+                </li>
             <?php } ?>
             <!--li> 
                 <a href="#" class="waves-effect">

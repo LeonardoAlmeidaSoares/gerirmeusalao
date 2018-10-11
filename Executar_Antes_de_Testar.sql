@@ -8,5 +8,5 @@
  * Created: 04/10/2018
  */
 
-ALTER TABLE `gerirmeusalao_homologacao`.`servico` 
-ADD COLUMN `status` INT NULL DEFAULT 1 AFTER `codEmpresa`;
+ALTER TABLE `gerirmeusalao_homologacao`.`categoriasaida` 
+CHANGE COLUMN `codcategoriaSaida` `codcategoriaSaida` INT(11) NOT NULL AUTO_INCREMENT ;

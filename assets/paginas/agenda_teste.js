@@ -27,26 +27,28 @@ $(function () {
         locale: "pt-BR",
         defaultView: "listWeek",
         events: events,
-		themeSystem: 'bootstrap4',
+        themeSystem: 'bootstrap4',
         ignoreTimezone: false,
-		prev: 'fa-chevron-left',
-		next: 'fa-chevron-right',
-		prevYear: 'fa-angle-double-left',
-		nextYear: 'fa-angle-double-right',
-		timeFormat: 'H(:mm)',
-		eventColor: '#378006',	
-		customButtons: {
-			myCustomButton: {
-			click: function() {
-			alert('clicked the custom button!');
-							  }
-						}
-  },
-  header: {
-    left: 'prev,next today ',
-    center: 'title',
-    right: 'myCustomButton'
-  },
+        prev: 'fa-chevron-left',
+        next: 'fa-chevron-right',
+        prevYear: 'fa-angle-double-left',
+        nextYear: 'fa-angle-double-right',
+        timeFormat: 'H(:mm)',
+        eventColor: '#378006',
+        customButtons: {
+            myCustomButton: {
+                text: 'Cadastrar',
+                bootstrapGlyphicon : 'glyphicon glyphicon-agenda',
+                click: function () {
+                    document.location = "novo";
+                }
+            }
+        },
+        header: {
+            left: 'prev,next today ',
+            center: 'title',
+            right: 'myCustomButton'
+        },
         allDaySlot: false,
         dayClick: function (date, jsEvent, view) {
             if (codFuncionarioSelecionado > 0) {

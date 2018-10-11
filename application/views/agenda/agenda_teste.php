@@ -53,7 +53,7 @@
         <div class="white-box col-xs-12 col-md-12 col-sm-12 col-lg-12" id="modalCadastro">
             <img id="btnClose" src="<?= base_url("assets/img/img_close.png");?>" style="float: right;margin-top: -40px;margin-right: -40px;cursor: pointer;"/>
             <div class="col-xs-12 col-md-12">
-                <form action="<?= base_url("index.php/agenda/cadastrar");?>" method="POST" >
+                <form action="<?= base_url("agenda/cadastrar");?>" method="POST" >
                     <input type="hidden" name="txtCodFunc" id="txtCodFunc" />
                     <div class="row">
                         <div class="col-xs-2 col-md-2"></div>

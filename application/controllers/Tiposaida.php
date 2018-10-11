@@ -42,7 +42,7 @@ class Tiposaida extends CI_Controller {
 
         $this->db->insert("categoriasaida", $parametros);
         $_SESSION["msg_ok"] = "Tipo de Saída Cadastrado com sucesso";
-        redirect(base_url("index.php/tiposaida/"));
+        redirect(base_url("index.php/tipo_saida/"));
 
     }
 

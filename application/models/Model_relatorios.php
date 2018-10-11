@@ -54,5 +54,16 @@ class Model_relatorios extends CI_Model {
         }
         return $this->db->get();
     }
+    
+    public function getServicosPrestados($codF){
+        
+        $this->db->select("count(*), DATE_FORMAT(horario, '%I/%Y') as data");
+        $this->db->from("compromisso");
+        $this->db->where("codFuncionario", $codF);
+        $this->db->where("status", 2);
+        $this->db->group_by("DATE_FORMAT(horario, '%I/%Y')");
+        return $this->db->get();
+        
+    }
 
 }

@@ -58,7 +58,14 @@ $route['servico/novo'] = 'Servicos/cadastrar';
 $route['servico/editar/(:num)'] = "Servicos/Alterar/$1";
 
 /* Rotas para Tipo de Saida*/
-$route['tiposaida'] = 'tipo_saida';
+$route['tipo_saida'] = 'tiposaida';
+$route['tipo_saida/add'] = 'tiposaida/add';
+$route['tipo_saida/novo'] = 'tiposaida/cadastrar';
+
+/* Rotas para Tipo de Entrada*/
+$route['tipo_entrada'] = 'tipoEntrada';
+$route['tipo_entrada/novo'] = 'tipoEntrada/cadastrar';
+$route['tipo_entrada/add'] = 'tipoEntrada/add';
 
 /* Rotas para Tipo de Saida*/
 $route['lembrete'] = 'lembrete';
@@ -68,3 +75,6 @@ $route['lembrete/hoje'] = 'lembrete/ListagemHoje';
 /* Rotas para Agenda*/
 $route['agenda'] = 'agenda';
 $route['agenda/hoje'] = 'agenda/listagemHoje';
+
+/*Rotas de Relatórios*/
+$route['relatorio/servicos_prestados'] = "relatorio/servicosPrestados";

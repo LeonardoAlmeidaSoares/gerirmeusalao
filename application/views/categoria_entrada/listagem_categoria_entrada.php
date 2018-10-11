@@ -12,8 +12,8 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("index.php/salao/fluxoCaixa");?>" 
-                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
+                <a href="<?= base_url("salao/fluxoCaixa"); ?>" 
+                   class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
                 <ol class="breadcrumb">
@@ -47,25 +47,25 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Titulo</th>
-                                    <th>Ações</th>
+                                    <!--th>Ações</th-->
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($tipoentradas->result() as $item) { ?>
-                                <tr>
-                                    <td><?= str_pad($item->codCategoriaEntrada, 6, "0", STR_PAD_LEFT);?></td>
-                                    <td><?= $item->descricao;?></td>
-                                    <td>
-                                        <!--span class="ti-eye pointer visualizar" cod="<?= $item->codCargo;?>"></span-->
-                                    </td>
-                                </tr>
+                                <?php foreach ($tipoentradas->result() as $item) { ?>
+                                    <tr>
+                                        <td><?= str_pad($item->codCategoriaEntrada, 6, "0", STR_PAD_LEFT); ?></td>
+                                        <td><?= $item->descricao; ?></td>
+                                        <!--td>
+                                            <span class="ti-eye pointer visualizar" cod="<?= $item->codCargo; ?>"></span>
+                                        </td-->
+                                    </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
                         <br />
 
 
-                        <a href="<?= base_url("index.php/tipoentrada/cadastrar/");?>" class="btn btn-info pull-right">Novo</a>
+                        <a href="<?= base_url("tipo_entrada/novo/"); ?>" class="btn btn-info pull-right">Novo</a>
 
                     </div>
 
@@ -73,24 +73,15 @@
 
             </div>
 
-
-
         </div>
 
-        </div>
+    </div>
 
-        <!-- /.row -->
+    <!-- /.row -->
 
-        <script src="<?= base_url("assets/plugins/sweetalert/sweetalert.min.js");?>" type="text/javascript"></script>
-
-        <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css");?>" rel="stylesheet" type="text/css"/>
-
-        <script src="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.js"); ?>" type="text/javascript"></script>
-
-        <link href="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.css"); ?>" rel="stylesheet" type="text/css" />
-
-        <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-
-        <script src="<?= base_url("assets/paginas/listagem_lembrete.js"); ?>" type="text/javascript"></script>
-
-        
+    <script src="<?= base_url("assets/plugins/sweetalert/sweetalert.min.js"); ?>" type="text/javascript"></script>
+    <link href="<?= base_url("assets/plugins/sweetalert/sweetalert.css"); ?>" rel="stylesheet" type="text/css"/>
+    <script src="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.js"); ?>" type="text/javascript"></script>
+    <link href="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.css"); ?>" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <script src="<?= base_url("assets/paginas/listagem_lembrete.js"); ?>" type="text/javascript"></script>

@@ -24,5 +24,8 @@ $(function () {
     $("#myTable").dataTable({
         aaSorting: [[0, 'desc']]
     });
+    
+    $(".select2").select2();
+
 
 });
