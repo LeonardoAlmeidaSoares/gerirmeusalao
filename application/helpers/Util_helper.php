@@ -20,3 +20,21 @@ if (!function_exists('getIdade')) {
     }
 
 }
+
+if (!function_exists('dataENGtoPTBR')) {
+
+    function dataENGtoPTBR($data) {
+         
+        $hora = "";
+        //return strpos($data, " "); ;
+        if(strpos($data, " ") > 0){
+            $hora = substr($data, 11);
+            $data = substr($data, 0, 10);
+        }
+        
+        $dia = implode("-", array_reverse(explode("/", $data)));
+        return $dia . " " . $hora;
+            
+    }
+
+}

@@ -95,7 +95,7 @@
 
                             <div class="col-md-12">
 
-                                <input class="form-control" id="txtHorario" name="txtHorario">            
+                                <input type="text" class="form-control" id="txtHorario" name="txtHorario">            
                                 </input>
 
                             </div>
@@ -123,15 +123,17 @@
     </div>
 
 </div>
-<link href="<?= base_url("assets/plugins/select2/css/select2.min.css"); ?>" rel="stylesheet" type="text/css"/>
+<script src="<?= base_url("assets/plugins/zebra-datepicker/dist/zebra_datepicker.min.js"); ?>" type="text/javascript"></script>
 <script src="<?= base_url("assets/plugins/select2/js/select2.full.min.js"); ?>" type="text/javascript"></script>
-<link rel="stylesheet" href="<?= base_url("assets/plugins/calendar/dist/fullcalendar.min.css"); ?>" type="text/css" />
 <script src="<?= base_url("assets/plugins/moment/moment.js"); ?>"></script>
 <script src="<?= base_url("assets/plugins/calendar/jquery-ui.min.js"); ?>"></script>
 <script src="<?= base_url("assets/plugins/calendar/dist/locale/pt-br.js"); ?>" type="text/javascript"></script>
 <script src='<?= base_url("assets/plugins/calendar/dist/fullcalendar.js"); ?>'></script>
-<script src='<?= base_url("assets/plugins/clockface/js/clockface.js"); ?>'></script>
 <script src="<?= base_url("assets/plugins/jquery.validate.js"); ?>"></script>
 <script src="<?= base_url("assets/paginas/cadastro_agenda.js"); ?>"></script>
-<link href="<?= base_url("assets/plugins/clockface/css/clockface.css"); ?>" rel="stylesheet" type="text/css"/>
+
+<link href="<?= base_url("assets/plugins/zebra-datepicker/dist/css/bootstrap/zebra_datepicker.min.css"); ?>" rel="stylesheet" type="text/css"/>
+<link href="<?= base_url("assets/plugins/select2/css/select2.min.css"); ?>" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="<?= base_url("assets/plugins/datetimepicker-master/jquery.datetimepicker.css"); ?>" type="text/css" />
 <link rel="stylesheet" href="<?= base_url("assets/plugins/calendar/dist/fullcalendar.min.css"); ?>" type="text/css" />
+

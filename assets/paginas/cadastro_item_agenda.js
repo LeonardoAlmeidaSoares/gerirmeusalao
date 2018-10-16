@@ -1,6 +1,9 @@
 $(function () {
 
-    $('#txtHorario').clockface();
+    $('#txtHorario').Zebra_DatePicker({
+        format: 'd/m/Y H:i',
+        direction: [true, 7]
+    });
 
     $("#calendarioCadastro").fullCalendar({
         locale: "pt-BR",
@@ -37,8 +40,8 @@ $(function () {
             txtCliente: "required",
             txtHorario: {
                 required: true,
-                minlength: 5,
-                maxlength: 5
+                minlength: 16,
+                maxlength: 16
             },
             txtServico: "required",
             txtCodColaborador: "required"

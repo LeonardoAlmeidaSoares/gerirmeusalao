@@ -218,24 +218,35 @@ class Agenda extends CI_Controller {
         $this->load->Model("Model_servico", "servico");
         $this->load->Model("Model_entradas", "entrada");
         
+        $this->load->helper("Util_helper");
+        
         $codEmpresa = $_SESSION["empresa"]->codEmpresa;
         $codServico = intval(trim(filter_input(INPUT_POST, "txtServico")));
 
         $servico = $this->servico->getServico($codServico, $codEmpresa)->row(0);
-        $horario = date("Y-m-d") . " " . trim(filter_input(INPUT_POST, "txtHorario"));
-
-
+        $horario = trim(filter_input(INPUT_POST, "txtHorario"));
+        
+        
+        
         $parametros = array(
             "codFuncionario" => intval(trim(filter_input(INPUT_POST, "txtCodColaborador"))),
-            "horario" => $horario,
+            "horario" => dataENGtoPTBR($horario),
             "codServico" => intval(trim(filter_input(INPUT_POST, "txtServico"))),
             "codCliente" => isset($_POST["txtCodCliente"])?intval(trim(filter_input(INPUT_POST, "txtCodCliente"))) :0,
-            "descricao" => $servico->descricao . " para " . trim(filter_input(INPUT_POST, "txtCliente")),
             "status" => 0,
             "codEmpresa" => $codEmpresa,
             "dataFim" => trim(filter_input(INPUT_POST, "txtHorario")),
             "valor" => $servico->valorComum
         );
+        
+        
+        
+        if(isset($_POST["txtCodCliente"])){
+            $cliente = $this->clientes->getCliente(intval(trim($_POST["txtCodCliente"])))->row(0);
+            $parametros["descricao"] = $servico->descricao . " para " . $cliente->nome;
+        } else {
+            $parametros["descricao"] = $servico->descricao . " para " . trim(filter_input(INPUT_POST, "txtCliente"));
+        }
 
         $dt = new Datetime($parametros["horario"]);
 
