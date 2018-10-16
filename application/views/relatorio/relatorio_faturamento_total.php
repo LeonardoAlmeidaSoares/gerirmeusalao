@@ -160,11 +160,12 @@ $last = null;
                                     <td>R$<?= number_format($item->valor, 2, ",", ".");?></td>
                                     <td>R$ <?= number_format($item->comissao, 2, ",", ".");?></td>
                                 </tr>
-                                <?php $dadosTotais = $item->valor; $dadosComissao = $item->comissao;} ?>
+                                <?php $dadosTotais += $item->valor; $dadosComissao += $item->comissao;} ?>
                             </tbody>
                             <tfoot>
-                                <tr><th>Valor Total</th>
-                                <th style="text-align: left;">R$ <?= number_format($dadosTotais , 2, ",", ".");?></th>
+                                <tr>
+                                    <th>Valor Total</th>
+                                    <th style="text-align: left;">R$ <?= number_format($dadosTotais , 2, ",", ".");?></th>
                                     <th style="text-align: left;">R$ <?= number_format($dadosComissao , 2, ",", ".");?></th>
                                 </tr>
                             </tfoot>

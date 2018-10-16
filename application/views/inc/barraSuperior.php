@@ -60,7 +60,7 @@
 
                                 </ul>
                             </li>
-                            <li class="col-sm-3">
+                            <!--li class="col-sm-3">
                                 <ul>
                                     <li class="dropdown-header">Colaboradores</li>
                                     <li><a href="<?= base_url("relatorio/servicos_prestados");?>">Serviços Prestados</a></li>
@@ -71,7 +71,7 @@
                                     <li><a href="form-xeditable.html">X-editable</a></li>
                                     <li><a href="form-summernote.html">Summernote</a></li>
                                     <li><a href="form-bootstrap-wysihtml5.html">Bootstrap wysihtml5</a></li>
-                                    <li><a href="form-tinymce-wysihtml5.html">Tinymce wysihtml5</a></li-->
+                                    <li><a href="form-tinymce-wysihtml5.html">Tinymce wysihtml5</a></li>
 
                                 </ul>
                             </li>
