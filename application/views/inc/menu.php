@@ -22,7 +22,7 @@
 
                         <a class="logo hidden-xs" href="<?= base_url("instituicao"); ?>" >
 
-                            <img src="<?= base_url($_SESSION["empresa"]->logo); ?>" alt="home" />
+                            <img src="<?= base_url($_SESSION["empresa"]->logo); ?>" class="img-responsive" alt="home" />
 
                         </a>
 
