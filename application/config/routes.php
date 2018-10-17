@@ -55,6 +55,7 @@ $route['produto/editar/(:num)'] = "Produtos/Alterar/$1";
 
 $route['servico'] = 'Servicos';
 $route['servico/novo'] = 'Servicos/cadastrar';
+$route['servico/realizar_cadastro'] = "Servicos/realizar_cadastro";
 $route['servico/editar/(:num)'] = "Servicos/Alterar/$1";
 
 /* Rotas para Tipo de Saida*/

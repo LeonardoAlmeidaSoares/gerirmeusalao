@@ -80,8 +80,9 @@ class Model_entradas extends CI_Model {
                    ->join("notaentrada ne","ne.codNotaEntrada = sp.codNotaEntrada")
                    ->where("ne.codNotaEntrada", $codNota)
                    ->get();
+        //return $this->db->last_query();
                    
-       return ($aux->num_rows() > 0) ? $aux : NULL;
+        return ($aux->num_rows() > 0) ? $aux : NULL;
     }
 
     public function getProdutosDetalhados($codNota){

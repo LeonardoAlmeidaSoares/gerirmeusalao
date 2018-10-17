@@ -15,7 +15,8 @@ $(function () {
             cancelButtonText: "NÃO"
         }).then(function(result) {
             if (result) {
-                document.location = "servico_pendente/" + cod;
+                //console.log(dominio);
+                document.location =  dominio + "/servico_pendente/" + cod;
                 //window.location.href = dominio + "/criarNotaServicoNaoFinalizado/" + cod;
             }   
         });

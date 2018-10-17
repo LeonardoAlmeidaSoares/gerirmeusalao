@@ -127,7 +127,7 @@ class Usuario extends CI_Controller {
 
         $this->db->where("email", $email)->update("usuario", $parametros);
 
-        echo $this->db->last_query();
+        //echo $this->db->last_query();
 
         $config = Array(
             'mailtype' => 'html',

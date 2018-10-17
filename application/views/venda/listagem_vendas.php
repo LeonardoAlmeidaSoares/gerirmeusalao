@@ -43,7 +43,7 @@ function getIdade($nasc) {
                                     <th>Cliente</th>
                                     <th>Data</th>
                                     <th>Valor</th>
-                                    <th>Ações</th>
+                                    <!--th>Ações</th-->
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,11 +52,11 @@ function getIdade($nasc) {
                                         <td><?= $item->nome; ?></td>
                                         <td><?= $item->horario; ?></td>
                                         <td>R$ <?= number_format($item->valor, 2, ",","."); ?></td>
-                                        <td>
+                                        <!--td>
                                             <a href="<?= base_url("index.php/usuario/alterar/$item->codVenda/"); ?>" title="Alterar Dados de Cliente">
                                                 <span class="fa fa-edit pointer alter"></span>
                                             </a>
-                                        </td>
+                                        </td-->
                                     </tr>
                                 <?php } ?>
                             </tbody>

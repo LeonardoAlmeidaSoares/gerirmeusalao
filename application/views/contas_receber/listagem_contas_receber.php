@@ -72,7 +72,7 @@ $status = array(
                         </table>
                         <br />
                         <?php if ($_SESSION["permissoes"]->perm_verNotas == 2) { ?>
-                            <a href="<?= base_url("index.php/contas_receber/novo/"); ?>" class="btn btn-info pull-right">Novo</a>
+                            <a href="<?= base_url("contas_receber/novo/"); ?>" class="btn btn-info pull-right">Novo</a>
 <?php } ?>
                     </div>
                 </div>

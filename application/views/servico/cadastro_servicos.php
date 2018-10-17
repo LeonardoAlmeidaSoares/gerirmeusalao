@@ -1,14 +1,14 @@
 <!-- Page Content -->
-<?php 
+<?php
 
-    function Dataget($dados, $field, $valor = 0){
-        
-        if(isset($dados)){
-            return ($valor == 0) ?$dados->$field : $dados->$field * $valor;
-        }else{
-            return "";
-        }
+function Dataget($dados, $field, $valor = 0) {
+
+    if (isset($dados)) {
+        return ($valor == 0) ? $dados->$field : $dados->$field * $valor;
+    } else {
+        return "";
     }
+}
 ?>
 
 <div id="page-wrapper">
@@ -24,8 +24,8 @@
 
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
 
-                <a href="<?= base_url("salao/fluxoCaixa");?>" 
-                    class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
+                <a href="<?= base_url("salao/fluxoCaixa"); ?>" 
+                   class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light btnCaixa"><span class=" icon-menu"></span> Caixa
                 </a>
 
                 <ol class="breadcrumb">
@@ -44,7 +44,7 @@
 
         <form id="frmCad" enctype="multipart/form-data" class="form-material form-horizontal" 
 
-              method="POST" action="<?= base_url("servico/realizar_cadastro/");?>">
+              method="POST" action="<?= base_url("servico/realizar_cadastro/"); ?>">
 
             <div class="row">
 
@@ -54,10 +54,10 @@
 
                         <h3 class="box-title">Informações de Cadastro</h3>
 
-                        <?php if(isset($codProcesso) && ($codProcesso > 0)){ ?>
-                            <input type="hidden" name="txtCod" id="txtCod" value="<?= $codProcesso?>" />
+                        <?php if (isset($codProcesso) && ($codProcesso > 0)) { ?>
+                            <input type="hidden" name="txtCod" id="txtCod" value="<?= $codProcesso ?>" />
                         <?php } ?>
-                    
+
 
                         <div class="form-group">
 
@@ -65,7 +65,19 @@
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget($dados, "descricao");?>" type="text" id="txtDescricao" name="txtDescricao" class="form-control" placeholder="Descreva o Serviço"> 
+                                <input value="<?= Dataget($dados, "descricao"); ?>" type="text" id="txtDescricao" name="txtDescricao" class="form-control" placeholder="Descreva o Serviço"> 
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-md-12" for="txtTempo">Tenpo Estimado <sub>(em minutos)</sub></label>
+
+                            <div class="col-md-12">
+
+                                <input type="number" value="<?= Dataget($dados, "horariosEstimados") * 15; ?>" name="txtTempo" id="txtTempo" min="15" step="15" class="form-control" placeholder="Insira o Tempo Estimado">
 
                             </div>
 
@@ -77,21 +89,21 @@
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget($dados, "valorComum", 100);?>" type="text" id="txtValor" name="txtValor" class="form-control" placeholder="Insira o Valor do Serviço"> 
+                                <input value="<?= Dataget($dados, "valorComum", 100); ?>" type="text" id="txtValor" name="txtValor" class="form-control" placeholder="Insira o Valor do Serviço"> 
 
                             </div>
 
                         </div>
-                        
+
                         <input value="0" type="hidden" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
-                        
+
                         <!--div class="form-group">
 
                             <label class="col-md-12" for="txtValorP">Valor Promocional</label>
 
                             <div class="col-md-12">
 
-                                <input value="<?= Dataget($dados, "valorPromocional", 100) ;?>" type="text" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
+                                <input value="<?= Dataget($dados, "valorPromocional", 100); ?>" type="text" id="txtValorP" name="txtValorP" class="form-control" placeholder="Insira o Valor Promocional (caso haja algum)"> 
 
                             </div>
 
@@ -111,6 +123,6 @@
 
     </div>
 
-    <script src="<?= base_url("assets/plugins/jquery.validate.js");?>" type="text/javascript"></script>
-    <script src="<?= base_url("assets/plugins/mask-plugin/src/jquery.mask.js");?>" type="text/javascript"></script>
-    <script src="<?= base_url("assets/paginas/cadastro_servicos.js");?>" type="text/javascript"></script>
+    <script src="<?= base_url("assets/plugins/jquery.validate.js"); ?>" type="text/javascript"></script>
+    <script src="<?= base_url("assets/plugins/mask-plugin/src/jquery.mask.js"); ?>" type="text/javascript"></script>
+    <script src="<?= base_url("assets/paginas/cadastro_servicos.js"); ?>" type="text/javascript"></script>

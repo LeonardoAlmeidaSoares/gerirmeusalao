@@ -100,7 +100,7 @@ class Venda extends CI_Controller {
 
         $this->db->where("codVenda", $codvenda)->update("venda", array("codNotaEntrada" => $codNota, "resumoVenda" => $resumoVenda));
         
-        redirect(base_url("index.php/contasreceber/nota/$codNota"));
+        redirect(base_url("contas_receber/$codNota"));
         
     }
     

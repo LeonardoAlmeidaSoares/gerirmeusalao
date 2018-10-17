@@ -44,6 +44,7 @@ class Servicos extends CI_Controller {
             "descricao" => trim(filter_input(INPUT_POST, "txtDescricao")),
             "valorComum" => doubleval(trim(filter_input(INPUT_POST, "txtValor"))),
             "valorPromocional" => doubleval(trim(filter_input(INPUT_POST, "txtValorP"))),
+            "horariosEstimados" => filter_input(INPUT_POST, "txtTempo") / 15,
                 //"estoque" => intval(trim(filter_input(INPUT_POST, "txtEstoque")))
         );
 

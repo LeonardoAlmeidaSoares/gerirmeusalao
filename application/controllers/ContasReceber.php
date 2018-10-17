@@ -101,32 +101,38 @@ class ContasReceber extends CI_Controller {
         $this->load->Model("Model_servico", "serv");
         $this->load->Model("Model_compromissos", "agenda");
 
-        $codCompromisso = $this->db->get_where("notaentrada", array("codNotaEntrada" => $cod))->row(0)->codCompromisso;
-       
+        $nota = $this->db->get_where("notaentrada", 
+                array("codNotaEntrada" => $cod))->row(0);
+        
+        $codCompromisso = $nota->codCompromisso;
+        
+        //var_dump($codCompromisso); exit;
+        
         $this->db->where("codCompromisso", $codCompromisso)
                 ->update("compromisso", array("status" => 1));
 
         $resumo = "<b>REALIZOU: </b>";
 
         $dados = $this->agenda->getCompromisso($codCompromisso);
-        $dadosNota = $this->entradas->getByCompromisso($codCompromisso);
-
-        $aux = array(
+        //$dadosNota = $this->entradas->getByCompromisso($codCompromisso);
+                
+        $aux = [
             "codFuncionario" => $dados->row(0)->codFuncionario,
             "codCliente" => $dados->row(0)->codCliente,
             "codServico" => $dados->row(0)->codServico,
             "horario" => $dados->row(0)->horario,
-            "codNotaEntrada" => $dadosNota->row(0)->codNotaEntrada
-        );
+            "codNotaEntrada" => $cod
+        ];
 
+        
         $this->db->insert("servicoprestado", $aux);
-
+                
         $dadosServico = $this->serv->getServico($dados->row(0)->codServico, $_SESSION["empresa"]->codEmpresa)->row(0);
 
         $resumo .= "<br>" . $dadosServico->descricao;
         $this->db->where("codCompromisso", $codCompromisso)->update("compromisso", array("resumo"=> $resumo));
 
-        redirect(base_url("index.php/contas_receber/nota/$cod"));
+        redirect(base_url("contas_receber/$cod"));
     }
 
     public function nota($codEntrada){
@@ -150,11 +156,14 @@ class ContasReceber extends CI_Controller {
             "codNota" => $codEntrada
         );
 
-        if($notaEntrada->codCompromisso > 0)
+        
+        if(intval($notaEntrada->codCompromisso) > 0)
             $parametros["descricaoServicos"] = $this->entradas->getServicosDetalhados($codEntrada);
         else
             $parametros["descricaoServicos"] = $this->entradas->getProdutosDetalhados($codEntrada);
 
+        //var_dump($parametros["descricaoServicos"]); exit;
+        
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
@@ -193,7 +202,7 @@ class ContasReceber extends CI_Controller {
             echo json_encode(array("msg"=>"Nota já foi paga", "type" => "error", "title" => "Opss..."));
             exit();
         }
-
+        
         $this->db->where("codNotaEntrada", $codNota)->update("notaentrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i"), "formaPagto" => $formaPagto));
 
         if($formaPagto == "DINHEIRO"){

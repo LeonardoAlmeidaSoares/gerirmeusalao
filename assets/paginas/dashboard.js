@@ -73,45 +73,56 @@ $(function () {
                     .draw();
             $("#divFunc" + codFuncionario).children().css("border-color", "rgba(0,255,0,0.4)");
             $("#divFunc" + codFuncionario).children().children().children().next().find(".address").html("LIVRE");
+            swal({
+                title: "Finalização computada com sucesso",
+                text: "Criar Uma nota de entrada?",
+                type: "success",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Sim",
+                cancelButtonText: "Não"
+            }).then(function ($return) {
+                document.location = "contas_receber/novo/" + codCompromisso;
+            });
         });
 
     });
 
     $("#click-link-todos-clientes")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="cliente";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "cliente";
+            });
 
     $("#click-link-agenda-hoje")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="agenda/hoje";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "agenda/hoje";
+            });
 
     $("#click-link-aniversariantes")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="cliente/aniversariantes";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "cliente/aniversariantes";
+            });
 
     $("#click-link-lembretes-hoje")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="lembrete/hoje";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "lembrete/hoje";
+            });
 
     $("#click-link-vencendo-hoje")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="contas_pagar/hoje";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "contas_pagar/hoje";
+            });
 
     $("#click-link-recebendo-hoje")
-        .css("cursor", "pointer")
-        .on("click", function(){
-            location.href="contas_receber/hoje";
-    });
+            .css("cursor", "pointer")
+            .on("click", function () {
+                location.href = "contas_receber/hoje";
+            });
 
     // Create the chart
     Highcharts.chart('graf1', {
