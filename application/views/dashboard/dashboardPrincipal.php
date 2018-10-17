@@ -321,7 +321,7 @@
                 <h3 class="box-title">Situação dos Colaboradores</h3>
 
                 <div class="row">
-
+                   
                 <?php foreach ($colaboradores->result() as $item) { ?>
 
                     <div class="col-md-6 col-sm-6 col-xs-12 col-lg-4" id="divFunc<?= $item->codFuncionario; ?>">
