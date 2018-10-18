@@ -66,7 +66,13 @@ function getTempoPassado($tempo) {
                                         </p>
                                     </div>
                                     <div class="timeline-body">
-                                        <?= $item->resumo; ?>
+                                        <?= $item->resumo; ?><br>
+                                        <?= "R$ " . number_format($item->valor, 2, ",", ".");?>
+                                        <?php if($item->status == 1){?>
+                                        <p>Pago com <?= strtolower($item->formaPagto);?></p>
+                                        <?php } else {?>
+                                        <p>Ainda em aberto</p>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </li>

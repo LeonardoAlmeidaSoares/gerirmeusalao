@@ -333,9 +333,7 @@
                                 <div class="col-md-4 col-sm-4 text-center">
 
                                     <a href="#">
-
-                                        <img src="<?= $item->imagem; ?>" alt="user" style="height: 75px; width:100%; margin-top: 10px;" class="img-circle img-responsive">
-
+                                       <img src="<?= $item->imagem; ?>" alt="user" style="height: 75px; width:100%; margin-top: 10px;" class="img-circle img-responsive">
                                     </a>
 
                                 </div>
