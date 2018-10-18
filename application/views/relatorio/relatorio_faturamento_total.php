@@ -242,16 +242,17 @@ $last = null;
         width: 50%;
         margin-left: 25%;
         border-radius: 5px;
-        padding: 8px 0px;
-        display: table
+        padding: 8px 75px;
+        display: table;
+        background-color: rgba(73,73,73, 0.3);
     }
     .quadradinho{
         width: 25px;
     }
     .nao-pago{
-        background-color: rgba(180,193,215,0.8);
+        background-color: rgba(217,32,32,0.5);
     }
     .pago{
-        background-color: rgba(252,201,186,0.8);
+        background-color: rgba(66,146,56,0.5);
     }
 </style>

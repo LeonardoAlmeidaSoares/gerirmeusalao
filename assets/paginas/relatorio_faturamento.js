@@ -15,17 +15,17 @@ $(function(){
         datasets: [
             {
                 label: "Pagamentos Recebidos",
-                fillColor: "rgba(252,201,186,0.8)",
-                strokeColor: "rgba(252,201,186,0.8)",
-                highlightFill: "rgba(252,201,186,1)",
+                fillColor: "rgba(66,146,56,0.5)",
+                strokeColor: "rgba(252,201,186,0.5)",
+                highlightFill: "rgba(66,146,56,1)",
                 highlightStroke: "rgba(252,201,186,1)",
                 data: itensPagos
             },
             {
                 label: "Pagamentos Não Recebidos",
-                fillColor: "rgba(180,193,215,0.8)",
-                strokeColor: "rgba(180,193,215,0.8)",
-                highlightFill: "rgba(180,193,215,1)",
+                fillColor: "rgba(217,32,32,0.5)",
+                strokeColor: "rgba(180,193,215,0.5)",
+                highlightFill: "rgba(217,32,32,1)",
                 highlightStroke: "rgba(180,193,215,1)",
                 data: itensNPagos
             }
