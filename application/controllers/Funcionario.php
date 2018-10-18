@@ -50,12 +50,13 @@ class Funcionario extends CI_Controller {
             $imagem = $_FILES["txtImagem"];
             $arr_nome_imagem = explode(".", $imagem["name"]);
             $nome_imagem = trim(uniqid() . "." . $arr_nome_imagem[count($arr_nome_imagem) - 1]);
-            $upload_name = CAMINHO_IMAGENS_FUNCIONARIOS . "\\" . $nome_imagem;
+            $upload_name = CAMINHO_IMAGENS_FUNCIONARIOS .  DIRECTORY_SEPARATOR . $nome_imagem;
         } else {
             $arr_nome_imagem = [];
             $nome_imagem = "";
         }
-               
+               	   
+			   
         $parametrosInsercao = array(
             "email" => trim(filter_input(INPUT_POST, "txtEmail"), FILTER_SANITIZE_EMAIL),
             "nascimento" => trim(filter_input(INPUT_POST, "txtNascimento")),
@@ -65,7 +66,7 @@ class Funcionario extends CI_Controller {
             "comissaoDinheiro" => intval(trim(filter_input(INPUT_POST, "txtComissaoDinheiro"))),
             "comissaoCartao" => intval(trim(filter_input(INPUT_POST, "txtComissaoDinheiro"))),
             "codCargo" => intval(trim(filter_input(INPUT_POST, "txtCargo"))),
-            "imagem" => "assets/upload/colaboradores/" . $nome_imagem,
+            "imagem" => "assets" . DIRECTORY_SEPARATOR . "upload" . DIRECTORY_SEPARATOR . "colaboradores/" . $nome_imagem,
             "salario" => trim(filter_input(INPUT_POST, "txtSalario"))
         );
 
@@ -75,14 +76,16 @@ class Funcionario extends CI_Controller {
 
         $parametrosInsercao["codEmpresa"] = intval($_SESSION["empresa"]->codEmpresa);
         
+		//var_dump($parametrosInsercao, $_FILES["txtImagem"], $upload_name); exit;
+		
         if (strlen($parametrosInsercao["imagem"]) == 0) {
-            $parametrosInsercao["imagem"] = base_url("assets/img/" . CAMINHO_IMAGEM_COLABORADOR_PADRAO);
+            $parametrosInsercao["imagem"] = base_url("assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . CAMINHO_IMAGEM_COLABORADOR_PADRAO);
         } else {
             if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
                 var_dump("Houve um erro ao subir a imagem"); exit;
-            }
+            } 
         }
-
+		
         if (isset($_POST["txtCod"])) {
 
             $cod = intval(trim(filter_input(INPUT_POST, "txtCod")));

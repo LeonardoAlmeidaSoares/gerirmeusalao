@@ -48,7 +48,7 @@ class Cliente extends CI_Controller {
             $imagem = $_FILES["imagem"];
             $arr_nome_imagem = explode(".", $imagem["name"]);
             $nome_imagem = trim(uniqid() . "." . $arr_nome_imagem[count($arr_nome_imagem) - 1]);
-            $upload_name = CAMINHO_IMAGENS_CLIENTES . "\\" . $nome_imagem;
+            $upload_name = CAMINHO_IMAGENS_CLIENTES .  DIRECTORY_SEPARATOR . $nome_imagem;
         } else {
             $arr_nome_imagem = [];
             $nome_imagem = "";
@@ -67,19 +67,21 @@ class Cliente extends CI_Controller {
             "logradouro" => trim(filter_input(INPUT_POST, "txtLogradouro")),
             "numero" => trim(filter_input(INPUT_POST, "txtNumero")),
             "complemento" => trim(filter_input(INPUT_POST, "txtComplemento")),
-            "imagem" => "assets/upload/clientes/" . $nome_imagem
+            "imagem" => "assets" . DIRECTORY_SEPARATOR . "upload" . DIRECTORY_SEPARATOR . "clientes" . DIRECTORY_SEPARATOR . $nome_imagem,
         );
 
         if (empty($parametrosInsercao["imagem"])) {
 
-            $parametrosInsercao["imagem"] = ($parametrosInsercao["sexo"] == "MASCULINO") ? base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO) : base_url("assets/img/" . CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER);
+            $parametrosInsercao["imagem"] = ($parametrosInsercao["sexo"] == "MASCULINO") 
+                    ? base_url("assets" . DIRECTORY_SEPARATOR . "img"  . DIRECTORY_SEPARATOR . CAMINHO_IMAGEM_CLIENTE_PADRAO) 
+                    : base_url("assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . CAMINHO_IMAGEM_CLIENTE_PADRAO_MULHER);
         } else {
             if (!move_uploaded_file($_FILES["imagem"]["tmp_name"], $upload_name)) {
                 var_dump("Houve um erro ao subir a imagem");
                 exit;
             }
         }
-
+        
         $parametrosInsercao["codEmpresa"] = intval($_SESSION["empresa"]->codEmpresa);
         $parametrosInsercao["nascimento"] = substr($parametrosInsercao["nascimento"], 6, 4) . "-" .
                 substr($parametrosInsercao["nascimento"], 3, 2) . "-" .
