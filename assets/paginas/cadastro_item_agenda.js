@@ -8,6 +8,7 @@ $(function () {
     $("#calendarioCadastro").fullCalendar({
         locale: "pt-BR",
         defaultView: "listDay",
+        timeFormat: 'H:mm',
         events: {
             url: '../agenda/getListaCompromissos',
             type: 'POST',
@@ -25,12 +26,24 @@ $(function () {
         $("#calendarioCadastro").fullCalendar({
             locale: "pt-BR",
             defaultView: "listDay",
+            timeFormat: 'H:mm',
             events: {
                 url: '../agenda/getListaCompromissos',
                 type: 'POST',
                 data: {
                     codColaborador: codColaborador
                 }
+            },
+            eventRender: function eventRender(event, element, view) {
+
+                element.popover({
+                    title: "Atendimento " + event.id,
+                    content: event.title + " - Início: " + event.start.format("LT") /*+ "\nPrevisão de Fim: " + event.end.format("LT")*/,
+                    trigger: 'hover',
+                    placement: 'top',
+                    container: 'body'
+                });
+
             }
         });
     });

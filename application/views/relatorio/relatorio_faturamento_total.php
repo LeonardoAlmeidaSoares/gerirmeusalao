@@ -77,7 +77,6 @@ $last = null;
                             <div class="quadradinho nao-pago" style="display: table-cell;"></div>Valor Total a Receber                            
                         </div>
                     </div>
-                   
                 </div>
                 <!--
                 <div class="col-sm-12">

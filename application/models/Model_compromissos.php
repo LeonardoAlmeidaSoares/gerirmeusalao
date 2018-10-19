@@ -8,22 +8,21 @@ class Model_compromissos extends CI_Model {
     public function getCompromissos($codEmpresa, $status = 5) {
 
         $parametros = array("codEmpresa" => $codEmpresa);
-
         $filtro = ($status == 5) ? "status > 0" : "status = $status";
 
         return $this->db->query("select * from compromisso where codEmpresa = $codEmpresa and $filtro");
-
-        //return $this->db->get_where("compromisso", $parametros);
     }
 
     public function getCompromisso($codCompromisso) {
-
         return $this->db->get_where("compromisso", array("codCompromisso" => $codCompromisso));
     }
 
     public function getListaCompromissos($codColaborador) {
 
-        return $this->db->get_where("compromisso", array("codFuncionario" => $codColaborador));
+        return $this->db->get_where("compromisso", [
+            "codFuncionario" => $codColaborador,
+            "status>=" => 0
+        ]);
     }
 
     public function cadastrar($parametros) {

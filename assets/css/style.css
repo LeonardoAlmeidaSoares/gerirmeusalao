@@ -16869,3 +16869,7 @@ a.fc-event:not([href]):not([tabindex]) {
 .pointer{
 cursor: pointer;
 }
+
+.fc-list-item{
+    cursor: pointer;
+}

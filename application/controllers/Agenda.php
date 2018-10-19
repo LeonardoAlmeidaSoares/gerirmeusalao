@@ -226,8 +226,6 @@ class Agenda extends CI_Controller {
         $servico = $this->servico->getServico($codServico, $codEmpresa)->row(0);
         $horario = trim(filter_input(INPUT_POST, "txtHorario"));
         
-        
-        
         $parametros = array(
             "codFuncionario" => intval(trim(filter_input(INPUT_POST, "txtCodColaborador"))),
             "horario" => dataENGtoPTBR($horario),
@@ -238,7 +236,6 @@ class Agenda extends CI_Controller {
             "dataFim" => trim(filter_input(INPUT_POST, "txtHorario")),
             "valor" => $servico->valorComum
         );
-        
         
         
         if(isset($_POST["txtCodCliente"])){
@@ -254,7 +251,7 @@ class Agenda extends CI_Controller {
             $dt->add(new DateInterval('PT15M'));
             $parametros["dataFim"] = $dt->format('Y-m-d H:i:s');
         }
-
+        
         $this->agenda->cadastrar($parametros);
 
         $parametrosEntrada = array(
@@ -284,12 +281,13 @@ class Agenda extends CI_Controller {
             $listaComp = array();
             foreach($lista->result() as $item){
 
-                array_push($listaComp, array(
+                array_push($listaComp, [
                     "id" => $item->codCompromisso,
                     "title" => $item->descricao,
                     "start" => $item->horario,
-                    "end" => $item->dataFim
-                ));
+                    "end" => $item->dataFim,
+                    "color" => ($item->status == 0)?"green": ($item->status == 1)?"yellow" :"blue"
+                ]);
 
             }
 

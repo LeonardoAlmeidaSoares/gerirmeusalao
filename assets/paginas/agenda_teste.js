@@ -33,12 +33,13 @@ $(function () {
         next: 'fa-chevron-right',
         prevYear: 'fa-angle-double-left',
         nextYear: 'fa-angle-double-right',
-        timeFormat: 'H(:mm)',
+        timeFormat: 'H:mm',
         eventColor: '#378006',
+
         customButtons: {
             myCustomButton: {
                 text: 'Cadastrar',
-                bootstrapGlyphicon : 'glyphicon glyphicon-agenda',
+                bootstrapGlyphicon: 'glyphicon glyphicon-agenda',
                 click: function () {
                     document.location = "novo";
                 }
@@ -142,9 +143,20 @@ $(function () {
             });
         },
         eventRender: function eventRender(event, element, view) {
+            
+            element.popover({
+                title: "Atendimento " + event.id,
+                content: event.title + " - Início: " + event.start.format("LT") /*+ "\nPrevisão de Fim: " + event.end.format("LT")*/,
+                trigger: 'hover',
+                placement: 'top',
+                container: 'body'
+            });
+            
             if (codFuncionarioSelecionado > 0) {
                 return ['all', event.codFuncionario].indexOf(codFuncionarioSelecionado) >= 0;
             }
+
+
         }
     });
 
