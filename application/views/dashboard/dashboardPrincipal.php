@@ -340,7 +340,7 @@
 
                                 <div class="col-md-8 col-sm-8">
 
-                                    <h3 class="box-title m-b-0"><i class="icon-user p-r-10"></i><?= $item->nome; ?></h3> 
+                                    <h3 class="box-title m-b-0"><i class="icon-user p-r-10"></i><?= (empty($item->apelido))?$item->nome:$item->apelido; ?></h3> 
                                     <small><?= $item->cargo; ?></small>
 
                                     <p></p>

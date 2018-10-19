@@ -139,7 +139,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="col-md-9 col-sm-6">
-                                                    <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
+                                                    <h3 class="box-title m-b-0"><?= $item->nome . ((strlen($item->apelido) == 0)?"":" ($item->apelido)"); ?></h3> 
                                                     <small><?= $item->cargo; ?></small>
                                                     <p> </p>
                                                     <address>

@@ -45,20 +45,20 @@ class Funcionario extends CI_Controller {
     }
 
     public function realizar_cadastro() {
-        
-        if(isset($_FILES["txtImagem"])){
+
+        if (!empty($_FILES["txtImagem"]["name"])) {
             $imagem = $_FILES["txtImagem"];
             $arr_nome_imagem = explode(".", $imagem["name"]);
             $nome_imagem = trim(uniqid() . "." . $arr_nome_imagem[count($arr_nome_imagem) - 1]);
-            $upload_name = CAMINHO_IMAGENS_FUNCIONARIOS .  DIRECTORY_SEPARATOR . $nome_imagem;
+            $upload_name = CAMINHO_IMAGENS_FUNCIONARIOS . DIRECTORY_SEPARATOR . $nome_imagem;
         } else {
             $arr_nome_imagem = [];
             $nome_imagem = "";
         }
-               	   
-			   
+
         $parametrosInsercao = array(
             "email" => trim(filter_input(INPUT_POST, "txtEmail"), FILTER_SANITIZE_EMAIL),
+            "apelido" => trim(filter_input(INPUT_POST, "txtApelido")),
             "nascimento" => trim(filter_input(INPUT_POST, "txtNascimento")),
             "sexo" => trim(filter_input(INPUT_POST, "txtSexo")),
             "nome" => trim(filter_input(INPUT_POST, "txtNome")),
@@ -75,17 +75,29 @@ class Funcionario extends CI_Controller {
                 . "-" . substr($parametrosInsercao["nascimento"], 0, 2);
 
         $parametrosInsercao["codEmpresa"] = intval($_SESSION["empresa"]->codEmpresa);
-        
-		//var_dump($parametrosInsercao, $_FILES["txtImagem"], $upload_name); exit;
-		
-        if (strlen($parametrosInsercao["imagem"]) == 0) {
-            $parametrosInsercao["imagem"] = base_url("assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . CAMINHO_IMAGEM_COLABORADOR_PADRAO);
+
+        //var_dump($parametrosInsercao, $_FILES["txtImagem"], $upload_name); exit;
+
+        if (isset($_POST["txtCod"])) {
+            if (strlen($nome_imagem) ==0) {
+                unset($parametrosInsercao["imagem"]);
+            } else {
+                if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
+                    var_dump("Houve um erro ao subir a imagem");
+                    exit;
+                }
+            }
         } else {
-            if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
-                var_dump("Houve um erro ao subir a imagem"); exit;
-            } 
+            if (strlen($parametrosInsercao["imagem"]) == 0) {
+                $parametrosInsercao["imagem"] = base_url("assets" . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . CAMINHO_IMAGEM_COLABORADOR_PADRAO);
+            } else {
+                if (!move_uploaded_file($_FILES["txtImagem"]["tmp_name"], $upload_name)) {
+                    var_dump("Houve um erro ao subir a imagem");
+                    exit;
+                }
+            }
         }
-		
+
         if (isset($_POST["txtCod"])) {
 
             $cod = intval(trim(filter_input(INPUT_POST, "txtCod")));
@@ -138,24 +150,24 @@ class Funcionario extends CI_Controller {
         }
         redirect(base_url("index.php/funcionario"));
     }
-    
-    public function visualizar($codFuncionario){
-        
+
+    public function visualizar($codFuncionario) {
+
         //$this->load->Model("Model_cidades", "cidades");
         //$this->load->Model("Model_cargos", "cargos");
 
         /*
-        $parametrosCadastro = array(
-            "estados" => $this->db->get_where("estado"),
-            "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
-            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codEmpresa)),
-            "dados" => NULL
-        );
-        */
+          $parametrosCadastro = array(
+          "estados" => $this->db->get_where("estado"),
+          "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
+          "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codEmpresa)),
+          "dados" => NULL
+          );
+         */
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');
-        $this->load->view('funcionarios/visualizar'/*, $parametrosCadastro*/);
+        $this->load->view('funcionarios/visualizar'/* , $parametrosCadastro */);
         $this->load->view('inc/footer');
     }
 
@@ -167,7 +179,7 @@ class Funcionario extends CI_Controller {
         $parametrosCadastro = array(
             "estados" => $this->db->get_where("estado"),
             "cidades" => $this->cidades->getCidadesDoMesmoEstado(intval($_SESSION["empresa"]->codCidade)),
-            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codCidade)),
+            "cargos" => $this->cargos->getCargos(intval($_SESSION["empresa"]->codEmpresa)),
             "codProcesso" => $cod,
             "dados" => $this->db->get_where("funcionario", array("codFuncionario" => $cod))->row(0)
         );

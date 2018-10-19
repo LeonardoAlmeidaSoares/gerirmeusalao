@@ -33,10 +33,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($funcionarios->result() as $item) { ?>
+                                <?php foreach ($funcionarios->result() as $item) { //var_dump($item); exit;?>
                                     <tr>
                                         <td><?= str_pad($item->codFuncionario, 6, "0", STR_PAD_LEFT);?></td>
-                                        <td><?= $item->nome; ?></td>
+                                        <td><?= $item->nome . ((!empty($item->apelido))? " ($item->apelido)" : ""); ?></td>
                                         <td><?= $item->cargo; ?></td>
                                         <td><?= $item->telefone; ?></td>
                                         <td>

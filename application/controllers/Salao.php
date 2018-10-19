@@ -12,12 +12,17 @@ class Salao extends CI_Controller {
 
     public function index() {
 
+        $this->load->library('migration');
+        
+        if (!$this->migration->current()) {
+            echo $this->migration->error_string();
+        }
+
         if (!isset($_SESSION["usuario"])) {
             $this->load->view('inc/header');
             $this->load->view('paginas_comuns/login');
-            
         } else {
-            
+
             if ($_SESSION["usuario"]->alterarSenha == 1) {
                 redirect(base_url("index.php/usuario/gerarNovaSenha"));
             }
@@ -42,7 +47,6 @@ class Salao extends CI_Controller {
                 $this->load->view('inc/menu');
                 $this->load->view('dashboard/dashboardColaborador', $parametros);
                 $this->load->view('inc/footer');
-                
             } else {
 
                 $this->load->Model("Model_relatorios", "relatorios");
@@ -104,7 +108,7 @@ class Salao extends CI_Controller {
     }
 
     public function fluxoCaixa() {
-        
+
         $this->load->Model("Model_caixa", "caixa");
         $codEmpresa = $_SESSION["empresa"]->codEmpresa;
         $parametros = array(
@@ -114,7 +118,7 @@ class Salao extends CI_Controller {
                 //"ultimoCaixa" => $this->caixa->getUltimoCaixa($codEmpresa),
                 //"situacaoCaixa" => $this->caixa->getSituacaoCaixa($codEmpresa)
         );
-        
+
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
         $this->load->view('inc/menu');

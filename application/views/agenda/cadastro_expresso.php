@@ -61,7 +61,7 @@
                                 <select class="form-control" id="txtCodColaborador" name="txtCodColaborador">
                                     <option value="" selected hidden>Selecione o Colaborador</option>
                                     <?php foreach($funcionarios->result() as $item){?>
-                                        <option value="<?= $item->codFuncionario;?>"><?= $item->nome;?></option>
+                                        <option value="<?= $item->codFuncionario;?>"><?= (strlen($item->apelido)==0)?$item->nome:$item->apelido;?></option>
                                     <?php } ?>
                                 </select>
 

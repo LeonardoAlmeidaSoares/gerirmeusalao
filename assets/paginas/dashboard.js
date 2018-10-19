@@ -172,7 +172,7 @@ $(function () {
             type: 'pie'
         },
         title: {
-            text: 'Serviços Prestados nesse meês'
+            text: 'Serviços Prestados nesse mês'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

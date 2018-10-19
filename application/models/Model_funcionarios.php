@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 class Model_funcionarios extends CI_Model {
 
     public function getFuncionarios($codEmpresa) {
-        return $this->db->select("f.nome, c.descricao as cargo, f.telefone, f.codFuncionario, f.imagem")
+        return $this->db->select("f.nome, f.apelido, c.descricao as cargo, f.telefone, f.codFuncionario, f.imagem, f.apelido")
                         ->from("funcionario f")
                         ->join("cargo c", "c.codCargo = f.codCargo")
                         ->where("f.codEmpresa", $codEmpresa)
@@ -27,7 +27,7 @@ class Model_funcionarios extends CI_Model {
     }
     
     public function getSituacao($codEmpresa){
-        return $this->db->select("f.nome, f.email, f.imagem, f.telefone, f.codFuncionario, "
+        return $this->db->select("f.nome, f.apelido, f.email, f.imagem, f.telefone, f.codFuncionario, "
                 . "ca.descricao as cargo, (select count(*) from compromisso where "
                 . "codFuncionario = f.codFuncionario and status = 1 and DAY(horario) = DAY(NOW())) as status")
         ->from("compromisso c")

@@ -27,10 +27,10 @@
                                 <div class="white-box">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-4 text-center">
-                                            <img src="<?= base_url($item->imagem); ?>" alt="user" style="height: 70px;margin-top: 10px;" class="img-circle img-responsive">
+                                            <img src="<?= base_url($item->imagem); ?>" alt="user" style="height: 70px;margin-top: 0px;" class="img-circle img-responsive">
                                         </div>
                                         <div class="col-md-8 col-sm-8">
-                                            <h3 class="box-title m-b-0"><?= $item->nome; ?></h3> 
+                                            <h3 class="box-title m-b-0"><?= (strlen($item->apelido) > 0)?$item->apelido:$item->nome; ?></h3> 
                                             <small><?= $item->cargo; ?></small>
                                             <p></p>
                                         </div>
