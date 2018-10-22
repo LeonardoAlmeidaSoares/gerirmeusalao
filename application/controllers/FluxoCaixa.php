@@ -7,9 +7,7 @@ class Fluxocaixa extends CI_Controller {
     function __construct() {
 
         parent::__construct();
-
         session_start();
-
         $this->load->Model("Model_caixa", "caixa");
 
     }
@@ -20,7 +18,7 @@ class Fluxocaixa extends CI_Controller {
 
     public function getUltimoCaixa(){
 
-    	$item = $this->caixa->getUltimoCaixa($_SESSION["empresa"]->codEmpresa);
+        $item = $this->caixa->getUltimoCaixa($_SESSION["empresa"]->codEmpresa);
     	echo json_encode($item);
 
     }

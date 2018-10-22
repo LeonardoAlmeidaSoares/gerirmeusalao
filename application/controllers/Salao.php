@@ -83,7 +83,7 @@ class Salao extends CI_Controller {
 
     public function login() {
 
-        $this->load->Model("Model_permissao", "perm");
+        
 
         $parametros = array(
             "email" => trim(filter_input(INPUT_POST, "txtEmail")),
@@ -94,12 +94,19 @@ class Salao extends CI_Controller {
         $login = $this->db->get_where("usuario", $parametros);
 
         if ($login->num_rows() > 0) {
+            
+            $this->load->Model("Model_permissao", "perm");
+            $this->load->Model("Model_caixa", "caixa");
+            
             $_SESSION["usuario"] = $login->row(0);
             $_SESSION["empresa"] = $this->empresa->getDados($login->row(0)->codEmpresa)->row(0);
             $_SESSION["permissoes"] = $this->perm->getPermissoesUsuario($login->row(0)->codUsuario)->row(0);
+            $_SESSION["caixa"] = $this->caixa->getUltimoCaixa($_SESSION["empresa"]->codEmpresa);
+            
             if ($_SESSION["usuario"]->codPermissao == COD_PERMISSAO_COLABORADOR) {
                 $_SESSION["dadosColaborador"] = $this->db->get_where("funcionario", array("email" => $_SESSION["usuario"]->email))->row(0);
             }
+            
         } else {
             $_SESSION["msg"] = MSG_LOGIN_NAO_ENCONTRADO;
         }
@@ -109,21 +116,8 @@ class Salao extends CI_Controller {
 
     public function fluxoCaixa() {
 
-        $this->load->Model("Model_caixa", "caixa");
-        $codEmpresa = $_SESSION["empresa"]->codEmpresa;
-        $parametros = array(
-            "totalEntradasHoje" => $this->caixa->getFluxo($codEmpresa, "ENT"),
-            "totalSaidasHoje" => $this->caixa->getFluxo($codEmpresa, "SAI"),
-            "totalCaixa" => $this->caixa->getFluxo($codEmpresa),
-                //"ultimoCaixa" => $this->caixa->getUltimoCaixa($codEmpresa),
-                //"situacaoCaixa" => $this->caixa->getSituacaoCaixa($codEmpresa)
-        );
-
-        $this->load->view('inc/header');
-        $this->load->view('inc/barraSuperior');
-        $this->load->view('inc/menu');
-        $this->load->view('fluxo_caixa/listagem', $parametros);
-        $this->load->view('inc/footer');
+        redirect(base_url("caixa/"));
+        
     }
 
     public function logoff() {

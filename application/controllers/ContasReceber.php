@@ -85,7 +85,8 @@ class ContasReceber extends CI_Controller {
                     "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
                     "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
                     "horario" => date("Y-m-d H:i:s"),
-                    "comentario" => "Gerado a partir da compra $codNota"
+                    "comentario" => "Gerado a partir da compra $codNota",
+                    "codCaixa" => $_SESSION["caixa"]->codCaixa 
                 );
 
                 $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
@@ -214,7 +215,8 @@ class ContasReceber extends CI_Controller {
                     "codUsuario" => intval($_SESSION["usuario"]->codUsuario),
                     "codEmpresa" => $_SESSION["empresa"]->codEmpresa,
                     "horario" => date("Y-m-d H:i:s"),
-                    "comentario" => "Gerado a partir da compra $codNota"
+                    "comentario" => "Gerado a partir da compra $codNota",
+                    "codCaixa" => $_SESSION["caixa"]->codCaixa 
                 );
 
                 $this->db->insert("movimentacaofinanceira", $parametrosMovimentacao);
