@@ -43,8 +43,28 @@ function get_tipo_movimentacao($cod) {
             <div class="col-sm-12">
 
                 <div class="white-box">
-
-                    <h3 class="box-title m-b-0">Caixa<p class="text-muted m-b-30">Listagem de Movimentações</p></h3>
+                    <div class="row">
+                        <div class="col-md-7 col-lg-9 col-sm-12 col-xs-12">
+                            <h3 class="box-title m-b-0">Caixa
+                                <p class="text-muted m-b-30">Listagem de Movimentações</p>
+                            </h3>
+                        </div>
+                        
+                        <div class="col-md-5 col-lg-3 col-sm-12 col-xs-12">
+                            
+                            <?php if ($caixa->codUsuarioFinal == 0) { ?>
+                                <a href="<?= base_url("caixa/fechar"); ?>">
+                                    <button class="btn btn-outline btn-warning" id="btn-fechar-caixa" style="width:100%;">FECHAR CAIXA</button>
+                                </a>
+                            <?php } else { ?>
+                                <a href="#"  data-toggle="modal" data-target="#modalCadastro">
+                                    <button class="btn btn-outline btn-success" id="btn-open-caixa" style="width:100%;">ABRIR CAIXA</button>
+                                </a>
+                            <?php } ?>
+                            
+                        </div>
+                        
+                    </div>
 
                     <div class="row">
                         <div class="col-md-7 col-lg-9 col-sm-12 col-xs-12">
@@ -135,15 +155,6 @@ function get_tipo_movimentacao($cod) {
                                 </div>
                             </div>
 
-                            <?php if ($caixa->codUsuarioFinal == 0) { ?>
-                                <a href="<?= base_url("caixa/fechar"); ?>">
-                                    <button class="btn btn-outline btn-warning" id="btn-fechar-caixa" style="width:100%;">FECHAR CAIXA</button>
-                                </a>
-                            <?php } else { ?>
-                                <a href="#"  data-toggle="modal" data-target="#modalCadastro">
-                                    <button class="btn btn-outline btn-success" id="btn-open-caixa" style="width:100%;">ABRIR CAIXA</button>
-                                </a>
-                            <?php } ?>
                         </div>
                     </div>
                 </div>

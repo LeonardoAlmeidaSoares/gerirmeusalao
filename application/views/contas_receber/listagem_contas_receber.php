@@ -29,7 +29,7 @@ $status = array(
                     <h3 class="box-title m-b-0">Contas a Receber</h3>
                     <p class="text-muted m-b-30">Listagem de Contas a Receber</p>
                     <div class="table-responsive">
-                        <table id="myTable" class="table table-striped">
+                        <table id="tabela" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -45,7 +45,7 @@ $status = array(
                             <tbody>
                                 <?php foreach ($entradas->result() as $item) { ?>
                                     <tr>
-                                        <td><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT); ?></td>
+                                        <td><span class="details-control"><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT); ?></span></td>
                                         <td><?= preg_replace("/\%[^)]+\%/", "", $item->discriminacao); ?></td>
                                         <td><?= $item->descricao; ?></td>
                                         <td><?= $item->nomeCliente; ?></td>

@@ -26,7 +26,7 @@
 				
                     <div class="user-bg text-center" id="div_img_logo"
                          style="width:100%; text-align:center; margin-left:auto; margin-top:10px; margin-right:auto; height:220px;">
-						 <div class="subss" style="z-index:9999;">Clique para substituir imagem</div>
+				<div class="subss" style="z-index:9999;">Clique para substituir imagem</div>
                          <img style="height:85%; position:relative; top:11%;" alt="user" src="<?= base_url($dadosInstituicao->logo); ?>" id="logo_atual" class="align-middle dz-message">
 						 
                     </div>
