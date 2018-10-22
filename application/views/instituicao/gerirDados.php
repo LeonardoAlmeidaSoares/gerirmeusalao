@@ -101,15 +101,15 @@
                     <ul class="nav nav-tabs sttabs tabs-style-iconbox">
                         <li class="active tab">
                             <a href="#tab-funcionarios" data-toggle="tab"> 
-                                <span class="visible-xs">
-                                    <i class="fa fa-home"></i>
+                                <span class="">
+                                    <i class="fa fa-users"></i>
                                 </span> 
                                 <span class="hidden-xs">Funcionários</span> 
                             </a>
                         </li>
                         <li class="tab">
                             <a href="#dados-empresa" data-toggle="tab"> 
-                                <span class="visible-xs">
+                                <span>
                                     <i class="fa fa-home"></i>
                                 </span> 
                                 <span class="hidden-xs">Dados da Empresa</span> 
@@ -117,8 +117,8 @@
                         </li>
                         <li class="tab">
                             <a href="#redes-sociais" data-toggle="tab"> 
-                                <span class="visible-xs">,
-                                    <i class="fa fa-home"></i>
+                                <span class="">
+                                    <i class="fa fa-link"></i>
                                 </span> 
                                 <span class="hidden-xs">Redes Sociais</span> 
                             </a>
