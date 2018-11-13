@@ -31,10 +31,10 @@ $(function () {
             }
         });
     });
-
+    
     // Add event listener for opening and closing details
-    $('#tabela tbody').on('click', '.details-control', function () {
-        
+    $('#tabela tbody').on('click', '.details-control', function (evt) {
+        evt.preventDefault();
         var tr = $(this).closest('tr');
         var row = table.row(tr);
         if (row.child.isShown()) {

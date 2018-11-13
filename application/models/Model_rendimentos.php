@@ -92,11 +92,12 @@ class Model_rendimentos extends CI_Model {
     }
 
     public function getRendimentoPorColaborador($codEmpresa, $codFuncionario, $mes){
-        $this->db->select("notaentrada.valor, cliente.nome, servicoprestado.horario, servico.descricao");
+        $this->db->select("notaentrada.valor, cliente.nome, servicoprestado.horario, servico.descricao, "
+                . "notaentrada.codNotaEntrada, notaentrada.formaPagto");
         $this->db->from("servicoprestado");
         $this->db->join("notaentrada","notaentrada.codNotaEntrada = servicoprestado.codNotaEntrada");
         $this->db->join("cliente","cliente.codCliente = servicoprestado.codCliente");
-        $this->db->join("servico", "servico.codServico = servicoprestado.codServico");
+        $this->db->join("servico", "servico.codServico = servicoprestado.codServico", "left");
         $this->db->where("notaentrada.status", 1);
         $this->db->where("notaentrada.codEmpresa", $codEmpresa);
         $this->db->where("servicoprestado.codFuncionario", $codFuncionario);

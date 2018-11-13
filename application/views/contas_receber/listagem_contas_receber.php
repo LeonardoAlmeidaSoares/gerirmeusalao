@@ -45,7 +45,7 @@ $status = array(
                             <tbody>
                                 <?php foreach ($entradas->result() as $item) { ?>
                                     <tr>
-                                        <td><span class="details-control"><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT); ?></span></td>
+                                        <td><a href="#" class="details-control"><?= str_pad($item->codNotaEntrada, 6, "0", STR_PAD_LEFT); ?></a></td>
                                         <td><?= preg_replace("/\%[^)]+\%/", "", $item->discriminacao); ?></td>
                                         <td><?= $item->descricao; ?></td>
                                         <td><?= $item->nomeCliente; ?></td>

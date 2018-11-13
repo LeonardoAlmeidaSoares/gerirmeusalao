@@ -8,7 +8,7 @@ class Model_compromissos extends CI_Model {
     public function getCompromissos($codEmpresa, $status = 5) {
 
         $parametros = array("codEmpresa" => $codEmpresa);
-        $filtro = ($status == 5) ? "status > 0" : "status = $status";
+        $filtro = ($status == 5) ? "status >= 0" : "status = $status";
 
         return $this->db->query("select * from compromisso where codEmpresa = $codEmpresa and $filtro");
     }

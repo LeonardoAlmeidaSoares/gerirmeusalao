@@ -13,13 +13,13 @@ class Model_funcionarios extends CI_Model {
                         ->where("f.status", 1)
                         ->get();
     }
-
+    
     public function inserir($parametros) {
         return $this->db->insert("funcionario", $parametros);
     }
 
     public function getFuncionario($codFuncionario) {
-        return $this->db->get_where("funcionario", array("codFuncionario" => $codFuncionario));
+        return $this->db->get_where("funcionario", ["codFuncionario" => $codFuncionario]);
     }
 
     public function Alterar($cod, $parametros) {

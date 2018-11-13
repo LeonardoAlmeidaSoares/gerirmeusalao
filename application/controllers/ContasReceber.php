@@ -76,6 +76,22 @@ class ContasReceber extends CI_Controller {
         $this->entradas->inserir($parametros);
         $codNota = $this->db->insert_id();
 
+        if ($_SESSION["caixa"]->codUsuarioFinal == 0) {
+
+            $parametros = [
+                "codEmpresa" => intval($_SESSION["empresa"]->codEmpresa),
+                "data" => date("Y-m-d"),
+                "valorInicio" => 0,
+                "codUsuarioInicio" => intval(trim($_SESSION["usuario"]->codUsuario)),
+                "HorarioInicio" => date("Y-m-d H:i"),
+                "obs" => "<h1>Primeiro Caixa</h1><p>Aberto Automaticamente</p>"
+            ];
+
+            $this->db->insert("caixa", $parametros);
+
+            $_SESSION["caixa"] = $this->db->get_where("caixa", ["codCaixa" => $this->db->insert_id()])->row(0);
+        }
+
         if ($parametros["formaPagto"] == "DINHEIRO") {
             if ($parametros["status"] == 1) {
                 $parametrosMovimentacao = array(
@@ -199,9 +215,14 @@ class ContasReceber extends CI_Controller {
             exit();
         }
 
-        $this->db->where("codNotaEntrada", $codNota)->update("notaentrada", array("status" => $status, "dataPagto" => date("Y-m-d H:i"), "formaPagto" => $formaPagto));
+        $this->db->where("codNotaEntrada", $codNota)->update("notaentrada", [
+            "status" => $status, 
+            "dataPagto" => date("Y-m-d H:i"),
+            "formaPagto" => $formaPagto
+        ]);
 
         if ($formaPagto == "DINHEIRO") {
+            
             if ($status == 1) {
 
                 $parametrosMovimentacao = array(
@@ -218,14 +239,18 @@ class ContasReceber extends CI_Controller {
             }
         }
 
-        echo json_encode(array("msg" => "Pagamento Realizado com Sucesso", "type" => "success", "title" => "Finalizado"));
+        echo json_encode([
+            "msg" => "Pagamento Realizado com Sucesso",
+            "type" => "success",
+            "title" => "Finalizado"
+        ]);
     }
 
     public function vencendoHoje() {
 
-        $parametros = array(
+        $parametros = [
             "entradas" => $this->entradas->getEntradasVencendoHoje($_SESSION["empresa"]->codEmpresa)
-        );
+        ];
 
         $this->load->view('inc/header');
         $this->load->view('inc/barraSuperior');
@@ -238,7 +263,9 @@ class ContasReceber extends CI_Controller {
 
         $id_nota = intval(strip_tags($_POST["id"]));
 
-        $dadosNota = $this->db->get_where("notaentrada", ["codNotaEntrada" => $id_nota])->row(0);
+        $dadosNota = $this->db->get_where("notaentrada", [
+                    "codNotaEntrada" => $id_nota
+                ])->row(0);
 
         if ($dadosNota->codVenda == 0) {
 
@@ -247,33 +274,25 @@ class ContasReceber extends CI_Controller {
             if ($itens->num_rows() > 0) {
 
                 $retorno = "<table style='background-color: aliceblue;width=100%;'>";
-                $retorno .= "<thead><tr>Serviços Prestados</tr></thead><tbody>";
+                $retorno .= "<b>Serviços Prestados</b>";
                 foreach ($itens->result() as $item) {
-                    $retorno .= "<tr>";
-                    $retorno .= "<th>" . $item->descricao . "</th>";
-                    $retorno .= "<tr>";
+                    $retorno .= "<br />" . $item->descricao;
                 }
-
-                $retorno .= "</tbody></table>";
             } else {
                 $retorno = '';
             }
-            
+
             echo $retorno . "<br/><br/>";
-            
         } else {
-            
+
             $itens = $this->db->get_where("venda", ["codNotaEntrada" => $id_nota]);
 
-            //var_dump($itens->result()); exit;
-            
             if ($itens->num_rows() > 0) {
                 $retorno = $itens->row(0)->resumoVenda;
             } else {
                 $retorno = '';
             }
             echo $retorno . "<br/><br/>";
-            
         }
     }
 
